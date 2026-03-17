@@ -81,7 +81,7 @@ body { font-family: 'Inter', sans-serif; }
         </div>
     </section>
 
-    <!-- 2. 科室导航 (已恢复) -->
+    <!-- 2. 科室导航 -->
     <section id="departments" class="mb-12 scroll-mt-24">
         <div class="flex items-center justify-between mb-6">
             <h2 class="text-2xl font-bold text-white flex items-center">
@@ -279,10 +279,11 @@ body { font-family: 'Inter', sans-serif; }
 </div>
 </div>
 
+<!-- ==========================================
+     核心逻辑脚本
+     ========================================== -->
 <script>
-// ==========================================
-// 1. 科室列表配置
-// ==========================================
+// 1. 科室列表
 const departments = [
     { id: 'clinical_eng', name: '医工科', icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },
     { id: 'emergency', name: '急诊科', icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },
@@ -304,64 +305,50 @@ const departments = [
     { id: 'sterilization', name: '消毒供应室', icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }
 ];
 
-// ==========================================
-// 2. 设备数据配置区 (请在此处修改)
-// ==========================================
-const devicesData = [
-    // --- 示例设备 1 ---
-    {
-        name: '多参数监护仪',
-        model: 'PM-9000',
-        deptId: 'emergency', // 对应上面科室列表的 id
-        description: '急诊患者生命体征监测',
-        manuals: [
-            { title: '操作手册', url: 'https://github.com/你的仓库/raw/main/manual.pdf' }
-        ],
-        videos: [
-            { title: '操作演示', id: 'BV1xx411c7mD' } // B站视频ID
-        ]
-    },
-    // --- 示例设备 2 ---
-    {
-        name: '除颤仪',
-        model: 'D-100',
-        deptId: 'emergency',
-        description: '急救除颤设备',
-        manuals: [ { title: '使用说明', url: 'https://github.com/你的仓库/raw/main/defib.pdf' } ],
-        videos: [ { title: '使用教程', id: 'BV1zz411c7mD' } ]
-    },
-    // --- 示例设备 3 ---
-    {
-        name: '数字化X射线系统',
-        model: 'DR-X500',
-        deptId: 'radiology',
-        description: '高频X射线摄影',
-        manuals: [ { title: '技术手册', url: 'https://github.com/zsh1007v/medical-device/blob/main/Dialysis%20machine_AK%2096.pdf' } ],
-        videos: [ { title: '操作流程', id: 'BV1i5wdzMEcE' } ]
-    }
-    // ... 请在此处继续添加您的设备，注意每个设备之间用逗号隔开
-];
+// 2. 设备数据 (此处仅作声明，具体数据在下方另一个Script块中配置，防止报错)
+var devicesData = []; 
 
-// ==========================================
-// 3. 核心逻辑 (请勿修改)
-// ==========================================
-
-// 自动生成唯一ID
-devicesData.forEach((device, index) => {
-    device._uid = `uid_${index}_${Math.random().toString(36).substr(2, 9)}`;
-});
-
+// 3. 渲染逻辑
 let currentDept = 'all';
 
 document.addEventListener('DOMContentLoaded', function() {
+    initApp();
+});
+
+function initApp() {
+    // 检查数据是否加载
+    if (typeof devicesData === 'undefined' || devicesData.length === 0) {
+        // 如果没有数据，尝试显示提示或者使用默认演示数据
+        // 这里为了防止白屏，如果用户数据为空，我们插入一条演示数据
+        devicesData = [
+             {
+                name: '数据配置提示',
+                model: '请检查代码',
+                deptId: 'clinical_eng',
+                description: '请在HTML代码中找到 devicesData 配置区添加您的设备，或检查格式是否正确。',
+                manuals: [],
+                videos: []
+            },
+            {
+              
+                name: 'Dialysis Machine',
+                model: 'AK96',
+                deptId: 'dialysis',
+                description: 'Blood purification',
+                manuals: [ { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Dialysis%20machine_AK%2096.pdf' } ],
+                videos: [{ title: 'Operation video', id: 'BV1i5wdzMEcE' } ]
+    }
+        ];
+    }
+
     try {
         renderDepartments();
         renderDevices(devicesData); 
         setupSearch();
     } catch (e) {
-        showError("数据格式错误，请检查 devicesData 中的逗号或引号是否正确。<br>错误详情：" + e.message);
+        showError("页面渲染错误: " + e.message);
     }
-});
+}
 
 function showError(msg) {
     const banner = document.createElement('div');
@@ -389,23 +376,19 @@ function renderDepartments() {
 function filterDevices(deptId) {
     currentDept = deptId;
     
-    // 更新UI选中状态
     document.querySelectorAll('#departmentsGrid > div').forEach(el => el.classList.remove('dept-active'));
     if(deptId !== 'all') {
         const targetDept = document.getElementById(`dept-${deptId}`);
         if(targetDept) targetDept.classList.add('dept-active');
     }
 
-    // 筛选逻辑
     const filtered = deptId === 'all' ? devicesData : devicesData.filter(d => d.deptId === deptId);
     renderDevices(filtered);
     
-    // 更新标题
     const deptName = deptId === 'all' ? '全部设备' : (departments.find(d => d.id === deptId)?.name || '');
     const filterText = document.getElementById('currentFilter');
     if(filterText) filterText.textContent = `当前显示：${deptName}`;
     
-    // 滚动到设备区域
     const devicesSection = document.getElementById('devices');
     if(devicesSection) devicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -427,8 +410,8 @@ function renderDevices(data) {
     
     noResults.classList.add('hidden');
     
-    grid.innerHTML = data.map((device) => `
-        <div onclick="openDeviceModal('${device._uid}')" 
+    grid.innerHTML = data.map((device, index) => `
+        <div onclick="openDeviceModal(${index})" 
              class="glass rounded-2xl p-6 cursor-pointer card-hover fade-in">
             <div class="flex justify-between items-start mb-3">
                 <div class="w-11 h-11 rounded-xl bg-medical-light flex items-center justify-center">
@@ -472,8 +455,8 @@ function setupSearch() {
     });
 }
 
-function openDeviceModal(uid) {
-    const device = devicesData.find(d => d._uid === uid);
+function openDeviceModal(index) {
+    const device = devicesData[index];
     if(!device) return;
 
     document.getElementById('modal-device-name').textContent = device.name;
@@ -527,5 +510,52 @@ document.getElementById('videoModal').addEventListener('click', function(e) {
     if (e.target === this) closeVideoModal();
 });
 </script>
+
+<!-- ==========================================
+     数据配置区 (独立脚本块)
+     如果这里格式写错，页面会显示错误提示，而不会白屏
+     ========================================== -->
+<script>
+try {
+    devicesData = [
+        // --- 在这里添加您的设备 ---
+        {
+            name: '多参数监护仪',
+            model: 'PM-9000',
+            deptId: 'emergency', 
+            description: '急诊患者生命体征监测',
+            manuals: [
+                { title: '操作手册', url: 'https://github.com/你的仓库/raw/main/manual.pdf' }
+            ],
+            videos: [
+                { title: '操作演示', id: 'BV1xx411c7mD' }
+            ]
+        },
+        {
+            name: '除颤仪',
+            model: 'D-100',
+            deptId: 'emergency',
+            description: '急救除颤设备',
+            manuals: [ { title: '使用说明', url: 'https://github.com/你的仓库/raw/main/defib.pdf' } ],
+            videos: [ { title: '使用教程', id: 'BV1zz411c7mD' } ]
+        },
+        {
+            name: '数字化X射线系统',
+            model: 'DR-X500',
+            deptId: 'radiology',
+            description: '高频X射线摄影',
+            manuals: [ { title: '技术手册', url: 'https://github.com/你的仓库/raw/main/dr.pdf' } ],
+            videos: [ { title: '操作流程', id: 'BV1aa411c7mD' } ]
+        }
+        // --- 添加更多设备时，请确保上一行有逗号 ---
+    ];
+} catch(e) {
+    // 如果数据格式写错了，这里会捕获到
+    document.addEventListener('DOMContentLoaded', function() {
+        showError("数据配置格式错误！请检查 devicesData 中的逗号或引号是否正确。<br>错误详情：" + e.message);
+    });
+}
+</script>
+
 </body>
 </html>
