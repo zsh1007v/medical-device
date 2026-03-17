@@ -305,7 +305,7 @@ const departments = [
     { id: 'sterilization', name: '消毒供应室', icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }
 ];
 
-// 2. 设备数据声明
+// 2. 设备数据
 var devicesData = []; 
 
 // 3. 渲染逻辑
@@ -322,7 +322,7 @@ function initApp() {
                 name: '数据配置提示',
                 model: '请检查代码',
                 deptId: 'clinical_eng',
-                description: '请在HTML代码中找到 devicesData 配置区添加您的设备。',
+                description: '请在HTML代码中找到 devicesData 配置区添加您的设备，或检查格式是否正确。',
                 manuals: [],
                 videos: []
             }
@@ -443,6 +443,27 @@ function setupSearch() {
     });
 }
 
+// --- 链接处理逻辑 (新增：自动生成预览和下载链接) ---
+function getPreviewUrl(url) {
+    // 如果是 GitHub Raw 链接，转换为 Blob 链接以便在线预览
+    if (url.includes('//raw.githubusercontent.com/') || url.includes('//github.com/') && url.includes('/raw/')) {
+        return url
+            .replace('//raw.githubusercontent.com/', '//github.com/')
+            .replace('/raw/', '/blob/');
+    }
+    return url;
+}
+
+function getDownloadUrl(url) {
+    // 确保是 Raw 链接以便下载
+    if (url.includes('//github.com/') && url.includes('/blob/')) {
+        return url
+            .replace('//github.com/', '//raw.githubusercontent.com/')
+            .replace('/blob/', '/raw/');
+    }
+    return url;
+}
+
 function openDeviceModal(index) {
     const device = devicesData[index];
     if(!device) return;
@@ -452,14 +473,24 @@ function openDeviceModal(index) {
     
     const manualsContainer = document.getElementById('modal-manuals');
     document.getElementById('modal-manual-count').textContent = device.manuals.length;
+    
     manualsContainer.innerHTML = device.manuals.length > 0 ? device.manuals.map(m => `
-        <a href="${m.url}" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-medical-dark/50 hover:bg-medical-light/20 transition-colors">
-            <div class="flex items-center space-x-3">
-                <i class="fas fa-file-pdf text-red-400"></i>
-                <span class="text-sm text-gray-300">${m.title}</span>
+        <div class="bg-medical-dark/50 rounded-lg p-3">
+            <div class="flex items-center justify-between mb-2">
+                <div class="flex items-center space-x-2">
+                    <i class="fas fa-file-pdf text-red-400"></i>
+                    <span class="text-sm text-gray-300">${m.title}</span>
+                </div>
             </div>
-            <i class="fas fa-download text-gray-500 text-xs"></i>
-        </a>
+            <div class="flex space-x-2">
+                <a href="${getPreviewUrl(m.url)}" target="_blank" class="flex-1 text-center px-3 py-1.5 bg-primary-500/20 rounded text-primary-300 text-xs hover:bg-primary-500/30 transition-colors">
+                    <i class="fas fa-eye mr-1"></i>在线预览
+                </a>
+                <a href="${getDownloadUrl(m.url)}" download class="flex-1 text-center px-3 py-1.5 bg-gray-600/30 rounded text-gray-300 text-xs hover:bg-gray-600/50 transition-colors">
+                    <i class="fas fa-download mr-1"></i>下载
+                </a>
+            </div>
+        </div>
     `).join('') : '<p class="text-gray-500 text-sm">暂无说明书</p>';
 
     const videosContainer = document.getElementById('modal-videos');
@@ -511,12 +542,11 @@ try {
         {
             name: 'Dialysis Machine',
             model: 'AK96',
-            deptId: 'dialysis', // 对应血透室
+            deptId: 'dialysis', 
             description: 'Blood purification',
             manuals: [ 
                 { 
                     title: 'Technical Manual', 
-                    // 注意：将 github.com 的 blob 链接改为 raw 链接，以便直接下载
                     url: 'https://github.com/zsh1007v/medical-device/raw/main/Dialysis%20machine_AK%2096.pdf' 
                 } 
             ],
@@ -527,12 +557,10 @@ try {
                 } 
             ]
         },
-
+        
         // ---------------------------------------------------------
         // 请参照上面的格式，在下方继续添加其他设备
         // ---------------------------------------------------------
-        
-        // 示例：急诊科设备
         {
             name: '多参数监护仪',
             model: 'PM-9000',
