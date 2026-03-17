@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>医疗设备信息中心</title>
+<title>医疗设备信息管理平台</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -23,23 +23,24 @@ fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], display: ['Poppins', '
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
 body { font-family: 'Inter', sans-serif; }
-.glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); }
-.glass-dark { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+.glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.1); }
+.glass-dark { background: rgba(15, 23, 42, 0.8); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
 .gradient-mesh { background: radial-gradient(at 20% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 50%), radial-gradient(at 80% 70%, rgba(20, 184, 166, 0.12) 0%, transparent 50%); }
-.card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
-.card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.25); }
-.fade-in { animation: fadeIn 0.6s ease-out forwards; }
-@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
-.video-thumbnail { position: relative; overflow: hidden; }
-.play-btn { transition: all 0.3s ease; }
-.play-btn:hover { transform: scale(1.15); }
+.card-hover { transition: all 0.3s ease; }
+.card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px -15px rgba(6, 182, 212, 0.3); border-color: rgba(6, 182, 212, 0.5); }
+.fade-in { animation: fadeIn 0.5s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 .modal-overlay { opacity: 0; visibility: hidden; transition: all 0.3s ease; }
 .modal-overlay.active { opacity: 1; visibility: visible; }
-.modal-content { transform: scale(0.9) translateY(20px); transition: all 0.3s ease; }
-.modal-overlay.active .modal-content { transform: scale(1) translateY(0); }
+.modal-content { transform: scale(0.95); transition: all 0.3s ease; }
+.modal-overlay.active .modal-content { transform: scale(1); }
+.search-input:focus { box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.5); }
+.dept-active { border-color: rgba(6, 182, 212, 1) !important; background: rgba(6, 182, 212, 0.15) !important; }
 </style>
 </head>
 <body class="bg-medical-dark min-h-screen text-white">
+
+<!-- 背景装饰 -->
 <div class="fixed inset-0 gradient-mesh pointer-events-none"></div>
 
 <!-- 导航栏 -->
@@ -48,194 +49,515 @@ body { font-family: 'Inter', sans-serif; }
 <div class="flex items-center justify-between">
 <div class="flex items-center space-x-3">
 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-400 to-accent-teal flex items-center justify-center">
-<i class="fas fa-heartbeat text-white text-lg"></i>
+<i class="fas fa-hospital text-white text-lg"></i>
 </div>
-<span class="font-bold text-xl text-white">MedDevice Pro</span>
+<span class="font-bold text-xl text-white">医疗设备信息平台</span>
 </div>
-<div class="hidden md:flex items-center space-x-8">
+<div class="hidden md:flex items-center space-x-6 text-sm">
+<a href="#search-section" class="text-gray-300 hover:text-white transition-colors">搜索</a>
+<a href="#departments" class="text-gray-300 hover:text-white transition-colors">科室导航</a>
 <a href="#devices" class="text-gray-300 hover:text-white transition-colors">设备目录</a>
-<a href="#manuals" class="text-gray-300 hover:text-white transition-colors">说明书</a>
-<a href="#videos" class="text-gray-300 hover:text-white transition-colors">视频教程</a>
+<a href="#clinical-engineering" class="text-gray-300 hover:text-white transition-colors">医工科</a>
+<a href="#resources" class="text-gray-300 hover:text-white transition-colors">资源中心</a>
 </div>
 </div>
 </div>
 </nav>
 
-<!-- 首页 -->
-<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-<div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
-<div class="fade-in">
-<h1 class="font-bold text-5xl md:text-7xl mb-6 leading-tight text-white">医疗设备信息中心</h1>
-<p class="text-xl text-gray-400 max-w-2xl mx-auto mb-12">一站式医疗设备管理平台</p>
-<a href="#devices" class="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-teal rounded-2xl font-semibold text-white shadow-lg hover:shadow-primary-500/50 transition-all inline-block">
-浏览设备
-</a>
-</div>
-</div>
-</section>
+<!-- 主内容区 -->
+<main class="relative pt-24 pb-12 px-4 md:px-6 max-w-7xl mx-auto">
 
-<!-- 设备目录 -->
-<section id="devices" class="relative py-24">
-<div class="max-w-7xl mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="font-bold text-4xl mb-4 text-white">设备目录</h2>
-</div>
-<div id="devicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
-</div>
-</section>
+    <!-- 1. 搜索栏 -->
+    <section id="search-section" class="mb-12 scroll-mt-24">
+        <div class="max-w-3xl mx-auto text-center fade-in">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">设备资料快速检索</h1>
+            <p class="text-gray-400 mb-6">输入设备名称或型号，支持模糊搜索</p>
+            <div class="relative">
+                <input type="text" id="mainSearch" placeholder="例如：监护仪、X500、呼吸机..." 
+                       class="search-input w-full px-6 py-4 pl-14 bg-medical-mid/70 border border-gray-700 rounded-2xl text-white text-lg focus:outline-none focus:border-primary-500 transition-all">
+                <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 text-xl"></i>
+            </div>
+        </div>
+    </section>
 
-<!-- 说明书 -->
-<section id="manuals" class="relative py-24 bg-medical-mid/30">
-<div class="max-w-7xl mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="font-bold text-4xl mb-4 text-white">设备说明书</h2>
-<p class="text-gray-400">点击下载 PDF 文档</p>
-</div>
-<div id="manualsList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
-</div>
-</section>
+    <!-- 2. 科室导航 -->
+    <section id="departments" class="mb-12 scroll-mt-24">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-white flex items-center">
+                <i class="fas fa-th-large text-primary-400 mr-3"></i>科室分类导航
+            </h2>
+            <button onclick="filterDevices('all')" class="text-sm text-primary-400 hover:underline">查看全部</button>
+        </div>
+        <div id="departmentsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
+            <!-- 动态生成 -->
+        </div>
+    </section>
 
-<!-- 视频 -->
-<section id="videos" class="relative py-24">
-<div class="max-w-7xl mx-auto px-6">
-<div class="text-center mb-16">
-<h2 class="font-bold text-4xl mb-4 text-white">视频教程</h2>
-</div>
-<div id="videosGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
-</div>
-</section>
+    <!-- 3. 设备目录 -->
+    <section id="devices" class="mb-20 scroll-mt-24">
+        <div class="flex items-center justify-between mb-6">
+            <div>
+                <h2 class="text-2xl font-bold text-white flex items-center">
+                    <i class="fas fa-server text-accent-teal mr-3"></i>设备目录
+                </h2>
+                <p id="currentFilter" class="text-sm text-gray-500 mt-1">当前显示：全部设备</p>
+            </div>
+            <span id="deviceCount" class="text-sm bg-medical-light px-3 py-1 rounded-full text-gray-400">共 0 台</span>
+        </div>
+        <div id="devicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- 动态生成 -->
+        </div>
+        <div id="noResults" class="hidden text-center py-16 text-gray-500">
+            <i class="fas fa-box-open text-4xl mb-4 opacity-20"></i>
+            <p>该科室暂无设备或未找到匹配项</p>
+        </div>
+    </section>
 
-<!-- 视频弹窗 (适配B站) -->
-<div id="videoModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90">
-<div class="modal-content w-full max-w-5xl">
-<div class="glass rounded-3xl overflow-hidden">
-<div class="relative aspect-video bg-medical-dark">
-<!-- B站播放器 -->
-<iframe id="bilibiliPlayer" src="" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" class="w-full h-full"> </iframe>
+    <!-- 4. 医工科组织架构 -->
+    <section id="clinical-engineering" class="mb-20 scroll-mt-24">
+        <div class="glass rounded-3xl p-8 relative overflow-hidden">
+            <!-- 装饰背景 -->
+            <div class="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
+            
+            <div class="relative z-10">
+                <div class="flex items-center mb-8">
+                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-teal flex items-center justify-center mr-4">
+                        <i class="fas fa-user-cog text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-white">医工科组织架构</h2>
+                        <p class="text-gray-400 text-sm">设备管理与技术支持团队</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 人员卡片 -->
+                    <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fas fa-user-tie text-white text-3xl"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-lg">张工</h4>
+                        <p class="text-primary-400 text-sm mb-2">科长 / 高级工程师</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p><i class="fas fa-phone mr-1"></i> 138-0000-0001</p>
+                            <p><i class="fas fa-envelope mr-1"></i> zhang@hospital.com</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fas fa-user-cog text-white text-3xl"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-lg">李工</h4>
+                        <p class="text-primary-400 text-sm mb-2">影像组 / 工程师</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p><i class="fas fa-phone mr-1"></i> 138-0000-0002</p>
+                            <p><i class="fas fa-envelope mr-1"></i> li@hospital.com</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fas fa-tools text-white text-3xl"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-lg">王工</h4>
+                        <p class="text-primary-400 text-sm mb-2">生命支持组 / 工程师</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p><i class="fas fa-phone mr-1"></i> 138-0000-0003</p>
+                            <p><i class="fas fa-envelope mr-1"></i> wang@hospital.com</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
+                        <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-4 shadow-lg">
+                            <i class="fas fa-laptop-medical text-white text-3xl"></i>
+                        </div>
+                        <h4 class="font-bold text-white text-lg">赵工</h4>
+                        <p class="text-primary-400 text-sm mb-2">检验组 / 工程师</p>
+                        <div class="text-xs text-gray-500 space-y-1">
+                            <p><i class="fas fa-phone mr-1"></i> 138-0000-0004</p>
+                            <p><i class="fas fa-envelope mr-1"></i> zhao@hospital.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. 资源中心 (表单 + 学习天地) -->
+    <section id="resources" class="grid grid-cols-1 lg:grid-cols-2 gap-8 scroll-mt-24">
+        <!-- 表单下载 -->
+        <div class="glass rounded-2xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                <i class="fas fa-file-download text-amber-400 mr-3"></i>表单模板下载
+            </h3>
+            <div class="space-y-2">
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-file-word text-blue-400"></i>
+                        <span class="text-sm text-gray-300">设备维修申请单</span>
+                    </div>
+                    <i class="fas fa-download text-gray-500 group-hover:text-primary-400 text-xs"></i>
+                </a>
+                <div class="border-t border-gray-700/30"></div>
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-file-excel text-green-400"></i>
+                        <span class="text-sm text-gray-300">设备巡检记录表</span>
+                    </div>
+                    <i class="fas fa-download text-gray-500 group-hover:text-primary-400 text-xs"></i>
+                </a>
+                <div class="border-t border-gray-700/30"></div>
+                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group">
+                    <div class="flex items-center space-x-3">
+                        <i class="fas fa-file-pdf text-red-400"></i>
+                        <span class="text-sm text-gray-300">设备报废申请流程</span>
+                    </div>
+                    <i class="fas fa-download text-gray-500 group-hover:text-primary-400 text-xs"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- 知识学习天地 -->
+        <div class="glass rounded-2xl p-6">
+            <h3 class="text-xl font-bold text-white mb-4 flex items-center">
+                <i class="fas fa-graduation-cap text-purple-400 mr-3"></i>知识学习天地
+            </h3>
+            <div class="space-y-4">
+                <div class="flex items-start space-x-3 cursor-pointer group">
+                    <div class="w-8 h-8 rounded bg-blue-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fas fa-book text-blue-400 text-xs"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-sm font-medium group-hover:text-primary-400 transition-colors">医疗设备电气安全检测规范</h4>
+                        <p class="text-xs text-gray-500 mt-1">2024-01-20 发布</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3 cursor-pointer group">
+                    <div class="w-8 h-8 rounded bg-green-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fas fa-lightbulb text-green-400 text-xs"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-sm font-medium group-hover:text-primary-400 transition-colors">监护仪常见故障排查指南</h4>
+                        <p class="text-xs text-gray-500 mt-1">2024-01-15 发布</p>
+                    </div>
+                </div>
+                <div class="flex items-start space-x-3 cursor-pointer group">
+                    <div class="w-8 h-8 rounded bg-rose-500/20 flex items-center justify-center flex-shrink-0 mt-1">
+                        <i class="fas fa-shield-alt text-rose-400 text-xs"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-white text-sm font-medium group-hover:text-primary-400 transition-colors">放射防护安全知识培训</h4>
+                        <p class="text-xs text-gray-500 mt-1">2024-01-10 发布</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- 设备详情模态框 -->
+<div id="deviceModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+<div class="modal-content w-full max-w-4xl max-h-[90vh] overflow-y-auto glass rounded-3xl">
+    <div class="p-6 md:p-8">
+        <div class="flex justify-between items-start mb-6">
+            <div>
+                <h3 id="modal-device-name" class="text-2xl font-bold text-white">设备名称</h3>
+                <p id="modal-device-model" class="text-primary-400 text-sm mt-1">型号：XXX</p>
+            </div>
+            <button onclick="closeDeviceModal()" class="text-gray-500 hover:text-white text-2xl">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- 说明书列表 -->
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
+                    <i class="fas fa-file-pdf text-red-400 mr-2"></i>设备说明书 (<span id="modal-manual-count">0</span>)
+                </h4>
+                <div id="modal-manuals" class="space-y-2"></div>
+            </div>
+
+            <!-- 视频列表 -->
+            <div>
+                <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
+                    <i class="fas fa-play-circle text-accent-teal mr-2"></i>操作视频 (<span id="modal-video-count">0</span>)
+                </h4>
+                <div id="modal-videos" class="space-y-2"></div>
+            </div>
+        </div>
+    </div>
 </div>
-<div class="p-4 flex justify-end bg-medical-mid">
-<button onclick="closeVideoModal()" class="px-6 py-2 bg-gray-700 rounded-xl text-gray-300 hover:bg-gray-600 transition-colors">关闭</button>
 </div>
-</div>
+
+<!-- 视频播放模态框 -->
+<div id="videoModal" class="modal-overlay fixed inset-0 z-[60] flex items-center justify-center p-4 bg-black/90">
+<div class="modal-content w-full max-w-4xl">
+    <div class="glass rounded-2xl overflow-hidden">
+        <div class="aspect-video bg-black">
+            <iframe id="bilibiliPlayer" src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="p-4 flex justify-end bg-medical-mid">
+            <button onclick="closeVideoModal()" class="px-6 py-2 bg-gray-700 rounded-lg text-sm hover:bg-gray-600">关闭</button>
+        </div>
+    </div>
 </div>
 </div>
 
 <script>
 // ==========================================
-// 数据配置区域 - 请在这里修改您的真实数据
+// 数据配置区域
 // ==========================================
 
+// 1. 科室列表 (新增医工科)
+const departments = [
+    { id: 'clinical_eng', name: '医工科', icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },
+    { id: 'emergency', name: '急诊科', icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },
+    { id: 'icu', name: 'ICU', icon: 'fa-procedures', color: 'from-red-600 to-rose-600' },
+    { id: 'surgery', name: '手术室', icon: 'fa-user-md', color: 'from-green-600 to-teal-600' },
+    { id: 'radiology', name: '放射科', icon: 'fa-x-ray', color: 'from-gray-500 to-blue-500' },
+    { id: 'respiratory', name: '呼吸科', icon: 'fa-lungs', color: 'from-cyan-500 to-blue-500' },
+    { id: 'cardiology', name: '心内科', icon: 'fa-heartbeat', color: 'from-rose-500 to-red-500' },
+    { id: 'lab', name: '检验科', icon: 'fa-microscope', color: 'from-blue-500 to-indigo-500' },
+    { id: 'dialysis', name: '血透室', icon: 'fa-tint', color: 'from-red-400 to-rose-400' },
+    { id: 'rehab', name: '康复科', icon: 'fa-walking', color: 'from-green-500 to-teal-500' },
+    { id: 'obstetrics', name: '妇产科', icon: 'fa-baby', color: 'from-pink-500 to-rose-500' },
+    { id: 'dental', name: '牙科', icon: 'fa-tooth', color: 'from-blue-400 to-cyan-400' },
+    { id: 'ophthalmology', name: '眼科', icon: 'fa-eye', color: 'from-indigo-500 to-purple-500' },
+    { id: 'ent', name: '耳鼻喉科', icon: 'fa-head-side-virus', color: 'from-yellow-500 to-amber-500' },
+    { id: 'endoscopy', name: '内镜室', icon: 'fa-search', color: 'from-emerald-500 to-green-500' },
+    { id: 'neurology', name: '神经内科', icon: 'fa-brain', color: 'from-violet-500 to-purple-500' },
+    { id: 'pathology', name: '病理实验室', icon: 'fa-vials', color: 'from-slate-500 to-gray-600' },
+    { id: 'sterilization', name: '消毒供应室', icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }
+];
+
+// 2. 设备列表
 const devicesData = [
-    // --- 设备 1 ---
+    // --- 急诊科 ---
     {
-        id: 1,
-        name: '数字化X射线摄影系统', // 设备名称
-        model: 'PH_300',            // 型号
-        icon: 'fa-x-ray',            // 图标 (不用改)
-        color: 'from-blue-500 to-blue-600',
-        description: '高性能数字化X射线成像设备',
-        
-        // 【重要】请替换为您 GitHub 里的 PDF 链接
-        manualUrl: 'https://github.com/zsh1007v/medical-device/blob/52e2cecef71a090d87c5ef8af7eb25551ff169bb/Insulin%20Pump_PH300.pdf', 
-        
-        // 【重要】请替换为您 B站视频的 BV 号 (例如 BV1xx411c7mD)
-        bilibiliId: 'BV1RhwXzfEhz' 
-    },
-    // --- 设备 2 ---
-    {
-        id: 2,
+        id: 101,
         name: '多参数监护仪',
-        model: 'MP-800',
-        icon: 'fa-heartbeat',
-        color: 'from-rose-500 to-rose-600',
-        description: '实时监测患者生命体征',
-        manualUrl: 'https://github.com/您的用户名/medical-device/raw/main/MP-800.pdf',
-        bilibiliId: 'BV1xx411c7mD' // 替换这里
+        model: 'PM-9000',
+        deptId: 'emergency',
+        description: '急诊患者生命体征监测',
+        manuals: [
+            { title: '操作手册', url: 'https://github.com/你的仓库/raw/main/emergency/manual.pdf' },
+            { title: '快速指南', url: 'https://github.com/你的仓库/raw/main/emergency/quick.pdf' }
+        ],
+        videos: [
+            { title: '操作演示', id: 'BV1xx411c7mD' }
+        ]
+    },
+    {
+        id: 102,
+        name: '除颤仪',
+        model: 'D-100',
+        deptId: 'emergency',
+        description: '急救除颤设备',
+        manuals: [ { title: '使用说明', url: 'https://github.com/你的仓库/raw/main/emergency/defib.pdf' } ],
+        videos: [ { title: '使用教程', id: 'BV1zz411c7mD' } ]
+    },
+    // --- 放射科 ---
+    {
+        id: 201,
+        name: '数字化X射线系统',
+        model: 'DR-X500',
+        deptId: 'radiology',
+        description: '高频X射线摄影',
+        manuals: [ { title: '技术手册', url: 'https://github.com/你的仓库/raw/main/radiology/dr.pdf' } ],
+        videos: [ { title: '操作流程', id: 'BV1aa411c7mD' } ]
+    },
+    // --- 医工科 (演示) ---
+    {
+        id: 001,
+        name: '电烙铁工作站',
+        model: 'TI-100',
+        deptId: 'clinical_eng',
+        description: '维修焊接工具',
+        manuals: [ { title: '安全规范', url: '#' } ],
+        videos: []
+    }，
+     // --- 血透室 (演示) ---
+    {
+        id: 001,
+        name: 'Dialysis Machine',
+        model: 'AK96',
+        deptId: 'dialysis',
+        description: 'Blood purification',
+        manuals: [ { title: 'Technical Manual', url: '#' } ],
+        videos: []
     }
-    // 如果有更多设备，照着上面的格式复制 {...}, 然后修改内容即可
+    // ... 请继续添加更多数据
 ];
 
 // ==========================================
-// 以下逻辑无需修改
+// 页面逻辑
 // ==========================================
 
+let currentDept = 'all';
+
 document.addEventListener('DOMContentLoaded', function() {
-    renderDevices(devicesData);
-    renderManuals(devicesData);
-    renderVideos(devicesData);
+    renderDepartments();
+    renderDevices(devicesData); // 默认显示全部
+    setupSearch();
 });
 
-function renderDevices(deviceList) {
+// --- 渲染科室卡片 ---
+function renderDepartments() {
+    const grid = document.getElementById('departmentsGrid');
+    grid.innerHTML = departments.map(dept => `
+        <div onclick="filterDevices('${dept.id}')" 
+             id="dept-${dept.id}"
+             class="glass rounded-xl p-4 cursor-pointer card-hover group flex flex-col items-center justify-center text-center">
+            <div class="w-10 h-10 rounded-lg bg-gradient-to-br ${dept.color} flex items-center justify-center mb-2 shadow-lg group-hover:scale-110 transition-transform">
+                <i class="fas ${dept.icon} text-white"></i>
+            </div>
+            <h3 class="font-medium text-white text-sm">${dept.name}</h3>
+        </div>
+    `).join('');
+}
+
+// --- 筛选设备 ---
+function filterDevices(deptId) {
+    currentDept = deptId;
+    
+    // 更新UI选中状态
+    document.querySelectorAll('#departmentsGrid > div').forEach(el => el.classList.remove('dept-active'));
+    if(deptId !== 'all') {
+        document.getElementById(`dept-${deptId}`).classList.add('dept-active');
+    }
+
+    // 筛选逻辑
+    const filtered = deptId === 'all' ? devicesData : devicesData.filter(d => d.deptId === deptId);
+    renderDevices(filtered);
+    
+    // 更新标题
+    const deptName = deptId === 'all' ? '全部设备' : (departments.find(d => d.id === deptId)?.name || '');
+    document.getElementById('currentFilter').textContent = `当前显示：${deptName}`;
+    
+    // 滚动到设备区域
+    document.getElementById('devices').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// --- 渲染设备卡片 ---
+function renderDevices(data) {
     const grid = document.getElementById('devicesGrid');
-    grid.innerHTML = deviceList.map((device, index) => `
-    <div class="device-card glass rounded-3xl p-6 card-hover cursor-pointer fade-in" style="animation-delay: ${index * 0.1}s">
-        <div class="flex items-start justify-between mb-4">
-            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${device.color} flex items-center justify-center shadow-lg">
-                <i class="fas ${device.icon} text-2xl text-white"></i>
-            </div>
-        </div>
-        <h3 class="font-semibold text-lg text-white mb-2">${device.name}</h3>
-        <p class="text-sm text-primary-400 mb-3">型号：${device.model}</p>
-        <p class="text-sm text-gray-400">${device.description}</p>
-    </div>
-    `).join('');
-}
+    const noResults = document.getElementById('noResults');
+    const countEl = document.getElementById('deviceCount');
+    
+    countEl.textContent = `共 ${data.length} 台`;
 
-function renderManuals(deviceList) {
-    const container = document.getElementById('manualsList');
-    container.innerHTML = deviceList.map(device => `
-    <div class="glass rounded-xl p-4 flex items-center justify-between hover:bg-white/5 transition-colors">
-        <div class="flex items-center space-x-4">
-            <div class="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center">
-                <i class="fas fa-file-pdf text-red-400 text-xl"></i>
-            </div>
-            <div>
-                <div class="font-medium text-white">${device.name} 说明书</div>
-                <div class="text-xs text-gray-500">型号: ${device.model}</div>
-            </div>
-        </div>
-        <a href="${device.manualUrl}" target="_blank" class="px-4 py-2 bg-primary-500/20 rounded-lg text-primary-400 hover:bg-primary-500 hover:text-white transition-all text-sm">
-            <i class="fas fa-download mr-1"></i> 下载
-        </a>
-    </div>
-    `).join('');
-}
-
-function renderVideos(deviceList) {
-    const container = document.getElementById('videosGrid');
-    container.innerHTML = deviceList.map((device, index) => `
-    <div class="video-card fade-in" style="animation-delay: ${index * 0.1}s">
-        <div class="video-thumbnail rounded-2xl aspect-video mb-4 cursor-pointer group bg-gradient-to-br ${device.color}" onclick="openVideoModal('${device.bilibiliId}')">
-            <!-- 这里使用渐变色背景，因为B站获取封面比较麻烦，这样更稳定 -->
-            <div class="absolute inset-0 flex items-center justify-center z-10">
-                <div class="play-btn w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all">
-                    <i class="fas fa-play text-white text-xl ml-1"></i>
+    if (data.length === 0) {
+        grid.innerHTML = '';
+        noResults.classList.remove('hidden');
+        return;
+    }
+    
+    noResults.classList.add('hidden');
+    
+    grid.innerHTML = data.map((device, index) => `
+        <div onclick="openDeviceModal(${device.id})" 
+             class="glass rounded-2xl p-6 cursor-pointer card-hover fade-in"
+             style="animation-delay: ${index * 30}ms">
+            <div class="flex justify-between items-start mb-3">
+                <div class="w-11 h-11 rounded-xl bg-medical-light flex items-center justify-center">
+                    <i class="fas fa-cube text-primary-400 text-lg"></i>
                 </div>
+                <span class="text-xs bg-medical-light px-2 py-1 rounded text-gray-400">
+                    ${departments.find(d => d.id === device.deptId)?.name || '未知'}
+                </span>
             </div>
-            <div class="absolute bottom-4 left-4 z-10">
-                <span class="px-2 py-1 bg-black/50 rounded text-xs text-white">点击播放</span>
+            <h3 class="font-semibold text-lg text-white mb-1">${device.name}</h3>
+            <p class="text-sm text-gray-500 mb-3">型号：${device.model}</p>
+            <p class="text-sm text-gray-400 line-clamp-2 h-10">${device.description}</p>
+            <div class="mt-4 pt-3 border-t border-gray-700/50 flex justify-between text-xs text-gray-500">
+                <span><i class="fas fa-file-pdf mr-1 text-red-400"></i>${device.manuals.length} 份文档</span>
+                <span><i class="fas fa-video mr-1 text-primary-400"></i>${device.videos.length} 个视频</span>
             </div>
         </div>
-        <h4 class="font-semibold text-white mb-1">${device.name} 操作演示</h4>
-        <p class="text-sm text-gray-500">${device.model}</p>
-    </div>
     `).join('');
 }
 
+// --- 搜索功能 ---
+function setupSearch() {
+    const input = document.getElementById('mainSearch');
+    input.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase().replace(/\s/g, '');
+        if(query) {
+             // 搜索时取消科室选中状态
+             document.querySelectorAll('#departmentsGrid > div').forEach(el => el.classList.remove('dept-active'));
+             currentDept = 'all';
+        }
+        
+        const filtered = devicesData.filter(device => {
+            const name = device.name.toLowerCase().replace(/\s/g, '');
+            const model = device.model.toLowerCase().replace(/\s/g, '');
+            return name.includes(query) || model.includes(query);
+        });
+        
+        renderDevices(filtered);
+        document.getElementById('currentFilter').textContent = query ? `搜索结果：${query}` : '当前显示：全部设备';
+    });
+}
+
+// --- 设备详情模态框 ---
+function openDeviceModal(deviceId) {
+    const device = devicesData.find(d => d.id === deviceId);
+    if(!device) return;
+
+    document.getElementById('modal-device-name').textContent = device.name;
+    document.getElementById('modal-device-model').textContent = `型号：${device.model}`;
+    
+    // 渲染说明书
+    const manualsContainer = document.getElementById('modal-manuals');
+    document.getElementById('modal-manual-count').textContent = device.manuals.length;
+    manualsContainer.innerHTML = device.manuals.length > 0 ? device.manuals.map(m => `
+        <a href="${m.url}" target="_blank" class="flex items-center justify-between p-3 rounded-lg bg-medical-dark/50 hover:bg-medical-light/20 transition-colors">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-file-pdf text-red-400"></i>
+                <span class="text-sm text-gray-300">${m.title}</span>
+            </div>
+            <i class="fas fa-download text-gray-500 text-xs"></i>
+        </a>
+    `).join('') : '<p class="text-gray-500 text-sm">暂无说明书</p>';
+
+    // 渲染视频
+    const videosContainer = document.getElementById('modal-videos');
+    document.getElementById('modal-video-count').textContent = device.videos.length;
+    videosContainer.innerHTML = device.videos.length > 0 ? device.videos.map(v => `
+        <div onclick="openVideoModal('${v.id}')" class="flex items-center justify-between p-3 rounded-lg bg-medical-dark/50 hover:bg-medical-light/20 transition-colors cursor-pointer">
+            <div class="flex items-center space-x-3">
+                <i class="fas fa-play-circle text-accent-teal"></i>
+                <span class="text-sm text-gray-300">${v.title}</span>
+            </div>
+            <i class="fas fa-chevron-right text-gray-500 text-xs"></i>
+        </div>
+    `).join('') : '<p class="text-gray-500 text-sm">暂无视频</p>';
+
+    document.getElementById('deviceModal').classList.add('active');
+}
+
+function closeDeviceModal() {
+    document.getElementById('deviceModal').classList.remove('active');
+}
+
+// --- 视频播放 ---
 function openVideoModal(bvid) {
-    const player = document.getElementById('bilibiliPlayer');
-    // B站嵌入链接格式：自动播放 + 高清
-    player.src = `//player.bilibili.com/player.html?bvid=${bvid}&autoplay=1&high_quality=1&danmaku=0`;
+    document.getElementById('bilibiliPlayer').src = `//player.bilibili.com/player.html?bvid=${bvid}&autoplay=1&high_quality=1`;
     document.getElementById('videoModal').classList.add('active');
-    document.body.style.overflow = 'hidden';
 }
 
 function closeVideoModal() {
     document.getElementById('videoModal').classList.remove('active');
     document.getElementById('bilibiliPlayer').src = '';
-    document.body.style.overflow = '';
 }
 
+// 点击遮罩关闭
+document.getElementById('deviceModal').addEventListener('click', function(e) {
+    if (e.target === this) closeDeviceModal();
+});
 document.getElementById('videoModal').addEventListener('click', function(e) {
     if (e.target === this) closeVideoModal();
 });
