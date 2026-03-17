@@ -540,24 +540,229 @@ try {
         // 真实数据示例 (血透室)
         // ---------------------------------------------------------
         {
-            name: 'Dialysis Machine',
-            model: 'AK96',
-            deptId: 'dialysis', 
-            description: 'Blood purification',
-            manuals: [ 
-                { 
-                    title: 'Technical Manual', 
-                    url: 'https://github.com/zsh1007v/medical-device/raw/main/Dialysis%20machine_AK%2096.pdf' 
-                } 
+            name: 'HIGH ACCURATE BRAIN STEREOTACTIC SYSTEM',
+            model: 'ASA-602S',
+            deptId: 'surgery', 
+            description: 'High-precision guided brain surgery or biopsy',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/cf2e4ab993851f6dda04d5b4c6453e10a2ba0fef/HIGH%20ACCURATE%20BRAIN%20STEREOTACTIC%20SYSTEM.docx' }
             ],
             videos: [
-                { 
-                    title: 'Operation video', 
-                    id: 'BV1i5wdzMEcE' 
-                } 
+                { title: 'Operation video', id: 'BV1rxwozUE6z' }
             ]
         },
-         {
+        {
+            name: 'Arthroscope light source',
+            model: 'GA A284/293',
+            deptId: 'endoscopy', 
+            description: 'Lighting and image display in arthroscopic and endoscopic surgery',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/e410f48ce159437b529142f6eb3a77bc0003d69f/Arthroscope%20light%20source-GA-A284.pdf' },
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/e410f48ce159437b529142f6eb3a77bc0003d69f/Arthroscope%20light%20source-GA-A293.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV1ivwozkEXE' },
+                { title: 'Operation video', id: 'BV1qvwozkEWJ' }
+            ]
+        },
+        {
+            name: 'Multifunctional traction bed',
+            model: 'JYZ-IIIB',
+            deptId: 'rehab', 
+            description: '',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/6ba127db802bd6eb6d0c67bc58df3f2536e5dcd0/Multifunctional%20traction%20bed.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV1BawozyE26' },
+                { title: 'Operation video', id: 'BV1BawozyEJh' },
+                { title: 'Operation video', id: 'BV1ZawozyEUD' }
+            ]
+        },
+        {
+            name: 'Feeding Pump',
+            model: '5021A',
+            deptId: 'icu', 
+            description: 'Nutritional Infusion',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/934b15fffaddf80257b930d5954649ecb9518552/Feeding%20pump.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV1qewozVEk7' }
+            ]
+        },
+        {
+            name: 'Neuroelectrophysiological testing equipment',
+            model: 'Keypoint',
+            deptId: 'neurology', 
+            description: 'Recording, analyzing, and stimulating neural and muscular electrical activity',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/f92a8b0fe0ad3b74bd0c785a1949a673a8520916/Neuroelectrophysiological%20testing%20equipment.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV12VwozoEv1' },
+                { title: 'Operation video', id: 'BV1yEwozWEdL' },
+                { title: 'Operation video', id: 'BV1yEwozWE2U' },
+                { title: 'Operation video', id: 'BV1yEwozWEot' },
+                { title: 'Operation video', id: 'BV11jwozREBe' },
+                { title: 'Operation video', id: 'BV1KjwozdE3Y' },
+                { title: 'Operation video', id: 'BV12jwozREcH' },
+                { title: 'Operation video', id: 'BV11jwozRE83' }
+            ]
+        },
+        {
+            name: 'Electrophysiology Recording System',
+            model: 'LEAD-9000',
+            deptId: 'cardiology', 
+            description: 'Cardiac Electrophysiology Examination and Treatment',
+            manuals: [
+                { title: 'Technical Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+        {
+            name: 'Activated clotting Time system',
+            model: 'Actalyke XL',
+            deptId: 'lab', 
+            description: 'Coagulation function test',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/467f60f533900b716db6ea3169c34c4e549bb448/Activated%20clotting%20Time%20system.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV1yJwozXETa' },
+                { title: 'Operation video', id: 'BV1PJwoz9ERw' },
+            ]
+        },
+        {
+            name: 'ECG Exercise Stress Testing',
+            model: 'GE',
+            deptId: 'cardiology', 
+            description: 'ECG Exercise Stress Testing',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/1bf721f7ebbc5bf055d493b5db04a3e565b0b1b3/ECG%20Exercise%20Stress%20Testing.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV1U9woz8EAQ' }
+            ]
+        },
+        {
+            name: 'Intra-Aotric ballon pump',
+            model: 'CS100',
+            deptId: 'cardiology', 
+            description: 'Circulatory support device, improves cardiac pumping function',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/9c83b8cd421481e2ffd19509e4e5d5f0869719fb/Intra-Aotric%20ballon%20pump%20CS100.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV14RwozfEe8' },
+                { title: 'Operation video', id: 'BV14RwozfEKK' },
+                { title: 'Operation video', id: 'BV1m9woz8Exu' }
+            ]
+        },
+        {
+            name: 'cardiac RF abilation',
+            model: 'smartablate',
+            deptId: 'cardiology', 
+            description: 'RF abilation',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/9c83b8cd421481e2ffd19509e4e5d5f0869719fb/cardiac%20RF%20abilation.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+        {
+            name: 'Ambulatory Blood Pressure Monitor',
+            model: 'ABPm50',
+            deptId: 'cardiology', 
+            description: 'Monitor blood pressure',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/9c83b8cd421481e2ffd19509e4e5d5f0869719fb/ABPM50%20Bp%20monitor.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV1sZwozoE6J' }
+            ]
+        },
+        {
+            name: 'ECG',
+            model: 'FX-8222',
+            deptId: 'cardiology', 
+            description: 'Electrocardiogram monitoring',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/244366a8e0483f34b88c1ffaf44b16637a6faa18/ECG_FX-8222.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV1vBwoz6Epa' },
+                { title: 'Operation video', id: 'BV1YCwozTEbG' },
+                { title: 'Operation video', id: 'BV1YCwozTE7G' },
+                { title: 'Operation video', id: 'BV1XCwozTERc' },
+                { title: 'Operation video', id: 'BV1aCwozTE97' },
+                { title: 'Operation video', id: 'BV1XCwozTE4r' }
+            ]
+        },
+        {
+            name: 'ECG',
+            model: 'FX-TLC5000',
+            deptId: 'cardiology', 
+            description: 'Electrocardiogram monitoring',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/244366a8e0483f34b88c1ffaf44b16637a6faa18/ECG%20TLC5000.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV1YCwozTEiF' },
+                { title: 'Operation video', id: 'BV1erwozBEG7' },
+                { title: 'Operation video', id: 'BV19rwozBEtd' }
+            ]
+        },
+        {
+            name: 'ECG',
+            model: 'FX-8222',
+            deptId: 'cardiology', 
+            description: 'Electrocardiogram monitoring',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/244366a8e0483f34b88c1ffaf44b16637a6faa18/ECG_FX-8222.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV1vBwoz6Epa' },
+                { title: 'Operation video', id: 'BV1YCwozTEbG' },
+                { title: 'Operation video', id: 'BV1YCwozTE7G' },
+                { title: 'Operation video', id: 'BV1XCwozTERc' },
+                { title: 'Operation video', id: 'BV1aCwozTE97' },
+                { title: 'Operation video', id: 'BV1XCwozTE4r' }
+            ]
+        },
+        {
+            name: 'CRRT',
+            model: 'Prismaflex',
+            deptId: 'icu', 
+            description: 'For continuous renal replacement therapy (CRRT), therapeutic plasma exchange (TPE), and hemoperfusion (HP)',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/3eefcdd6ffd6b17a409ba391bc0ef2220aab6812/CRRT.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV1aywoziEMa' },
+                { title: 'Operation video', id: 'BV1aywoziECp' }
+              
+
+            ]
+        },
+        {
+            name: 'Endoscope cleaning machine',
+            model: 'HG type',
+            deptId: 'endoscopy', 
+            description: 'Endoscope cleaning and disinfection',
+            manuals: [
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/244366a8e0483f34b88c1ffaf44b16637a6faa18/Endoscope%20cleaning%20machine.docx' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'BV13mwozvEPb' }
+              
+
+            ]
+        },
+        {
             name: 'Insulin Pump',
             model: 'PH 300',
             deptId: 'emergency', 
@@ -573,22 +778,6 @@ try {
                 { title: 'Operation video', id: 'BV1zpwXzNEnu' },
                 { title: 'Operation video', id: 'BV1fpwXzNEme'}
 
-            ]
-        },
-        
-        // ---------------------------------------------------------
-        // 请参照上面的格式，在下方继续添加其他设备
-        // ---------------------------------------------------------
-        {
-            name: '多参数监护仪',
-            model: 'PM-9000',
-            deptId: 'emergency', 
-            description: '急诊患者生命体征监测',
-            manuals: [
-                { title: '操作手册', url: 'https://github.com/你的仓库/raw/main/manual.pdf' }
-            ],
-            videos: [
-                { title: '操作演示', id: 'BV1xx411c7mD' }
             ]
         }
         
