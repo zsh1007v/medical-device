@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>医疗设备信息中心</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: { 50: '#ecfeff', 100: '#cffafe', 200: '#a5f3fc', 300: '#67e8f9', 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2', 700: '#0e7490', 800: '#155e75', 900: '#164e63' },
+medical: { dark: '#0f172a', mid: '#1e293b', light: '#334155' },
+accent: { teal: '#14b8a6', emerald: '#10b981' }
+},
+fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], display: ['Poppins', 'sans-serif'] }
+}
+}
+}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+body { font-family: 'Inter', sans-serif; }
+.glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.15); }
+.glass-dark { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+.gradient-mesh { background: radial-gradient(at 20% 30%, rgba(6, 182, 212, 0.15) 0%, transparent 50%), radial-gradient(at 80% 70%, rgba(20, 184, 166, 0.12) 0%, transparent 50%); }
+.card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+.card-hover:hover { transform: translateY(-8px); box-shadow: 0 25px 50px -12px rgba(6, 182, 212, 0.25); }
+.fade-in { animation: fadeIn 0.6s ease-out forwards; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.video-thumbnail { position: relative; overflow: hidden; }
+.play-btn { transition: all 0.3s ease; }
+.play-btn:hover { transform: scale(1.15); }
+.modal-overlay { opacity: 0; visibility: hidden; transition: all 0.3s ease; }
+.modal-overlay.active { opacity: 1; visibility: visible; }
+.modal-content { transform: scale(0.9) translateY(20px); transition: all 0.3s ease; }
+.modal-overlay.active .modal-content { transform: scale(1) translateY(0); }
+</style>
+</head>
+<body class="bg-medical-dark min-h-screen text-white">
+<div class="fixed inset-0 gradient-mesh pointer-events-none"></div>
+
+<!-- 导航栏 -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass-dark">
+<div class="max-w-7xl mx-auto px-6 py-4">
+<div class="flex items-center justify-between">
+<div class="flex items-center space-x-3">
+<div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-400 to-accent-teal flex items-center justify-center">
+<i class="fas fa-heartbeat text-white text-lg"></i>
+</div>
+<span class="font-bold text-xl text-white">MedDevice Pro</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a href="#devices" class="text-gray-300 hover:text-white transition-colors">设备目录</a>
+<a href="#manuals" class="text-gray-300 hover:text-white transition-colors">说明书</a>
+<a href="#videos" class="text-gray-300 hover:text-white transition-colors">视频教程</a>
+</div>
+</div>
+</div>
+</nav>
+
+<!-- 首页 -->
+<section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+<div class="relative z-10 max-w-7xl mx-auto px-6 text-center">
+<div class="fade-in">
+<h1 class="font-bold text-5xl md:text-7xl mb-6 leading-tight text-white">医疗设备信息中心</h1>
+<p class="text-xl text-gray-400 max-w-2xl mx-auto mb-12">一站式医疗设备管理平台</p>
+<a href="#devices" class="px-8 py-4 bg-gradient-to-r from-primary-500 to-accent-teal rounded-2xl font-semibold text-white shadow-lg hover:shadow-primary-500/50 transition-all inline-block">
+浏览设备
+</a>
+</div>
+</div>
+</section>
+
+<!-- 设备目录 -->
+<section id="devices" class="relative py-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="font-bold text-4xl mb-4 text-white">设备目录</h2>
+</div>
+<div id="devicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+</div>
+</section>
+
+<!-- 说明书 -->
+<section id="manuals" class="relative py-24 bg-medical-mid/30">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="font-bold text-4xl mb-4 text-white">设备说明书</h2>
+<p class="text-gray-400">点击下载 PDF 文档</p>
+</div>
+<div id="manualsList" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+</div>
+</section>
+
+<!-- 视频 -->
+<section id="videos" class="relative py-24">
+<div class="max-w-7xl mx-auto px-6">
+<div class="text-center mb-16">
+<h2 class="font-bold text-4xl mb-4 text-white">视频教程</h2>
+</div>
+<div id="videosGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+</div>
+</section>
+
+<!-- 视频弹窗 (适配B站) -->
+<div id="videoModal" class="modal-overlay fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90">
+<div class="modal-content w-full max-w-5xl">
+<div class="glass rounded-3xl overflow-hidden">
+<div class="relative aspect-video bg-medical-dark">
+<!-- B站播放器 -->
+<iframe id="bilibiliPlayer" src="" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" class="w-full h-full"> </iframe>
+</div>
+<div class="p-4 flex justify-end bg-medical-mid">
+<button onclick="closeVideoModal()" class="px-6 py-2 bg-gray-700 rounded-xl text-gray-300 hover:bg-gray-600 transition-colors">关闭</button>
+</div>
+</div>
+</div>
+</div>
+
+<script>
+// ==========================================
+// 数据配置区域 - 请在这里修改您的真实数据
+// ==========================================
+
+const devicesData = [
+    // --- 设备 1 ---
+    {
+        id: 1,
+        name: '数字化X射线摄影系统', // 设备名称
+        model: 'PH_300',            // 型号
+        icon: 'fa-x-ray',            // 图标 (不用改)
+        color: 'from-blue-500 to-blue-600',
+        description: '高性能数字化X射线成像设备',
+        
+        // 【重要】请替换为您 GitHub 里的 PDF 链接
+        manualUrl: 'https://github.com/zsh1007v/medical-device/blob/52e2cecef71a090d87c5ef8af7eb25551ff169bb/Insulin%20Pump_PH300.pdf', 
+        
+        // 【重要】请替换为您 B站视频的 BV 号 (例如 BV1xx411c7mD)
+        bilibiliId: 'BV1RhwXzfEhz' 
+    },
+    // --- 设备 2 ---
+    {
+        id: 2,
+        name: '多参数监护仪',
+        model: 'MP-800',
+        icon: 'fa-heartbeat',
+        color: 'from-rose-500 to-rose-600',
+        description: '实时监测患者生命体征',
+        manualUrl: 'https://github.com/您的用户名/medical-device/raw/main/MP-800.pdf',
+        bilibiliId: 'BV1xx411c7mD' // 替换这里
+    }
+    // 如果有更多设备，照着上面的格式复制 {...}, 然后修改内容即可
+];
+
+// ==========================================
+// 以下逻辑无需修改
+// ==========================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    renderDevices(devicesData);
+    renderManuals(devicesData);
+    renderVideos(devicesData);
+});
+
+function renderDevices(deviceList) {
+    const grid = document.getElementById('devicesGrid');
+    grid.innerHTML = deviceList.map((device, index) => `
+    <div class="device-card glass rounded-3xl p-6 card-hover cursor-pointer fade-in" style="animation-delay: ${index * 0.1}s">
+        <div class="flex items-start justify-between mb-4">
+            <div class="w-14 h-14 rounded-2xl bg-gradient-to-br ${device.color} flex items-center justify-center shadow-lg">
+                <i class="fas ${device.icon} text-2xl text-white"></i>
+            </div>
+        </div>
+        <h3 class="font-semibold text-lg text-white mb-2">${device.name}</h3>
+        <p class="text-sm text-primary-400 mb-3">型号：${device.model}</p>
+        <p class="text-sm text-gray-400">${device.description}</p>
+    </div>
+    `).join('');
+}
+
+function renderManuals(deviceList) {
+    const container = document.getElementById('manualsList');
+    container.innerHTML = deviceList.map(device => `
+    <div class="glass rounded-xl p-4 flex items-center justify-between hover:bg-white/5 transition-colors">
+        <div class="flex items-center space-x-4">
+            <div class="w-12 h-12 rounded-lg bg-red-500/20 flex items-center justify-center">
+                <i class="fas fa-file-pdf text-red-400 text-xl"></i>
+            </div>
+            <div>
+                <div class="font-medium text-white">${device.name} 说明书</div>
+                <div class="text-xs text-gray-500">型号: ${device.model}</div>
+            </div>
+        </div>
+        <a href="${device.manualUrl}" target="_blank" class="px-4 py-2 bg-primary-500/20 rounded-lg text-primary-400 hover:bg-primary-500 hover:text-white transition-all text-sm">
+            <i class="fas fa-download mr-1"></i> 下载
+        </a>
+    </div>
+    `).join('');
+}
+
+function renderVideos(deviceList) {
+    const container = document.getElementById('videosGrid');
+    container.innerHTML = deviceList.map((device, index) => `
+    <div class="video-card fade-in" style="animation-delay: ${index * 0.1}s">
+        <div class="video-thumbnail rounded-2xl aspect-video mb-4 cursor-pointer group bg-gradient-to-br ${device.color}" onclick="openVideoModal('${device.bilibiliId}')">
+            <!-- 这里使用渐变色背景，因为B站获取封面比较麻烦，这样更稳定 -->
+            <div class="absolute inset-0 flex items-center justify-center z-10">
+                <div class="play-btn w-16 h-16 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/30 transition-all">
+                    <i class="fas fa-play text-white text-xl ml-1"></i>
+                </div>
+            </div>
+            <div class="absolute bottom-4 left-4 z-10">
+                <span class="px-2 py-1 bg-black/50 rounded text-xs text-white">点击播放</span>
+            </div>
+        </div>
+        <h4 class="font-semibold text-white mb-1">${device.name} 操作演示</h4>
+        <p class="text-sm text-gray-500">${device.model}</p>
+    </div>
+    `).join('');
+}
+
+function openVideoModal(bvid) {
+    const player = document.getElementById('bilibiliPlayer');
+    // B站嵌入链接格式：自动播放 + 高清
+    player.src = `//player.bilibili.com/player.html?bvid=${bvid}&autoplay=1&high_quality=1&danmaku=0`;
+    document.getElementById('videoModal').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeVideoModal() {
+    document.getElementById('videoModal').classList.remove('active');
+    document.getElementById('bilibiliPlayer').src = '';
+    document.body.style.overflow = '';
+}
+
+document.getElementById('videoModal').addEventListener('click', function(e) {
+    if (e.target === this) closeVideoModal();
+});
+</script>
+</body>
+</html>
