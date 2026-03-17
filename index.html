@@ -116,9 +116,7 @@ body { font-family: 'Inter', sans-serif; }
     <!-- 4. 医工科组织架构 -->
     <section id="clinical-engineering" class="mb-20 scroll-mt-24">
         <div class="glass rounded-3xl p-8 relative overflow-hidden">
-            <!-- 装饰背景 -->
             <div class="absolute top-0 right-0 w-64 h-64 bg-primary-500/10 rounded-full blur-3xl"></div>
-            
             <div class="relative z-10">
                 <div class="flex items-center mb-8">
                     <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-teal flex items-center justify-center mr-4">
@@ -129,9 +127,7 @@ body { font-family: 'Inter', sans-serif; }
                         <p class="text-gray-400 text-sm">设备管理与技术支持团队</p>
                     </div>
                 </div>
-
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- 人员卡片 -->
                     <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
                         <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-4 shadow-lg">
                             <i class="fas fa-user-tie text-white text-3xl"></i>
@@ -143,7 +139,6 @@ body { font-family: 'Inter', sans-serif; }
                             <p><i class="fas fa-envelope mr-1"></i> zhang@hospital.com</p>
                         </div>
                     </div>
-
                     <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
                         <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-teal-500 to-emerald-600 flex items-center justify-center mb-4 shadow-lg">
                             <i class="fas fa-user-cog text-white text-3xl"></i>
@@ -155,7 +150,6 @@ body { font-family: 'Inter', sans-serif; }
                             <p><i class="fas fa-envelope mr-1"></i> li@hospital.com</p>
                         </div>
                     </div>
-
                     <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
                         <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-rose-500 to-pink-600 flex items-center justify-center mb-4 shadow-lg">
                             <i class="fas fa-tools text-white text-3xl"></i>
@@ -167,7 +161,6 @@ body { font-family: 'Inter', sans-serif; }
                             <p><i class="fas fa-envelope mr-1"></i> wang@hospital.com</p>
                         </div>
                     </div>
-
                     <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
                         <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-amber-500 to-orange-600 flex items-center justify-center mb-4 shadow-lg">
                             <i class="fas fa-laptop-medical text-white text-3xl"></i>
@@ -184,9 +177,8 @@ body { font-family: 'Inter', sans-serif; }
         </div>
     </section>
 
-    <!-- 5. 资源中心 (表单 + 学习天地) -->
+    <!-- 5. 资源中心 -->
     <section id="resources" class="grid grid-cols-1 lg:grid-cols-2 gap-8 scroll-mt-24">
-        <!-- 表单下载 -->
         <div class="glass rounded-2xl p-6">
             <h3 class="text-xl font-bold text-white mb-4 flex items-center">
                 <i class="fas fa-file-download text-amber-400 mr-3"></i>表单模板下载
@@ -207,18 +199,9 @@ body { font-family: 'Inter', sans-serif; }
                     </div>
                     <i class="fas fa-download text-gray-500 group-hover:text-primary-400 text-xs"></i>
                 </a>
-                <div class="border-t border-gray-700/30"></div>
-                <a href="#" class="flex items-center justify-between p-3 rounded-lg hover:bg-white/5 transition-colors group">
-                    <div class="flex items-center space-x-3">
-                        <i class="fas fa-file-pdf text-red-400"></i>
-                        <span class="text-sm text-gray-300">设备报废申请流程</span>
-                    </div>
-                    <i class="fas fa-download text-gray-500 group-hover:text-primary-400 text-xs"></i>
-                </a>
             </div>
         </div>
 
-        <!-- 知识学习天地 -->
         <div class="glass rounded-2xl p-6">
             <h3 class="text-xl font-bold text-white mb-4 flex items-center">
                 <i class="fas fa-graduation-cap text-purple-400 mr-3"></i>知识学习天地
@@ -242,15 +225,6 @@ body { font-family: 'Inter', sans-serif; }
                         <p class="text-xs text-gray-500 mt-1">2024-01-15 发布</p>
                     </div>
                 </div>
-                <div class="flex items-start space-x-3 cursor-pointer group">
-                    <div class="w-8 h-8 rounded bg-rose-500/20 flex items-center justify-center flex-shrink-0 mt-1">
-                        <i class="fas fa-shield-alt text-rose-400 text-xs"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-white text-sm font-medium group-hover:text-primary-400 transition-colors">放射防护安全知识培训</h4>
-                        <p class="text-xs text-gray-500 mt-1">2024-01-10 发布</p>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -272,7 +246,6 @@ body { font-family: 'Inter', sans-serif; }
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <!-- 说明书列表 -->
             <div>
                 <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
                     <i class="fas fa-file-pdf text-red-400 mr-2"></i>设备说明书 (<span id="modal-manual-count">0</span>)
@@ -280,7 +253,6 @@ body { font-family: 'Inter', sans-serif; }
                 <div id="modal-manuals" class="space-y-2"></div>
             </div>
 
-            <!-- 视频列表 -->
             <div>
                 <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
                     <i class="fas fa-play-circle text-accent-teal mr-2"></i>操作视频 (<span id="modal-video-count">0</span>)
@@ -311,7 +283,6 @@ body { font-family: 'Inter', sans-serif; }
 // 数据配置区域
 // ==========================================
 
-// 1. 科室列表 (新增医工科)
 const departments = [
     { id: 'clinical_eng', name: '医工科', icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },
     { id: 'emergency', name: '急诊科', icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },
@@ -333,11 +304,14 @@ const departments = [
     { id: 'sterilization', name: '消毒供应室', icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }
 ];
 
-// 2. 设备列表
+// ==========================================
+// 注意：此处为您手动修改数据的地方
+// 修复：代码会自动生成UID，您只需确保内容正确即可，无需担心ID冲突
+// ==========================================
 const devicesData = [
-    // --- 急诊科 ---
+    // --- 示例设备 ---
     {
-        id: 101,
+        // id: 101, // 您可以删除这一行，或者保留，系统会自动处理唯一性
         name: '多参数监护仪',
         model: 'PM-9000',
         deptId: 'emergency',
@@ -351,7 +325,6 @@ const devicesData = [
         ]
     },
     {
-        id: 102,
         name: '除颤仪',
         model: 'D-100',
         deptId: 'emergency',
@@ -359,9 +332,7 @@ const devicesData = [
         manuals: [ { title: '使用说明', url: 'https://github.com/你的仓库/raw/main/emergency/defib.pdf' } ],
         videos: [ { title: '使用教程', id: 'BV1zz411c7mD' } ]
     },
-    // --- 放射科 ---
     {
-        id: 201,
         name: '数字化X射线系统',
         model: 'DR-X500',
         deptId: 'radiology',
@@ -369,42 +340,33 @@ const devicesData = [
         manuals: [ { title: '技术手册', url: 'https://github.com/你的仓库/raw/main/radiology/dr.pdf' } ],
         videos: [ { title: '操作流程', id: 'BV1aa411c7mD' } ]
     },
-    // --- 医工科 (演示) ---
     {
-        id: 001,
-        name: '电烙铁工作站',
-        model: 'TI-100',
-        deptId: 'clinical_eng',
-        description: '维修焊接工具',
-        manuals: [ { title: '安全规范', url: 'https://github.com/zsh1007v/medical-device/blob/main/Dialysis%20machine_AK%2096.pdf' ' } ],
-        videos: []
-    },
-     // --- 血透室 (演示) ---
-    {
-        id: 009,
         name: 'Dialysis Machine',
         model: 'AK96',
         deptId: 'dialysis',
         description: 'Blood purification',
         manuals: [ { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Dialysis%20machine_AK%2096.pdf' } ],
         videos: [{ title: 'Operation video', id: 'BV1i5wdzMEcE' } ]
-    }
-    // ... 请继续添加更多数据
+    // ... 请继续在此处添加您的设备数据
 ];
 
 // ==========================================
-// 页面逻辑
+// 系统逻辑 (自动处理ID)
 // ==========================================
+
+// 自动为每个设备生成唯一的UID，防止ID重复导致弹窗内容错误
+devicesData.forEach((device, index) => {
+    device._uid = `uid_${index}_${Math.random().toString(36).substr(2, 9)}`;
+});
 
 let currentDept = 'all';
 
 document.addEventListener('DOMContentLoaded', function() {
     renderDepartments();
-    renderDevices(devicesData); // 默认显示全部
+    renderDevices(devicesData); 
     setupSearch();
 });
 
-// --- 渲染科室卡片 ---
 function renderDepartments() {
     const grid = document.getElementById('departmentsGrid');
     grid.innerHTML = departments.map(dept => `
@@ -419,29 +381,22 @@ function renderDepartments() {
     `).join('');
 }
 
-// --- 筛选设备 ---
 function filterDevices(deptId) {
     currentDept = deptId;
-    
-    // 更新UI选中状态
     document.querySelectorAll('#departmentsGrid > div').forEach(el => el.classList.remove('dept-active'));
     if(deptId !== 'all') {
         document.getElementById(`dept-${deptId}`).classList.add('dept-active');
     }
 
-    // 筛选逻辑
     const filtered = deptId === 'all' ? devicesData : devicesData.filter(d => d.deptId === deptId);
     renderDevices(filtered);
     
-    // 更新标题
     const deptName = deptId === 'all' ? '全部设备' : (departments.find(d => d.id === deptId)?.name || '');
     document.getElementById('currentFilter').textContent = `当前显示：${deptName}`;
     
-    // 滚动到设备区域
     document.getElementById('devices').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
-// --- 渲染设备卡片 ---
 function renderDevices(data) {
     const grid = document.getElementById('devicesGrid');
     const noResults = document.getElementById('noResults');
@@ -457,10 +412,10 @@ function renderDevices(data) {
     
     noResults.classList.add('hidden');
     
-    grid.innerHTML = data.map((device, index) => `
-        <div onclick="openDeviceModal(${device.id})" 
-             class="glass rounded-2xl p-6 cursor-pointer card-hover fade-in"
-             style="animation-delay: ${index * 30}ms">
+    // 修改：传递 _uid 而不是 id
+    grid.innerHTML = data.map((device) => `
+        <div onclick="openDeviceModal('${device._uid}')" 
+             class="glass rounded-2xl p-6 cursor-pointer card-hover fade-in">
             <div class="flex justify-between items-start mb-3">
                 <div class="w-11 h-11 rounded-xl bg-medical-light flex items-center justify-center">
                     <i class="fas fa-cube text-primary-400 text-lg"></i>
@@ -480,13 +435,11 @@ function renderDevices(data) {
     `).join('');
 }
 
-// --- 搜索功能 ---
 function setupSearch() {
     const input = document.getElementById('mainSearch');
     input.addEventListener('input', function(e) {
         const query = e.target.value.toLowerCase().replace(/\s/g, '');
         if(query) {
-             // 搜索时取消科室选中状态
              document.querySelectorAll('#departmentsGrid > div').forEach(el => el.classList.remove('dept-active'));
              currentDept = 'all';
         }
@@ -502,15 +455,14 @@ function setupSearch() {
     });
 }
 
-// --- 设备详情模态框 ---
-function openDeviceModal(deviceId) {
-    const device = devicesData.find(d => d.id === deviceId);
+// 修改：通过 _uid 查找设备
+function openDeviceModal(uid) {
+    const device = devicesData.find(d => d._uid === uid);
     if(!device) return;
 
     document.getElementById('modal-device-name').textContent = device.name;
     document.getElementById('modal-device-model').textContent = `型号：${device.model}`;
     
-    // 渲染说明书
     const manualsContainer = document.getElementById('modal-manuals');
     document.getElementById('modal-manual-count').textContent = device.manuals.length;
     manualsContainer.innerHTML = device.manuals.length > 0 ? device.manuals.map(m => `
@@ -523,7 +475,6 @@ function openDeviceModal(deviceId) {
         </a>
     `).join('') : '<p class="text-gray-500 text-sm">暂无说明书</p>';
 
-    // 渲染视频
     const videosContainer = document.getElementById('modal-videos');
     document.getElementById('modal-video-count').textContent = device.videos.length;
     videosContainer.innerHTML = device.videos.length > 0 ? device.videos.map(v => `
@@ -543,7 +494,6 @@ function closeDeviceModal() {
     document.getElementById('deviceModal').classList.remove('active');
 }
 
-// --- 视频播放 ---
 function openVideoModal(bvid) {
     document.getElementById('bilibiliPlayer').src = `//player.bilibili.com/player.html?bvid=${bvid}&autoplay=1&high_quality=1`;
     document.getElementById('videoModal').classList.add('active');
@@ -554,7 +504,6 @@ function closeVideoModal() {
     document.getElementById('bilibiliPlayer').src = '';
 }
 
-// 点击遮罩关闭
 document.getElementById('deviceModal').addEventListener('click', function(e) {
     if (e.target === this) closeDeviceModal();
 });
