@@ -36,6 +36,7 @@ body { font-family: 'Inter', sans-serif; }
 .modal-overlay.active .modal-content { transform: scale(1); }
 .search-input:focus { box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.5); }
 .dept-active { border-color: rgba(6, 182, 212, 1) !important; background: rgba(6, 182, 212, 0.15) !important; }
+.error-banner { background: #dc2626; color: white; padding: 1rem; text-align: center; font-weight: bold; position: fixed; top: 0; left: 0; right: 0; z-index: 9999; }
 </style>
 </head>
 <body class="bg-medical-dark min-h-screen text-white">
@@ -80,7 +81,7 @@ body { font-family: 'Inter', sans-serif; }
         </div>
     </section>
 
-    <!-- 2. 科室导航 -->
+    <!-- 2. 科室导航 (已恢复) -->
     <section id="departments" class="mb-12 scroll-mt-24">
         <div class="flex items-center justify-between mb-6">
             <h2 class="text-2xl font-bold text-white flex items-center">
@@ -280,9 +281,8 @@ body { font-family: 'Inter', sans-serif; }
 
 <script>
 // ==========================================
-// 数据配置区域
+// 1. 科室列表配置
 // ==========================================
-
 const departments = [
     { id: 'clinical_eng', name: '医工科', icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },
     { id: 'emergency', name: '急诊科', icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },
@@ -305,39 +305,38 @@ const departments = [
 ];
 
 // ==========================================
-// 注意：此处为您手动修改数据的地方
-// 修复：代码会自动生成UID，您只需确保内容正确即可，无需担心ID冲突
+// 2. 设备数据配置区 (请在此处修改)
 // ==========================================
 const devicesData = [
-    // --- 示例设备 ---
+    // --- 示例设备 1 ---
     {
-        // id: 101, // 您可以删除这一行，或者保留，系统会自动处理唯一性
         name: '多参数监护仪',
         model: 'PM-9000',
-        deptId: 'emergency',
+        deptId: 'emergency', // 对应上面科室列表的 id
         description: '急诊患者生命体征监测',
         manuals: [
-            { title: '操作手册', url: 'https://github.com/你的仓库/raw/main/emergency/manual.pdf' },
-            { title: '快速指南', url: 'https://github.com/你的仓库/raw/main/emergency/quick.pdf' }
+            { title: '操作手册', url: 'https://github.com/你的仓库/raw/main/manual.pdf' }
         ],
         videos: [
-            { title: '操作演示', id: 'BV1xx411c7mD' }
+            { title: '操作演示', id: 'BV1xx411c7mD' } // B站视频ID
         ]
     },
+    // --- 示例设备 2 ---
     {
         name: '除颤仪',
         model: 'D-100',
         deptId: 'emergency',
         description: '急救除颤设备',
-        manuals: [ { title: '使用说明', url: 'https://github.com/你的仓库/raw/main/emergency/defib.pdf' } ],
+        manuals: [ { title: '使用说明', url: 'https://github.com/你的仓库/raw/main/defib.pdf' } ],
         videos: [ { title: '使用教程', id: 'BV1zz411c7mD' } ]
     },
+    // --- 示例设备 3 ---
     {
         name: '数字化X射线系统',
         model: 'DR-X500',
         deptId: 'radiology',
         description: '高频X射线摄影',
-        manuals: [ { title: '技术手册', url: 'https://github.com/你的仓库/raw/main/radiology/dr.pdf' } ],
+        manuals: [ { title: '技术手册', url: 'https://github.com/你的仓库/raw/main/dr.pdf' } ],
         videos: [ { title: '操作流程', id: 'BV1aa411c7mD' } ]
     },
     {
@@ -347,14 +346,15 @@ const devicesData = [
         description: 'Blood purification',
         manuals: [ { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Dialysis%20machine_AK%2096.pdf' } ],
         videos: [{ title: 'Operation video', id: 'BV1i5wdzMEcE' } ]
-    // ... 请继续在此处添加您的设备数据
+    }
+    // ... 请在此处继续添加您的设备，注意每个设备之间用逗号隔开
 ];
 
 // ==========================================
-// 系统逻辑 (自动处理ID)
+// 3. 核心逻辑 (请勿修改)
 // ==========================================
 
-// 自动为每个设备生成唯一的UID，防止ID重复导致弹窗内容错误
+// 自动生成唯一ID
 devicesData.forEach((device, index) => {
     device._uid = `uid_${index}_${Math.random().toString(36).substr(2, 9)}`;
 });
@@ -362,13 +362,26 @@ devicesData.forEach((device, index) => {
 let currentDept = 'all';
 
 document.addEventListener('DOMContentLoaded', function() {
-    renderDepartments();
-    renderDevices(devicesData); 
-    setupSearch();
+    try {
+        renderDepartments();
+        renderDevices(devicesData); 
+        setupSearch();
+    } catch (e) {
+        showError("数据格式错误，请检查 devicesData 中的逗号或引号是否正确。<br>错误详情：" + e.message);
+    }
 });
+
+function showError(msg) {
+    const banner = document.createElement('div');
+    banner.className = 'error-banner';
+    banner.innerHTML = msg;
+    document.body.prepend(banner);
+}
 
 function renderDepartments() {
     const grid = document.getElementById('departmentsGrid');
+    if(!grid) return;
+    
     grid.innerHTML = departments.map(dept => `
         <div onclick="filterDevices('${dept.id}')" 
              id="dept-${dept.id}"
@@ -383,24 +396,34 @@ function renderDepartments() {
 
 function filterDevices(deptId) {
     currentDept = deptId;
+    
+    // 更新UI选中状态
     document.querySelectorAll('#departmentsGrid > div').forEach(el => el.classList.remove('dept-active'));
     if(deptId !== 'all') {
-        document.getElementById(`dept-${deptId}`).classList.add('dept-active');
+        const targetDept = document.getElementById(`dept-${deptId}`);
+        if(targetDept) targetDept.classList.add('dept-active');
     }
 
+    // 筛选逻辑
     const filtered = deptId === 'all' ? devicesData : devicesData.filter(d => d.deptId === deptId);
     renderDevices(filtered);
     
+    // 更新标题
     const deptName = deptId === 'all' ? '全部设备' : (departments.find(d => d.id === deptId)?.name || '');
-    document.getElementById('currentFilter').textContent = `当前显示：${deptName}`;
+    const filterText = document.getElementById('currentFilter');
+    if(filterText) filterText.textContent = `当前显示：${deptName}`;
     
-    document.getElementById('devices').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    // 滚动到设备区域
+    const devicesSection = document.getElementById('devices');
+    if(devicesSection) devicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function renderDevices(data) {
     const grid = document.getElementById('devicesGrid');
     const noResults = document.getElementById('noResults');
     const countEl = document.getElementById('deviceCount');
+    
+    if(!grid || !noResults || !countEl) return;
     
     countEl.textContent = `共 ${data.length} 台`;
 
@@ -412,7 +435,6 @@ function renderDevices(data) {
     
     noResults.classList.add('hidden');
     
-    // 修改：传递 _uid 而不是 id
     grid.innerHTML = data.map((device) => `
         <div onclick="openDeviceModal('${device._uid}')" 
              class="glass rounded-2xl p-6 cursor-pointer card-hover fade-in">
@@ -437,6 +459,8 @@ function renderDevices(data) {
 
 function setupSearch() {
     const input = document.getElementById('mainSearch');
+    if(!input) return;
+    
     input.addEventListener('input', function(e) {
         const query = e.target.value.toLowerCase().replace(/\s/g, '');
         if(query) {
@@ -451,11 +475,11 @@ function setupSearch() {
         });
         
         renderDevices(filtered);
-        document.getElementById('currentFilter').textContent = query ? `搜索结果：${query}` : '当前显示：全部设备';
+        const filterText = document.getElementById('currentFilter');
+        if(filterText) filterText.textContent = query ? `搜索结果：${query}` : '当前显示：全部设备';
     });
 }
 
-// 修改：通过 _uid 查找设备
 function openDeviceModal(uid) {
     const device = devicesData.find(d => d._uid === uid);
     if(!device) return;
