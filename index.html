@@ -294,6 +294,7 @@ const departments = [
     { id: 'cardiology', name: '心内科', icon: 'fa-heartbeat', color: 'from-rose-500 to-red-500' },
     { id: 'lab', name: '检验科', icon: 'fa-microscope', color: 'from-blue-500 to-indigo-500' },
     { id: 'dialysis', name: '血透室', icon: 'fa-tint', color: 'from-red-400 to-rose-400' },
+    { id: 'endocrine', name: '内分泌科', icon: 'fa-syringe', color: 'from-teal-400 to-cyan-400' }, // 新增内分泌科
     { id: 'rehab', name: '康复科', icon: 'fa-walking', color: 'from-green-500 to-teal-500' },
     { id: 'obstetrics', name: '妇产科', icon: 'fa-baby', color: 'from-pink-500 to-rose-500' },
     { id: 'dental', name: '牙科', icon: 'fa-tooth', color: 'from-blue-400 to-cyan-400' },
@@ -305,7 +306,7 @@ const departments = [
     { id: 'sterilization', name: '消毒供应室', icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }
 ];
 
-// 2. 设备数据
+// 2. 设备数据声明
 var devicesData = []; 
 
 // 3. 渲染逻辑
@@ -322,12 +323,19 @@ function initApp() {
                 name: '数据配置提示',
                 model: '请检查代码',
                 deptId: 'clinical_eng',
-                description: '请在HTML代码中找到 devicesData 配置区添加您的设备，或检查格式是否正确。',
+                description: '请在HTML代码中找到 devicesData 配置区添加您的设备。',
                 manuals: [],
                 videos: []
             }
         ];
     }
+    
+    // 【重要修复】初始化时为每个设备生成唯一UID
+    devicesData.forEach((device, index) => {
+        if(!device._uid) {
+            device._uid = `dev_${index}_${Math.random().toString(36).substr(2, 9)}`;
+        }
+    });
 
     try {
         renderDepartments();
@@ -398,8 +406,9 @@ function renderDevices(data) {
     
     noResults.classList.add('hidden');
     
-    grid.innerHTML = data.map((device, index) => `
-        <div onclick="openDeviceModal(${index})" 
+    // 【重要修复】传递 UID 而不是 index
+    grid.innerHTML = data.map((device) => `
+        <div onclick="openDeviceModal('${device._uid}')" 
              class="glass rounded-2xl p-6 cursor-pointer card-hover fade-in">
             <div class="flex justify-between items-start mb-3">
                 <div class="w-11 h-11 rounded-xl bg-medical-light flex items-center justify-center">
@@ -443,29 +452,23 @@ function setupSearch() {
     });
 }
 
-// --- 链接处理逻辑 (新增：自动生成预览和下载链接) ---
 function getPreviewUrl(url) {
-    // 如果是 GitHub Raw 链接，转换为 Blob 链接以便在线预览
     if (url.includes('//raw.githubusercontent.com/') || url.includes('//github.com/') && url.includes('/raw/')) {
-        return url
-            .replace('//raw.githubusercontent.com/', '//github.com/')
-            .replace('/raw/', '/blob/');
+        return url.replace('//raw.githubusercontent.com/', '//github.com/').replace('/raw/', '/blob/');
     }
     return url;
 }
 
 function getDownloadUrl(url) {
-    // 确保是 Raw 链接以便下载
     if (url.includes('//github.com/') && url.includes('/blob/')) {
-        return url
-            .replace('//github.com/', '//raw.githubusercontent.com/')
-            .replace('/blob/', '/raw/');
+        return url.replace('//github.com/', '//raw.githubusercontent.com/').replace('/blob/', '/raw/');
     }
     return url;
 }
 
-function openDeviceModal(index) {
-    const device = devicesData[index];
+// 【重要修复】通过 UID 查找设备
+function openDeviceModal(uid) {
+    const device = devicesData.find(d => d._uid === uid);
     if(!device) return;
 
     document.getElementById('modal-device-name').textContent = device.name;
@@ -537,8 +540,10 @@ document.getElementById('videoModal').addEventListener('click', function(e) {
 try {
     devicesData = [
         // ---------------------------------------------------------
-        // 真实数据示例 (血透室)
+        // 请确保每个设备之间有逗号，最后一个设备后面不要加逗号
         // ---------------------------------------------------------
+        
+        // 示例：胰岛素泵 (请检查您的数据是否包含正确的视频ID)
         {
             name: 'HIGH ACCURATE BRAIN STEREOTACTIC SYSTEM',
             model: 'ASA-602S',
@@ -662,7 +667,7 @@ try {
             ]
         },
         {
-            name: 'cardiac RF abilation',
+            name: 'Cardiac RF abilation',
             model: 'smartablate',
             deptId: 'cardiology', 
             description: 'RF abilation',
@@ -717,23 +722,6 @@ try {
             ]
         },
         {
-            name: 'ECG',
-            model: 'FX-8222',
-            deptId: 'cardiology', 
-            description: 'Electrocardiogram monitoring',
-            manuals: [
-                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/244366a8e0483f34b88c1ffaf44b16637a6faa18/ECG_FX-8222.pdf' }
-            ],
-            videos: [
-                { title: 'Operation video', id: 'BV1vBwoz6Epa' },
-                { title: 'Operation video', id: 'BV1YCwozTEbG' },
-                { title: 'Operation video', id: 'BV1YCwozTE7G' },
-                { title: 'Operation video', id: 'BV1XCwozTERc' },
-                { title: 'Operation video', id: 'BV1aCwozTE97' },
-                { title: 'Operation video', id: 'BV1XCwozTE4r' }
-            ]
-        },
-        {
             name: 'CRRT',
             model: 'Prismaflex',
             deptId: 'icu', 
@@ -777,11 +765,10 @@ try {
                 { title: 'Operation video', id: 'BV1FpwXzKE3Y' },
                 { title: 'Operation video', id: 'BV1zpwXzNEnu' },
                 { title: 'Operation video', id: 'BV1fpwXzNEme'}
-
             ]
         }
         
-        // ... 继续添加
+        // ... 继续添加其他设备
     ];
 } catch(e) {
     document.addEventListener('DOMContentLoaded', function() {
