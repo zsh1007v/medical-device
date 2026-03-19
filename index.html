@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>医疗设备信息管理平台</title>
+<title>Medical Equipment Information Management Platform</title><!--医疗设备信息管理平台-->
 <script src="https://cdn.tailwindcss.com"></script>
 <script>
 tailwind.config = {
@@ -52,14 +52,14 @@ body { font-family: 'Inter', sans-serif; }
 <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-primary-400 to-accent-teal flex items-center justify-center">
 <i class="fas fa-hospital text-white text-lg"></i>
 </div>
-<span class="font-bold text-xl text-white">医疗设备信息平台</span>
+<span class="font-bold text-xl text-white">Medical Equipment Information Management Platform</span>
 </div>
 <div class="hidden md:flex items-center space-x-6 text-sm">
-<a href="#search-section" class="text-gray-300 hover:text-white transition-colors">搜索</a>
-<a href="#departments" class="text-gray-300 hover:text-white transition-colors">科室导航</a>
-<a href="#devices" class="text-gray-300 hover:text-white transition-colors">设备目录</a>
-<a href="#clinical-engineering" class="text-gray-300 hover:text-white transition-colors">医工科</a>
-<a href="#resources" class="text-gray-300 hover:text-white transition-colors">资源中心</a>
+<a href="#search-section" class="text-gray-300 hover:text-white transition-colors">Search</a><!--搜索-->
+<a href="#departments" class="text-gray-300 hover:text-white transition-colors">Department Navigation</a><!--科室导航-->
+<a href="#devices" class="text-gray-300 hover:text-white transition-colors">Device Catalog</a><!--设备目录-->
+<a href="#clinical-engineering" class="text-gray-300 hover:text-white transition-colors">Department of Medical Engineering</a><!--医工科-->
+<a href="#resources" class="text-gray-300 hover:text-white transition-colors">Resource Center</a><!--资源中心-->
 </div>
 </div>
 </div>
@@ -71,12 +71,12 @@ body { font-family: 'Inter', sans-serif; }
     <!-- 1. 搜索栏 -->
     <section id="search-section" class="mb-12 scroll-mt-24">
         <div class="max-w-3xl mx-auto text-center fade-in">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">设备资料快速检索</h1>
-            <p class="text-gray-400 mb-6">输入设备名称或型号，支持模糊搜索</p>
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Quick Equipment Data Retrieval</h1><!--设备资料快速检索<-->
+            <p class="text-gray-400 mb-6">Enter the device name or model, supports fuzzy search</p><!--输入设备名称或型号，支持模糊搜索 -->
             <div class="relative">
-                <input type="text" id="mainSearch" placeholder="例如：监护仪、X500、呼吸机..." 
+                <input type="text" id="mainSearch" placeholder="For example: monitor, X500, ventilator..."
                        class="search-input w-full px-6 py-4 pl-14 bg-medical-mid/70 border border-gray-700 rounded-2xl text-white text-lg focus:outline-none focus:border-primary-500 transition-all">
-                <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 text-xl"></i>
+                <i class="fas fa-search absolute left-5 top-1/2 -translate-y-1/2 text-gray-500 text-xl"></i> <!--例如：监护仪、X500、呼吸机...-->
             </div>
         </div>
     </section>
@@ -85,9 +85,9 @@ body { font-family: 'Inter', sans-serif; }
     <section id="departments" class="mb-12 scroll-mt-24">
         <div class="flex items-center justify-between mb-6">
             <h2 class="text-2xl font-bold text-white flex items-center">
-                <i class="fas fa-th-large text-primary-400 mr-3"></i>科室分类导航
+                <i class="fas fa-th-large text-primary-400 mr-3"></i>Department Classification Navigation
             </h2>
-            <button onclick="filterDevices('all')" class="text-sm text-primary-400 hover:underline">查看全部</button>
+            <button onclick="filterDevices('all')" class="text-sm text-primary-400 hover:underline">View All</button><!--查看全部-->
         </div>
         <div id="departmentsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             <!-- 动态生成 -->
@@ -99,18 +99,18 @@ body { font-family: 'Inter', sans-serif; }
         <div class="flex items-center justify-between mb-6">
             <div>
                 <h2 class="text-2xl font-bold text-white flex items-center">
-                    <i class="fas fa-server text-accent-teal mr-3"></i>设备目录
+                    <i class="fas fa-server text-accent-teal mr-3"></i>Device Catalog
                 </h2>
-                <p id="currentFilter" class="text-sm text-gray-500 mt-1">当前显示：全部设备</p>
+                <p id="currentFilter" class="text-sm text-gray-500 mt-1">Currently Displayed: All Devices</p>
             </div>
-            <span id="deviceCount" class="text-sm bg-medical-light px-3 py-1 rounded-full text-gray-400">共 0 台</span>
+            <span id="deviceCount" class="text-sm bg-medical-light px-3 py-1 rounded-full text-gray-400">Total 0 units</span>
         </div>
         <div id="devicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- 动态生成 -->
         </div>
         <div id="noResults" class="hidden text-center py-16 text-gray-500">
             <i class="fas fa-box-open text-4xl mb-4 opacity-20"></i>
-            <p>该科室暂无设备或未找到匹配项</p>
+            <p>This department currently has no equipment or no matching items were found.</p>
         </div>
     </section>
 
@@ -124,8 +124,8 @@ body { font-family: 'Inter', sans-serif; }
                         <i class="fas fa-user-cog text-white text-xl"></i>
                     </div>
                     <div>
-                        <h2 class="text-2xl font-bold text-white">医工科组织架构</h2>
-                        <p class="text-gray-400 text-sm">设备管理与技术支持团队</p>
+                        <h2 class="text-2xl font-bold text-white">Medical Engineering Organizational Structure</h2>
+                        <p class="text-gray-400 text-sm">Device Management and Technical Support Team</p>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -133,11 +133,11 @@ body { font-family: 'Inter', sans-serif; }
                         <div class="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center mb-4 shadow-lg">
                             <i class="fas fa-user-tie text-white text-3xl"></i>
                         </div>
-                        <h4 class="font-bold text-white text-lg">张工</h4>
+                        <h4 class="font-bold text-white text-lg">Mariya</h4>
                         <p class="text-primary-400 text-sm mb-2">科长 / 高级工程师</p>
                         <div class="text-xs text-gray-500 space-y-1">
-                            <p><i class="fas fa-phone mr-1"></i> 138-0000-0001</p>
-                            <p><i class="fas fa-envelope mr-1"></i> zhang@hospital.com</p>
+                            <p><i class="fas fa-phone mr-1"></i>+251914135312</p>
+                            <!-- <p><i class="fas fa-envelope mr-1"></i> zhang@hospital.com</p> -->
                         </div>
                     </div>
                     <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
@@ -148,7 +148,7 @@ body { font-family: 'Inter', sans-serif; }
                         <p class="text-primary-400 text-sm mb-2">影像组 / 工程师</p>
                         <div class="text-xs text-gray-500 space-y-1">
                             <p><i class="fas fa-phone mr-1"></i> 138-0000-0002</p>
-                            <p><i class="fas fa-envelope mr-1"></i> li@hospital.com</p>
+                            <!-- <p><i class="fas fa-envelope mr-1"></i> li@hospital.com</p> -->
                         </div>
                     </div>
                     <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
@@ -159,7 +159,7 @@ body { font-family: 'Inter', sans-serif; }
                         <p class="text-primary-400 text-sm mb-2">生命支持组 / 工程师</p>
                         <div class="text-xs text-gray-500 space-y-1">
                             <p><i class="fas fa-phone mr-1"></i> 138-0000-0003</p>
-                            <p><i class="fas fa-envelope mr-1"></i> wang@hospital.com</p>
+                            <!-- <p><i class="fas fa-envelope mr-1"></i> wang@hospital.com</p> -->
                         </div>
                     </div>
                     <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
@@ -170,7 +170,7 @@ body { font-family: 'Inter', sans-serif; }
                         <p class="text-primary-400 text-sm mb-2">检验组 / 工程师</p>
                         <div class="text-xs text-gray-500 space-y-1">
                             <p><i class="fas fa-phone mr-1"></i> 138-0000-0004</p>
-                            <p><i class="fas fa-envelope mr-1"></i> zhao@hospital.com</p>
+                            <!-- <p><i class="fas fa-envelope mr-1"></i> zhao@hospital.com</p> -->
                         </div>
                     </div>
                 </div>
@@ -238,8 +238,8 @@ body { font-family: 'Inter', sans-serif; }
     <div class="p-6 md:p-8">
         <div class="flex justify-between items-start mb-6">
             <div>
-                <h3 id="modal-device-name" class="text-2xl font-bold text-white">设备名称</h3>
-                <p id="modal-device-model" class="text-primary-400 text-sm mt-1">型号：XXX</p>
+                <h3 id="modal-device-name" class="text-2xl font-bold text-white">Device Name</h3>
+                <p id="modal-device-model" class="text-primary-400 text-sm mt-1">Model: XXX</p>
             </div>
             <button onclick="closeDeviceModal()" class="text-gray-500 hover:text-white text-2xl">
                 <i class="fas fa-times"></i>
@@ -249,14 +249,14 @@ body { font-family: 'Inter', sans-serif; }
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
                 <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
-                    <i class="fas fa-file-pdf text-red-400 mr-2"></i>设备说明书 (<span id="modal-manual-count">0</span>)
+                    <i class="fas fa-file-pdf text-red-400 mr-2"></i>Equipment Manual (<span id="modal-manual-count">0</span>)
                 </h4>
                 <div id="modal-manuals" class="space-y-2"></div>
             </div>
 
             <div>
                 <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
-                    <i class="fas fa-play-circle text-accent-teal mr-2"></i>操作视频 (<span id="modal-video-count">0</span>)
+                    <i class="fas fa-play-circle text-accent-teal mr-2"></i>Operation video (<span id="modal-video-count">0</span>)
                 </h4>
                 <div id="modal-videos" class="space-y-2"></div>
             </div>
@@ -273,7 +273,7 @@ body { font-family: 'Inter', sans-serif; }
             <iframe id="bilibiliPlayer" src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
         </div>
         <div class="p-4 flex justify-end bg-medical-mid">
-            <button onclick="closeVideoModal()" class="px-6 py-2 bg-gray-700 rounded-lg text-sm hover:bg-gray-600">关闭</button>
+            <button onclick="closeVideoModal()" class="px-6 py-2 bg-gray-700 rounded-lg text-sm hover:bg-gray-600">close</button>
         </div>
     </div>
 </div>
@@ -381,9 +381,9 @@ function filterDevices(deptId) {
     const filtered = deptId === 'all' ? devicesData : devicesData.filter(d => d.deptId === deptId);
     renderDevices(filtered);
     
-    const deptName = deptId === 'all' ? '全部设备' : (departments.find(d => d.id === deptId)?.name || '');
+    const deptName = deptId === 'all' ? 'All equipment' : (departments.find(d => d.id === deptId)?.name || '');
     const filterText = document.getElementById('currentFilter');
-    if(filterText) filterText.textContent = `当前显示：${deptName}`;
+    if(filterText) filterText.textContent = `Currently showing:${deptName}`;
     
     const devicesSection = document.getElementById('devices');
     if(devicesSection) devicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -415,15 +415,15 @@ function renderDevices(data) {
                     <i class="fas fa-cube text-primary-400 text-lg"></i>
                 </div>
                 <span class="text-xs bg-medical-light px-2 py-1 rounded text-gray-400">
-                    ${departments.find(d => d.id === device.deptId)?.name || '未知'}
+                    ${departments.find(d => d.id === device.deptId)?.name || 'Unknow'}
                 </span>
             </div>
             <h3 class="font-semibold text-lg text-white mb-1">${device.name}</h3>
-            <p class="text-sm text-gray-500 mb-3">型号：${device.model}</p>
+            <p class="text-sm text-gray-500 mb-3">Modal：${device.model}</p>
             <p class="text-sm text-gray-400 line-clamp-2 h-10">${device.description}</p>
             <div class="mt-4 pt-3 border-t border-gray-700/50 flex justify-between text-xs text-gray-500">
-                <span><i class="fas fa-file-pdf mr-1 text-red-400"></i>${device.manuals.length} 份文档</span>
-                <span><i class="fas fa-video mr-1 text-primary-400"></i>${device.videos.length} 个视频</span>
+                <span><i class="fas fa-file-pdf mr-1 text-red-400"></i>${device.manuals.length} documents</span>
+                <span><i class="fas fa-video mr-1 text-primary-400"></i>${device.videos.length} video</span>
             </div>
         </div>
     `).join('');
@@ -487,14 +487,14 @@ function openDeviceModal(uid) {
             </div>
             <div class="flex space-x-2">
                 <a href="${getPreviewUrl(m.url)}" target="_blank" class="flex-1 text-center px-3 py-1.5 bg-primary-500/20 rounded text-primary-300 text-xs hover:bg-primary-500/30 transition-colors">
-                    <i class="fas fa-eye mr-1"></i>在线预览
+                    <i class="fas fa-eye mr-1"></i>Online Preview
                 </a>
                 <a href="${getDownloadUrl(m.url)}" download class="flex-1 text-center px-3 py-1.5 bg-gray-600/30 rounded text-gray-300 text-xs hover:bg-gray-600/50 transition-colors">
-                    <i class="fas fa-download mr-1"></i>下载
+                    <i class="fas fa-download mr-1"></i>Download
                 </a>
             </div>
         </div>
-    `).join('') : '<p class="text-gray-500 text-sm">暂无说明书</p>';
+    `).join('') : '<p class="text-gray-500 text-sm">Manual not available</p>';
 
     const videosContainer = document.getElementById('modal-videos');
     document.getElementById('modal-video-count').textContent = device.videos.length;
@@ -506,7 +506,7 @@ function openDeviceModal(uid) {
             </div>
             <i class="fas fa-chevron-right text-gray-500 text-xs"></i>
         </div>
-    `).join('') : '<p class="text-gray-500 text-sm">暂无视频</p>';
+    `).join('') : '<p class="text-gray-500 text-sm">No video available</p>';
 
     document.getElementById('deviceModal').classList.add('active');
 }
@@ -621,7 +621,7 @@ try {
             deptId: 'cardiology', 
             description: 'Cardiac Electrophysiology Examination and Treatment',
             manuals: [
-                { title: 'Technical Manual', url: '' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/12eb3b393dcd3af17177a6836cc7deb2a1d39c80/Electrophysiology%20Recording%20System-compressed.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: '' }
