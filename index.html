@@ -285,25 +285,25 @@ body { font-family: 'Inter', sans-serif; }
 <script>
 // 1. 科室列表
 const departments = [
-    { id: 'clinical_eng', name: '医工科', icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },
-    { id: 'emergency', name: '急诊科', icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },
+    { id: 'clinical_eng', name: 'Biomedical Engineering', icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },//医工科
+    { id: 'emergency', name: 'Emergency', icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },//急诊科
     { id: 'icu', name: 'ICU', icon: 'fa-procedures', color: 'from-red-600 to-rose-600' },
-    { id: 'surgery', name: '手术室', icon: 'fa-user-md', color: 'from-green-600 to-teal-600' },
-    { id: 'radiology', name: '放射科', icon: 'fa-x-ray', color: 'from-gray-500 to-blue-500' },
-    { id: 'respiratory', name: '呼吸科', icon: 'fa-lungs', color: 'from-cyan-500 to-blue-500' },
-    { id: 'cardiology', name: '心内科', icon: 'fa-heartbeat', color: 'from-rose-500 to-red-500' },
-    { id: 'lab', name: '检验科', icon: 'fa-microscope', color: 'from-blue-500 to-indigo-500' },
-    { id: 'dialysis', name: '血透室', icon: 'fa-tint', color: 'from-red-400 to-rose-400' },
-    { id: 'endocrine', name: '内分泌科', icon: 'fa-syringe', color: 'from-teal-400 to-cyan-400' }, // 新增内分泌科
-    { id: 'rehab', name: '康复科', icon: 'fa-walking', color: 'from-green-500 to-teal-500' },
-    { id: 'obstetrics', name: '妇产科', icon: 'fa-baby', color: 'from-pink-500 to-rose-500' },
-    { id: 'dental', name: '牙科', icon: 'fa-tooth', color: 'from-blue-400 to-cyan-400' },
-    { id: 'ophthalmology', name: '眼科', icon: 'fa-eye', color: 'from-indigo-500 to-purple-500' },
-    { id: 'ent', name: '耳鼻喉科', icon: 'fa-head-side-virus', color: 'from-yellow-500 to-amber-500' },
-    { id: 'endoscopy', name: '内镜室', icon: 'fa-search', color: 'from-emerald-500 to-green-500' },
-    { id: 'neurology', name: '神经内科', icon: 'fa-brain', color: 'from-violet-500 to-purple-500' },
-    { id: 'pathology', name: '病理实验室', icon: 'fa-vials', color: 'from-slate-500 to-gray-600' },
-    { id: 'sterilization', name: '消毒供应室', icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }
+    { id: 'surgery', name: 'OR', icon: 'fa-user-md', color: 'from-green-600 to-teal-600' },//手术室
+    { id: 'radiology', name: 'Radiology', icon: 'fa-x-ray', color: 'from-gray-500 to-blue-500' },//放射科
+    { id: 'respiratory', name: 'Respiratory', icon: 'fa-lungs', color: 'from-cyan-500 to-blue-500' },//呼吸科
+    { id: 'cardiology', name: 'Cardiology', icon: 'fa-heartbeat', color: 'from-rose-500 to-red-500' },//心内科
+    { id: 'lab', name: 'Laboratory', icon: 'fa-microscope', color: 'from-blue-500 to-indigo-500' },//检验科
+    { id: 'dialysis', name: 'Dialysis', icon: 'fa-tint', color: 'from-red-400 to-rose-400' },//透析
+    { id: 'endocrine', name: 'Endocrine', icon: 'fa-syringe', color: 'from-teal-400 to-cyan-400' }, // 新增内分泌科
+    { id: 'rehab', name: 'Physical Therapy', icon: 'fa-walking', color: 'from-green-500 to-teal-500' },//康复理疗
+    { id: 'obstetrics', name: 'Obstetrics', icon: 'fa-baby', color: 'from-pink-500 to-rose-500' },//妇产
+    { id: 'dental', name: 'Dental', icon: 'fa-tooth', color: 'from-blue-400 to-cyan-400' },//牙科
+    { id: 'ophthalmology', name: 'Ophthalmology', icon: 'fa-eye', color: 'from-indigo-500 to-purple-500' },//眼科
+    { id: 'ent', name: 'ENT', icon: 'fa-head-side-virus', color: 'from-yellow-500 to-amber-500' },//ent
+    { id: 'endoscopy', name: 'Endoscopy', icon: 'fa-search', color: 'from-emerald-500 to-green-500' },//内镜室
+    { id: 'neurology', name: 'Neurology', icon: 'fa-brain', color: 'from-violet-500 to-purple-500' },//神内科
+    { id: 'pathology', name: 'Pathology', icon: 'fa-vials', color: 'from-slate-500 to-gray-600' },//病理
+    { id: 'sterilization', name: 'CSSD', icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }//消毒供应
 ];
 
 // 2. 设备数据声明
