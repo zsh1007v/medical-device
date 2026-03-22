@@ -572,17 +572,933 @@ try {
         // ################################################################
         // ################################################################
         // ################################################################
-        // ################################################################
-        // ################################################################
-        // ################################################################
+        // 1. 临时起搏器 (Folder 1)
         {
-    // 中文名称: 骨科动力系统
+            // 中文名称: 临时起搏器
+            name: 'Temporary Pacemaker',
+            model: 'PACE T10',
+            deptId: 'cardiology',
+            description: 'Temporary cardiac pacing device for emergency and perioperative cardiac rhythm management. Provides external electrical stimulation to maintain heart rate in patients with bradycardia or heart block.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/temporary_pacemaker_pace_t10.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'pace_t10_demo' }
+            ]
+        },
+        
+        // 2. 呼吸机 (Folder 2)
+        {
+            // 中文名称: 呼吸机
+            name: 'Ventilator',
+            model: 'VT5250',
+            deptId: 'respiratory',
+            description: 'Mechanical ventilator for respiratory support in critical care settings. Provides controlled ventilation modes including volume control, pressure control, and spontaneous breathing support for patients with respiratory failure.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/ventilator_vt5250.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'vt5250_demo' }
+            ]
+        },
+        
+        // 3. 心肺复苏机 (Folder 3)
+        {
+            // 中文名称: 心肺复苏机
+            name: 'CPR Machine',
+            model: 'Shangrila510',
+            deptId: 'emergency',
+            description: 'Automated cardiopulmonary resuscitation device providing consistent chest compressions during cardiac arrest. Ensures high-quality CPR with standardized compression depth and rate, reducing rescuer fatigue.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/cpr_machine_shangrila510.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'shangrila510_demo' }
+            ]
+        },
+        
+        // 6. 吸引器 (Folder 6)
+        {
+            // 中文名称: 吸引器
+            name: 'Suction Pump',
+            model: 'Tongai',
+            deptId: 'surgery',
+            description: 'Medical suction pump for removing fluids, secretions, and debris during surgical procedures and patient care. Provides adjustable vacuum pressure for various clinical applications.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/suction_pump_tongai.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'suction_pump_demo' }
+            ]
+        },
+        
+        // 7. 升温毯 (Folder 7)
+        {
+            // 中文名称: 升温毯
+            name: 'Patient Warming Blanket',
+            model: 'ZLJ-2000',
+            deptId: 'surgery',
+            description: 'Forced-air patient warming system for maintaining normothermia during surgery. Prevents perioperative hypothermia and associated complications through controlled warm air circulation.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/warming_blanket_zlj2000.docx' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'warming_blanket_demo' }
+            ]
+        },
+        
+        // 8. 输液泵 (Folder 8)
+        {
+            // 中文名称: 输液泵
+            name: 'Infusion Pump',
+            model: 'VP3',
+            deptId: 'icu',
+            description: 'Volumetric infusion pump for precise intravenous fluid and medication delivery. Features programmable flow rates, bolus dosing, and alarm systems for safe patient therapy.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/infusion_pump_vp3.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'infusion_pump_vp3_demo' }
+            ]
+        },
+        
+        // 9. 注射泵 (Folder 9)
+        {
+            // 中文名称: 注射泵
+            name: 'Syringe Pump',
+            model: 'SP3D',
+            deptId: 'icu',
+            description: 'Syringe pump for precise controlled delivery of medications and fluids. Suitable for critical care applications requiring accurate small-volume infusions.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/syringe_pump_sp3d.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'syringe_pump_sp3d_demo' }
+            ]
+        },
+        
+        // 5. 洗胃机 (Folder 5)
+        {
+            // 中文名称: 洗胃机
+            name: 'Gastric Lavage Machine',
+            model: 'GL-100',
+            deptId: 'emergency',
+            description: 'Medical device for gastric decontamination and lavage procedures. Used in emergency medicine for poison ingestion treatment, gastric content removal, and preoperative stomach preparation.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/gastric_lavage_machine.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'gastric_lavage_demo' }
+            ]
+        },
+        
+        // 10. 高端电动病床 (Folder 10)
+        {
+            // 中文名称: 高端电动病床
+            name: 'High Level Electric Bed',
+            model: 'HL-EB100',
+            deptId: 'clinical_eng',
+            description: 'Advanced electric hospital bed with multiple positioning options. Features height adjustment, Trendelenburg positioning, side rail controls, and integrated scale for patient monitoring and comfort.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/high_level_electric_bed.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'electric_bed_demo' }
+            ]
+        },
+        
+        // 11. 病人监护仪 (Folder 11)
+        {
+            // 中文名称: 病人监护仪
+            name: 'Patient Monitor',
+            model: 'iMEC10',
+            deptId: 'icu',
+            description: 'Multi-parameter patient monitoring system for continuous vital signs monitoring. Measures ECG, SpO2, NIBP, temperature, and respiration rate with alarm functions for critical care environments.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/patient_monitor_imec10.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'imec10_demo' }
+            ]
+        },
+        
+        // 12. 胎儿监护仪 (Folder 12)
+        {
+            // 中文名称: 胎儿监护仪
+            name: 'Fetal Monitor',
+            model: 'F9',
+            deptId: 'obstetrics',
+            description: 'Electronic fetal monitoring system for antepartum and intrapartum surveillance. Monitors fetal heart rate, uterine contractions, and fetal movement to assess fetal well-being during pregnancy and labor.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/fetal_monitor_f9.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'fetal_monitor_f9_demo' }
+            ]
+        },
+        
+        // 13. 除颤监护仪 (Folder 13)
+        {
+            // 中文名称: 除颤监护仪
+            name: 'Defibrillator Monitor',
+            model: 'Zoll M-series',
+            deptId: 'emergency',
+            description: 'Combined defibrillator and patient monitor for emergency cardiac care. Provides biphasic defibrillation, synchronized cardioversion, external pacing, and continuous vital signs monitoring.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/defibrillator_zoll_m_series.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'zoll_m_series_demo' }
+            ]
+        },
+        
+        // 14. 轮转式切片机 (Folder 14)
+        {
+            // 中文名称: 轮转式切片机
+            name: 'Rotary Microtome',
+            model: 'JJQ-P3116',
+            deptId: 'pathology',
+            description: 'Precision rotary microtome for histological tissue sectioning. Produces thin tissue slices (2-60 microns) for microscopic examination in pathology laboratories.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/rotary_microtome_jjq_p3116.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'microtome_demo' }
+            ]
+        },
+        
+        // 15. 半自动冷冻切片机 (Folder 15)
+        {
+            // 中文名称: 半自动冷冻切片机
+            name: 'Cryostat Microtome',
+            model: 'JJQ-L2016',
+            deptId: 'pathology',
+            description: 'Semi-automatic cryostat for frozen tissue sectioning. Maintains low temperature (-20°C to -30°C) for rapid intraoperative pathology diagnosis and fresh tissue analysis.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/cryostat_microtome_jjq_l2016.docx' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'cryostat_demo' }
+            ]
+        },
+        
+        // 16. 摊烤片机 (Folder 16)
+        {
+            // 中文名称: 摊烤片机
+            name: 'Tissue Spreading Machine',
+            model: 'JK-6',
+            deptId: 'pathology',
+            description: 'Tissue spreading and baking device for histology specimen preparation. Flattens and adheres tissue sections to microscope slides through controlled heating and water flotation.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/tissue_spreading_machine_jk6.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'spreading_machine_demo' }
+            ]
+        },
+        
+        // 17. 摊片机 (Folder 17)
+        {
+            // 中文名称: 摊片机
+            name: 'Water Bath',
+            model: 'JK-5',
+            deptId: 'pathology',
+            description: 'Histology water bath for tissue section flotation and mounting. Maintains constant temperature for flattening paraffin-embedded tissue sections onto microscope slides.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/water_bath_jk5.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'water_bath_demo' }
+            ]
+        },
+        
+        // 18. 组织脱水机 (Folder 18)
+        {
+            // 中文名称: 组织脱水机
+            name: 'Tissue Processor',
+            model: 'JT-12K',
+            deptId: 'pathology',
+            description: 'Automated tissue processing system for histological specimen preparation. Performs sequential dehydration, clearing, and paraffin infiltration of tissue samples for embedding.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/tissue_processor_jt12k.docx' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'tissue_processor_demo' }
+            ]
+        },
+        
+        // 19. 组织包埋机 (Folder 19)
+        {
+            // 中文名称: 组织包埋机
+            name: 'Tissue Embedding Machine',
+            model: 'L6',
+            deptId: 'pathology',
+            description: 'Tissue embedding center for paraffin block preparation. Provides heated paraffin dispensing and cooling platforms for orienting and embedding processed tissue specimens.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/tissue_embedding_machine_l6.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'embedding_machine_demo' }
+            ]
+        },
+        
+        // 20. 自动染色机 (Folder 20)
+        {
+            // 中文名称: 自动染色机
+            name: 'Automatic Staining Machine',
+            model: 'CW600',
+            deptId: 'pathology',
+            description: 'Automated histological staining system for routine H&E and special stains. Provides consistent, high-throughput staining of tissue sections with programmable protocols.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/automatic_staining_machine_cw600.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'staining_machine_demo' }
+            ]
+        },
+        
+        // 20b. 自动盖片机 (Folder 20)
+        {
+            // 中文名称: 自动盖片机
+            name: 'Robotic Coverslipper',
+            model: 'CW600',
+            deptId: 'pathology',
+            description: 'Automated coverslipping device for histology slides. Applies uniform mounting medium and glass coverslips to stained tissue sections for permanent preservation.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/robotic_coverslipper_cw600.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'coverslipper_demo' }
+            ]
+        },
+        
+        // 21. 细胞涂片离心机 (Folder 21)
+        {
+            // 中文名称: 细胞涂片离心机
+            name: 'Cytology Centrifuge',
+            model: 'JCT-9',
+            deptId: 'pathology',
+            description: 'Cytology centrifuge for liquid-based cytology specimen preparation. Concentrates cells onto microscope slides for Pap smear and other cytological examinations.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/cytology_centrifuge_jct9.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'cytology_centrifuge_demo' }
+            ]
+        },
+        
+        // 23. 大体标本照相系统 (Folder 23)
+        {
+            // 中文名称: 大体标本照相系统
+            name: 'Gross Specimen Imaging System',
+            model: 'Image Workstation',
+            deptId: 'pathology',
+            description: 'Digital imaging workstation for gross pathology specimen photography. Captures high-resolution images of surgical specimens for documentation and pathology reports.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/gross_specimen_imaging.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'specimen_imaging_demo' }
+            ]
+        },
+        
+        // 24. 液基薄层细胞制片机 (Folder 24)
+        {
+            // 中文名称: 液基薄层细胞制片机
+            name: 'Liquid Based Cytology Processor',
+            model: 'JCT-10',
+            deptId: 'pathology',
+            description: 'Liquid-based cytology preparation system for Pap smear testing. Processes cervical samples to produce thin-layer cell monolayers for improved cytological evaluation.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/liquid_cytology_processor_jct10.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'cytology_processor_demo' }
+            ]
+        },
+        
+        // 25. 解剖台 (Folder 25)
+        {
+            // 中文名称: 解剖台
+            name: 'Autopsy Table',
+            model: 'KLT-J650',
+            deptId: 'pathology',
+            description: 'Stainless steel autopsy table for post-mortem examinations. Features integrated drainage, height adjustment, and washing systems for forensic and hospital pathology use.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/autopsy_table_klt_j650.docx' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'autopsy_table_demo' }
+            ]
+        },
+        
+        // 26. 超低温冰箱 (Folder 26)
+        {
+            // 中文名称: 超低温冰箱
+            name: 'Ultra-Low Temperature Freezer',
+            model: '-86°C Series',
+            deptId: 'lab',
+            description: 'Ultra-low temperature freezer for long-term biological sample storage. Maintains temperatures at -86°C for preservation of tissues, cells, and reagents in research and clinical laboratories.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/ultra_low_freezer.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'ultra_freezer_demo' }
+            ]
+        },
+        
+        // 27. 生物显微镜 (Folder 27)
+        {
+            // 中文名称: 生物显微镜
+            name: 'Biological Microscope',
+            model: 'UB203i',
+            deptId: 'lab',
+            description: 'Research-grade biological microscope for clinical and research applications. Features infinity-corrected optics, LED illumination, and multiple observation modes for histology and cytology.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/biological_microscope_ub203i.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'microscope_ub203i_demo' }
+            ]
+        },
+        
+        // 28. 研究显微镜 (Folder 28)
+        {
+            // 中文名称: 研究显微镜
+            name: 'Research Microscope',
+            model: 'UB203i',
+            deptId: 'lab',
+            description: 'Advanced research microscope with digital imaging capabilities. Equipped with high-resolution optics and camera adapter for documentation and quantitative analysis.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/research_microscope_ub203i.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'research_microscope_demo' }
+            ]
+        },
+        
+        // 28b. 数码相机 (Folder 28)
+        {
+            // 中文名称: 数码相机
+            name: 'Digital Camera',
+            model: 'Microscope Camera',
+            deptId: 'lab',
+            description: 'High-resolution digital camera for microscope imaging. Captures still images and video from microscope eyepieces for documentation and analysis.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/digital_camera_microscope.docx' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'digital_camera_demo' }
+            ]
+        },
+        
+        // 29. 自动染色机 (Folder 29)
+        {
+            // 中文名称: 自动染色机
+            name: 'Autostainer',
+            model: 'Basic',
+            deptId: 'pathology',
+            description: 'Automated slide staining system for histology and cytology laboratories. Provides consistent, reproducible staining results with minimal operator intervention.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/autostainer_basic.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'autostainer_demo' }
+            ]
+        },
+        
+        // 30. 玻片书写仪 (Folder 30)
+        {
+            // 中文名称: 玻片书写仪
+            name: 'Slide Printer',
+            model: 'GB302 Plus',
+            deptId: 'pathology',
+            description: 'Automated slide labeling system for histology laboratories. Prints patient information directly onto microscope slides to prevent identification errors.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/slide_printer_gb302.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'slide_printer_demo' }
+            ]
+        },
+        
+        // 30b. 组织盒书写仪 (Folder 30)
+        {
+            // 中文名称: 组织盒书写仪
+            name: 'Cassette Printer',
+            model: 'TB401',
+            deptId: 'pathology',
+            description: 'Tissue cassette printing system for histology specimen tracking. Prints barcodes and text on tissue cassettes for accurate specimen identification throughout processing.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/cassette_printer_tb401.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'cassette_printer_demo' }
+            ]
+        },
+        
+        // 31. 取材台 (Folder 31)
+        {
+            // 中文名称: 取材台
+            name: 'Cutting-up Bench',
+            model: '1800',
+            deptId: 'pathology',
+            description: 'Grossing station for surgical specimen examination and sampling. Features integrated exhaust, washing system, and workspace lighting for safe tissue handling.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/cutting_up_bench_1800.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'cutting_up_bench_demo' }
+            ]
+        },
+        
+        // 32. 蒸汽灭菌器 (Folder 32)
+        {
+            // 中文名称: 蒸汽灭菌器
+            name: 'Steam Sterilizer',
+            model: 'MOST-T',
+            deptId: 'sterilization',
+            description: 'High-pressure steam sterilization system for surgical instruments and medical devices. Uses saturated steam under pressure to achieve complete microbial inactivation.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/steam_sterilizer_most_t.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'steam_sterilizer_demo' }
+            ]
+        },
+        
+        // 33. 超声波清洗机 (Folder 33)
+        {
+            // 中文名称: 超声波清洗机
+            name: 'Ultrasonic Washer',
+            model: 'QX2000',
+            deptId: 'sterilization',
+            description: 'Ultrasonic cleaning system for surgical instrument pre-sterilization processing. Uses cavitation to remove soil and debris from complex instrument surfaces.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/ultrasonic_washer_qx2000.docx' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'ultrasonic_washer_demo' }
+            ]
+        },
+        
+        // 35. 医用封口机 (Folder 35)
+        {
+            // 中文名称: 医用封口机
+            name: 'Medical Sealing Machine',
+            model: 'XH101-T',
+            deptId: 'sterilization',
+            description: 'Heat sealing device for sterilization pouches and packaging. Creates validated seals on sterilization wraps to maintain sterility of packaged instruments.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/medical_sealing_machine_xh101.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'sealing_machine_demo' }
+            ]
+        },
+        
+        // 36. 高频电刀检测仪 (Folder 36)
+        {
+            // 中文名称: 高频电刀检测仪
+            name: 'Electrosurgical Analyzer',
+            model: 'ESA-100',
+            deptId: 'clinical_eng',
+            description: 'Electrosurgical unit analyzer for testing and calibrating high-frequency surgical equipment. Measures power output, leakage current, and waveform characteristics to ensure safe operation.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/electrosurgical_analyzer.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'esa_analyzer_demo' }
+            ]
+        },
+        
+        // 37. 气体流量分析仪 (Folder 37)
+        {
+            // 中文名称: 气体流量分析仪
+            name: 'Gas Flow Analyzer',
+            model: 'GFA-200',
+            deptId: 'clinical_eng',
+            description: 'Medical gas flow analyzer for testing anesthesia machines and ventilators. Measures flow rates, pressure, and oxygen concentration to verify equipment performance and safety.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/gas_flow_analyzer.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'gas_flow_analyzer_demo' }
+            ]
+        },
+        
+        // 38. 婴儿培养箱 (Folder 38)
+        {
+            // 中文名称: 婴儿培养箱
+            name: 'Infant Incubator',
+            model: 'YP-100B',
+            deptId: 'pediatrics',
+            description: 'Neonatal incubator for maintaining stable thermal environment for premature and sick newborns. Provides temperature control, humidity regulation, and oxygen therapy capabilities.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/infant_incubator_yp100b.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'infant_incubator_demo' }
+            ]
+        },
+        
+        // 39. 输液泵分析仪 (Folder 39)
+        {
+            // 中文名称: 输液泵分析仪
+            name: 'Infusion Pump Analyzer',
+            model: 'IPA-300',
+            deptId: 'clinical_eng',
+            description: 'Infusion pump performance analyzer for quality assurance testing. Verifies flow rate accuracy, occlusion pressure, and alarm functionality of infusion devices.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/infusion_pump_analyzer.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'pump_analyzer_demo' }
+            ]
+        },
+        
+        // 40. 神经递质测试仪 (Folder 40)
+        {
+            // 中文名称: 神经递质测试仪
+            name: 'Neurotransmitter Tester',
+            model: 'NTT-500',
+            deptId: 'neurology',
+            description: 'Neurotransmitter testing device for measuring brain chemical levels. Used in research and clinical settings for studying neurological and psychiatric conditions.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/neurotransmitter_tester.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'neurotransmitter_tester_demo' }
+            ]
+        },
+        
+        // 41. 无创血压模拟测试仪 (Folder 41)
+        {
+            // 中文名称: 无创血压模拟测试仪
+            name: 'NIBP Simulator Tester',
+            model: 'BP-Pump2',
+            deptId: 'clinical_eng',
+            description: 'Non-invasive blood pressure simulator for testing patient monitors. Generates accurate blood pressure simulations to verify NIBP measurement accuracy and performance.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/nibp_simulator_tester.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'nibp_simulator_demo' }
+            ]
+        },
+        
+        // 42. X射线检测仪 (Folder 42)
+        {
+            // 中文名称: X射线检测仪
+            name: 'X-Ray Detector',
+            model: 'Multi-function',
+            deptId: 'clinical_eng',
+            description: 'Multi-function X-ray detector for testing radiography and fluoroscopy equipment. Measures radiation dose, kVp, exposure time, and beam quality for quality assurance.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/xray_detector.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'xray_detector_demo' }
+            ]
+        },
+        
+        // 43. 血氧饱和度测试仪 (Folder 43)
+        {
+            // 中文名称: 血氧饱和度测试仪
+            name: 'SpO2 Simulator',
+            model: 'SpO2-Test',
+            deptId: 'clinical_eng',
+            description: 'Pulse oximeter simulator for testing SpO2 monitors. Simulates various oxygen saturation levels and pulse rates to verify monitor accuracy and alarm functions.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/spo2_simulator.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'spo2_simulator_demo' }
+            ]
+        },
+        
+        // 44. 超声分析仪 (Folder 44)
+        {
+            // 中文名称: 超声分析仪
+            name: 'Ultrasound Analyzer',
+            model: 'KS107BD',
+            deptId: 'clinical_eng',
+            description: 'Ultrasound phantom and analyzer for testing diagnostic ultrasound equipment. Evaluates image quality, resolution, and system performance using tissue-mimicking phantoms.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/ultrasound_analyzer_ks107bd.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'ultrasound_analyzer_demo' }
+            ]
+        },
+        
+        // 46. 血液透析机检测仪 (Folder 46)
+        {
+            // 中文名称: 血液透析机检测仪
+            name: 'Hemodialysis Machine Analyzer',
+            model: '90XL',
+            deptId: 'dialysis',
+            description: 'Dialysis machine performance analyzer for quality assurance testing. Measures conductivity, pH, temperature, and pressure parameters of dialysis fluid delivery systems.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/hemodialysis_analyzer_90xl.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'dialysis_analyzer_demo' }
+            ]
+        },
+        
+        // 47. 医用冰箱 (Folder 47)
+        {
+            // 中文名称: 医用冰箱
+            name: 'Medical Refrigerator',
+            model: 'YL90270',
+            deptId: 'lab',
+            description: 'Medical-grade refrigerator for temperature-sensitive pharmaceuticals and biologicals. Maintains 2-8°C with temperature monitoring and alarm systems for medication safety.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/medical_refrigerator_yl90270.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'medical_refrigerator_demo' }
+            ]
+        },
+        
+        // 48. 生物安全柜 (Folder 48)
+        {
+            // 中文名称: 生物安全柜
+            name: 'Biological Safety Cabinet',
+            model: '1300A2',
+            deptId: 'lab',
+            description: 'Class II biological safety cabinet for personnel and sample protection. Provides HEPA-filtered laminar airflow for safe handling of biological materials in laboratory settings.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/biological_safety_cabinet_1300a2.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'biosafety_cabinet_demo' }
+            ]
+        },
+        
+        // 49. 冰冻血浆解冻机 (Folder 49)
+        {
+            // 中文名称: 冰冻血浆解冻机
+            name: 'Plasma Thawing Machine',
+            model: 'PT-100',
+            deptId: 'lab',
+            description: 'Rapid plasma thawing system for blood bank applications. Thaws frozen plasma units quickly and safely while maintaining product quality and preventing overheating.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/plasma_thawing_machine.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'plasma_thawing_demo' }
+            ]
+        },
+        
+        // 50. 低速离心机 (Folder 50)
+        {
+            // 中文名称: 低速离心机
+            name: 'Low Speed Centrifuge',
+            model: 'L500',
+            deptId: 'lab',
+            description: 'General purpose low-speed centrifuge for clinical laboratory applications. Separates blood components and other biological samples at controlled speeds up to 5000 rpm.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/low_speed_centrifuge_l500.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'low_speed_centrifuge_demo' }
+            ]
+        },
+        
+        // 51. 低温大容量离心机 (Folder 51)
+        {
+            // 中文名称: 低温大容量离心机
+            name: 'Low Temperature Centrifuge',
+            model: 'CL5',
+            deptId: 'lab',
+            description: 'Refrigerated high-capacity centrifuge for temperature-sensitive sample processing. Maintains low temperatures during centrifugation for preservation of labile biological components.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/low_temperature_centrifuge_cl5.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'refrigerated_centrifuge_demo' }
+            ]
+        },
+        
+        // 52. 血库冰柜 (Folder 52)
+        {
+            // 中文名称: 血库冰柜
+            name: 'Blood Bank Freezer',
+            model: 'XC-588L',
+            deptId: 'lab',
+            description: 'Blood bank freezer for plasma and cryoprecipitate storage. Maintains -30°C to -40°C with temperature monitoring for blood component preservation.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/blood_bank_freezer_xc588l.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'blood_bank_freezer_demo' }
+            ]
+        },
+        
+        // 53. 血库冰箱 (Folder 53)
+        {
+            // 中文名称: 血库冰箱
+            name: 'Blood Bank Refrigerator',
+            model: 'XC-240_280',
+            deptId: 'lab',
+            description: 'Blood bank refrigerator for whole blood and red cell storage. Maintains 1-6°C with continuous temperature monitoring and alarm systems for blood safety.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/blood_bank_refrigerator_xc240.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'blood_bank_refrigerator_demo' }
+            ]
+        },
+        
+        // 54. 血细胞分离机 (Folder 54)
+        {
+            // 中文名称: 血细胞分离机
+            name: 'Blood Cell Separator',
+            model: 'MCS+',
+            deptId: 'lab',
+            description: 'Automated blood cell separation system for apheresis procedures. Collects specific blood components (platelets, plasma, stem cells) while returning remaining components to donor.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/blood_cell_separator_mcs.docx' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'cell_separator_demo' }
+            ]
+        },
+        
+        // 55. 流式细胞仪 (Folder 55)
+        {
+            // 中文名称: 流式细胞仪
+            name: 'Flow Cytometer',
+            model: 'BriCyte E6',
+            deptId: 'lab',
+            description: 'Advanced flow cytometry system for cell analysis and sorting. Provides multi-parameter immunophenotyping, DNA analysis, and cell counting for clinical diagnostics and research applications.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/flow_cytometer_bricyte_e6.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'bricyte_e6_demo' }
+            ]
+        },
+        
+        // 56. 眼科手术床 (Folder 56)
+        {
+            // 中文名称: 眼科手术床
+            name: 'Ophthalmic Operating Table',
+            model: '903-D',
+            deptId: 'ophthalmology',
+            description: 'Specialized operating table designed for ophthalmic surgical procedures. Features precise positioning, headrest adjustment, and compatibility with ophthalmic surgical microscopes.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/ophthalmic_operating_table_903d.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'ophthalmic_table_demo' }
+            ]
+        },
+        
+        // 57. 遥控电动床 (Folder 57)
+        {
+            // 中文名称: 遥控电动床
+            name: 'Remote Control Electric Bed',
+            model: 'BS-836A',
+            deptId: 'clinical_eng',
+            description: 'Electric hospital bed with wireless remote control for patient positioning. Features height adjustment, backrest and leg rest elevation, and Trendelenburg positioning for patient comfort and care.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/remote_control_bed_bs836a.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'remote_bed_demo' }
+            ]
+        },
+        
+        // 58. 高级护理床 (Folder 58)
+        {
+            // 中文名称: 高级护理床
+            name: 'Advanced Nursing Bed',
+            model: 'BS-858',
+            deptId: 'clinical_eng',
+            description: 'Premium nursing bed with advanced features for long-term patient care. Includes electric positioning, side rails, IV pole mounts, and integrated patient monitoring accessories.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/advanced_nursing_bed_bs858.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'nursing_bed_demo' }
+            ]
+        },
+        
+        // 59. 病床 (Folder 59)
+        {
+            // 中文名称: 病床
+            name: 'Hospital Bed',
+            model: 'BS-839',
+            deptId: 'clinical_eng',
+            description: 'Standard hospital bed for general patient care. Features manual or electric height adjustment, Fowler positioning, and durable construction for hospital ward use.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/hospital_bed_bs839.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'hospital_bed_demo' }
+            ]
+        },
+        
+        // 60. 医用婴儿床 (Folder 60)
+        {
+            // 中文名称: 医用婴儿床
+            name: 'Medical Infant Bed',
+            model: 'BS-808C',
+            deptId: 'pediatrics',
+            description: 'Medical-grade infant bed designed for neonatal and pediatric care. Features transparent bassinet, height adjustment, and safety features for newborn and infant patient care.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/medical_infant_bed_bs808c.xls' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'infant_bed_demo' }
+            ]
+        },
+        
+        // 61. 儿童床 (Folder 61)
+        {
+            // 中文名称: 儿童床
+            name: 'Pediatric Bed',
+            model: 'BS-832A',
+            deptId: 'pediatrics',
+            description: 'Pediatric hospital bed designed for children and adolescents. Features adjustable height, side rails, and child-friendly design for safe and comfortable patient care.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/pediatric_bed_bs832a.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'pediatric_bed_demo' }
+            ]
+        },
+        
+        // 62. 电休克治疗设备 (Folder 62)
+        {
+            // 中文名称: 电休克治疗设备
+            name: 'ECT Machine',
+            model: 'Thymatron',
+            deptId: 'psychiatry',
+            description: 'Electroconvulsive therapy device for treating severe depression and psychiatric disorders. Delivers controlled electrical stimulation to induce therapeutic seizures under anesthesia.',
+            manuals: [
+                { title: 'User Manual', url: '/manuals/ect_machine.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: 'ect_machine_demo' }
+            ]
+        },
+
+        
+        // ################################################################
+        // ################################################################
+        // ################################################################
+        {    // 中文名称: 骨科动力系统
             name: 'Orthopedic Power System',
             model: 'JDXY-DGD-01',
             deptId: 'surgery',
             description: 'Electric surgical instrument for orthopedics and neurosurgery, combining drilling, milling and grinding functions. Features high-temperature sterilization capability, stepless speed regulation, and brushless motor for stable performance.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/orthopedic_power_system_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/0f3587c0f2a8da3d4a440d7dc65bc027139c2641/Orthopedic%20Power%20System%20JDXY-DGD-01.doc' },
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/0f3587c0f2a8da3d4a440d7dc65bc027139c2641/Orthopedic%20Power%20System%20JDXY-DGD-01.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'BJ5600' }
@@ -597,10 +1513,10 @@ try {
             deptId: 'surgery',
             description: 'U-shaped head fixation device for neurosurgery procedures. Features adjustable width (165-560mm), height adjustment up to 850mm, and thimble hand wheels for stable patient head positioning during craniotomy.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/craniotomy_head_brace_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/0f3587c0f2a8da3d4a440d7dc65bc027139c2641/Craniotomy%20Head%20Brace%20Type%20I.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'NEURO_HEAD_FRAME' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -612,7 +1528,8 @@ try {
             deptId: 'surgery',
             description: 'Battery-powered sternal saw for cardiothoracic surgery. Features rechargeable 14.4V battery, high-temperature sterilization capability, and protective sheath to prevent soft tissue damage during sternotomy.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/sternal_bone_saw_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/0f3587c0f2a8da3d4a440d7dc65bc027139c2641/Sternal%20Bone%20Saw%20XY-X01.doc' },
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/0f3587c0f2a8da3d4a440d7dc65bc027139c2641/Sternal%20Bone%20Saw%20XY-X01.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'Stryker_Sternal_Saw' }
@@ -627,7 +1544,7 @@ try {
             deptId: 'surgery',
             description: 'Battery-powered oscillating saw for orthopedic joint replacement procedures. Features 12V rechargeable battery, 200W output power, stepless speed regulation (0-20000 cycles/min), and quick-mount saw blade interface.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/orthopedic_oscillating_saw_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/297b13c56d0d307514e1f09107be9045104df532/Orthopedic%20Oscillating%20Saw%20XY-G02.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'MS-1011' }
@@ -642,10 +1559,11 @@ try {
             deptId: 'surgery',
             description: 'Advanced electrosurgical generator for cutting and coagulation during surgical procedures. Features multiple cutting modes, precise power control, and compatibility with argon plasma coagulation accessories.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/electrosurgical_unit_vio300s_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/24c27573067919c765d599c5b4905b1b762e6e5e/Electrosurgical%20Unit%20VIO300S%20CN.pdf' },
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/24c27573067919c765d599c5b4905b1b762e6e5e/Electrosurgical%20Unit%20VIO300S.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'VIO300S_setup' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -657,7 +1575,7 @@ try {
             deptId: 'surgery',
             description: 'Argon plasma coagulation system for non-contact coagulation during endoscopic and open surgical procedures. Provides uniform tissue coagulation with reduced tissue damage and smoke generation.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/argon_plasma_coagulator_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/297b13c56d0d307514e1f09107be9045104df532/Argon%20Plasma%20Coagulator%20APC2.pdf' },
             ],
             videos: [
                 { title: 'Operation video', id: 'APC_principle' }
@@ -672,7 +1590,7 @@ try {
             deptId: 'surgery',
             description: 'Ultrasonic surgical system for precise cutting and coagulation. Uses high-frequency ultrasonic vibrations to cut tissue while simultaneously sealing blood vessels, minimizing thermal damage to surrounding tissue.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/ultrasonic_scalpel_g11_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/297b13c56d0d307514e1f09107be9045104df532/Ultrasonic%20Scalpel%20Generator%20G11.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'G11_operation' }
@@ -687,7 +1605,7 @@ try {
             deptId: 'surgery',
             description: 'Bipolar electrocautery system for precise coagulation in delicate surgical procedures. Features spark recognition technology for controlled tissue coagulation with minimal lateral thermal spread.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/bipolar_electrocautery_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/297b13c56d0d307514e1f09107be9045104df532/Bipolar%20Electrocautery%20Unit%20VIO50C_100C.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'VIO_50C_100C' }
@@ -702,7 +1620,7 @@ try {
             deptId: 'surgery',
             description: 'Multi-position electronic operating table for various surgical procedures. Features motorized height adjustment, Trendelenburg/reverse Trendelenburg positioning, and radiolucent tabletop for C-arm compatibility.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/electronic_operating_table_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/f7bc8ffd8d64060c84ee6f4146d6040b15d3dbd5/Electronic%20Operating%20Table%20OP830_OP330.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'OP830_assembly' }
@@ -717,7 +1635,7 @@ try {
             deptId: 'surgery',
             description: 'High-intensity LED surgical lighting system providing shadow-free illumination in operating rooms. Features adjustable color temperature, high CRI for accurate tissue visualization, and low heat emission.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/led_surgical_light_ol97_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/f7bc8ffd8d64060c84ee6f4146d6040b15d3dbd5/LED%20Shadowless%20Surgical%20Light%20OL97.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'surgical_lights_demo' }
@@ -732,10 +1650,10 @@ try {
             deptId: 'surgery',
             description: 'Intraoperative blood salvage and reinfusion system for recovering and processing patient blood during surgery. Reduces need for allogeneic blood transfusion and associated risks.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/autotransfusion_system_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/bed071469413e09d65ba3dbce587e594cb311d96/Autotransfusion%20System.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'autotransfusion_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -747,7 +1665,8 @@ try {
             deptId: 'surgery',
             description: 'Cardiopulmonary bypass machine for open-heart surgery. Temporarily takes over heart and lung functions during cardiac procedures, maintaining blood circulation and oxygenation.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/heart_lung_machine_hl20_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/bed071469413e09d65ba3dbce587e594cb311d96/Heart-Lung%20Machine%20HL20.pdf' },
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/bed071469413e09d65ba3dbce587e594cb311d96/Heater-Cooler%20Unit%20HCU40%20CN.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'HL20_operation' }
@@ -762,7 +1681,7 @@ try {
             deptId: 'surgery',
             description: 'Infusion fluid and blood warming device for maintaining optimal temperature during transfusion. Prevents hypothermia and patient discomfort from cold fluid administration.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/blood_warmer_ft1800_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/bed071469413e09d65ba3dbce587e594cb311d96/Blood%20Fluid%20Warmer%20FT1800.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'FT1800_setup' }
@@ -777,7 +1696,7 @@ try {
             deptId: 'ophthalmology',
             description: 'High-precision surgical microscope for ophthalmic procedures. Features excellent optical clarity, adjustable magnification, and integrated illumination for detailed visualization during eye surgery.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/opmi_lumera_300_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/bed071469413e09d65ba3dbce587e594cb311d96/Ophthalmic%20Surgical%20Microscope%20OPMI%20Lumera%20300.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'Lumera300_demo' }
@@ -792,10 +1711,10 @@ try {
             deptId: 'neurology',
             description: 'Advanced surgical microscope for neurosurgery and ENT procedures. Features high-resolution optics, motorized focusing, and flexible positioning for complex microsurgical operations.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/opmi_sensera_s7_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/332ae36e9cb55b97b7996e35601a25ab8d294d31/Neurosurgical%20ENT%20Microscope%20OPMI%20Sensera%20S7.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'SenseraS7_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -807,7 +1726,9 @@ try {
             deptId: 'surgery',
             description: 'High-definition laparoscopic camera system for minimally invasive surgery. Provides clear visualization of internal organs through small incisions, reducing patient trauma and recovery time.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/laparoscopic_camera_1288_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/66f2f85caea527932a37e464cdffe642d3f1182f/C-Mount%20Adapter.pdf' },
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/66f2f85caea527932a37e464cdffe642d3f1182f/Laparoscopic%20Camera%20Stryker%20SDC3.pdf' },
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/66f2f85caea527932a37e464cdffe642d3f1182f/Laparoscopic%20Camera%20Stryker%201288.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'Stryker1288_demo' }
@@ -822,7 +1743,8 @@ try {
             deptId: 'surgery',
             description: 'High-intensity xenon light source for laparoscopic procedures. Provides bright, consistent illumination for optimal visualization during minimally invasive surgery.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/laparoscopic_light_x8000_en.pdf' }
+                { title: 'Technical Manual', url: ' https://github.com/zsh1007v/medical-device/blob/66f2f85caea527932a37e464cdffe642d3f1182f/Laparoscopic%20Light%20Source%20Stryker%20X8000.pdf' }
+               
             ],
             videos: [
                 { title: 'Operation video', id: 'X8000_setup' }
@@ -837,7 +1759,7 @@ try {
             deptId: 'surgery',
             description: 'Arthroscopic visualization system for joint examination and surgery. Enables minimally invasive diagnosis and treatment of joint conditions through small incisions.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/arthroscopy_system_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/66f2f85caea527932a37e464cdffe642d3f1182f/C-Mount%20Adapter.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'arthroscopy_demo' }
@@ -852,7 +1774,7 @@ try {
             deptId: 'surgery',
             description: 'Thoracoscopic visualization system for chest cavity examination and surgery. Allows minimally invasive access to thoracic organs for diagnostic and therapeutic procedures.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/thoracoscopy_system_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/66f2f85caea527932a37e464cdffe642d3f1182f/C-Mount%20Adapter.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'thoracoscopy_demo' }
@@ -867,7 +1789,8 @@ try {
             deptId: 'surgery',
             description: 'Mobile cart for transporting surgical instruments and supplies between sterile processing and operating rooms. Features stainless steel construction and smooth-rolling casters.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/surgical_transfer_cart_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/51c73096d1078baae447bf8ce55c9ed0d83ed248/Surgical%20Transfer%20Cart%20BS-858M.doc' }
+       
             ],
             videos: [
                 { title: 'Operation video', id: 'BS858M_demo' }
@@ -882,7 +1805,7 @@ try {
             deptId: 'surgery',
             description: 'Autoclavable surgical bone drill for orthopedic procedures. Features high-speed rotation, ergonomic design, and compatibility with standard surgical attachments.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/bone_drill_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/f70500b87a9165a6e0f871542495fa5bef8ea83d/Sterilizable%20Bone%20Drill.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'bone_drill_demo' }
@@ -897,10 +1820,11 @@ try {
             deptId: 'sterilization',
             description: 'Automated washing and disinfection system for surgical instruments. Features multi-stage cleaning process including pre-wash, ultrasonic cleaning, and thermal disinfection.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/instrument_washer_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/f70500b87a9165a6e0f871542495fa5bef8ea83d/Surgical%20Instrument%20Washer%20Installation.pdf' },
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/f70500b87a9165a6e0f871542495fa5bef8ea83d/Surgical%20Instrument%20Washer.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'SIW200_operation' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -912,10 +1836,10 @@ try {
             deptId: 'surgery',
             description: 'Forced-air patient warming system for maintaining normothermia during surgery. Prevents perioperative hypothermia and associated complications.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/patient_warming_sun5_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/f70500b87a9165a6e0f871542495fa5bef8ea83d/Patient%20Warming%20System%20SUN5.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'SUN5_setup' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -927,10 +1851,10 @@ try {
             deptId: 'surgery',
             description: 'Comprehensive anesthesia delivery system for surgical procedures. Features precise gas delivery, ventilator integration, and multiple safety monitoring systems.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/anesthesia_machine_8300a_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/4e0c535b7ee55e19f7f751e6622b1bad6a9b09d3/Anesthesia%20Machine%208300A.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: '8300A_operation' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -942,10 +1866,10 @@ try {
             deptId: 'surgery',
             description: 'Brain function monitoring system for assessing depth of anesthesia during surgery. Uses EEG processing algorithms to provide real-time consciousness level assessment.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/anesthesia_monitor_qube_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/f70500b87a9165a6e0f871542495fa5bef8ea83d/Anesthesia%20Depth%20Monitor%20Qube.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'Qube_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -957,10 +1881,10 @@ try {
             deptId: 'obstetrics',
             description: 'Irrigation pump for hysteroscopic procedures. Maintains consistent uterine cavity distension during diagnostic and operative hysteroscopy.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/hysteroscopic_pump_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/f70500b87a9165a6e0f871542495fa5bef8ea83d/Hysteroscopic%20Pump.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'HP100_operation' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -972,10 +1896,10 @@ try {
             deptId: 'sterilization',
             description: 'Flash sterilization system for rapid turnaround of surgical instruments. Uses high-temperature steam for quick sterilization of urgently needed instruments.',
             manuals: [
-                { title: 'Technical Manual', url: '/manuals/rapid_sterilizer_most_en.pdf' }
+                { title: 'Technical Manual', url: 'https://github.com/zsh1007v/medical-device/blob/f70500b87a9165a6e0f871542495fa5bef8ea83d/Rapid%20Sterilizer%20MOST-T.doc' }
             ],
             videos: [
-                { title: 'Operation video', id: 'MOST_T_operation' }
+                { title: 'Operation video', id: '' }
             ]
         },
         // ################################################################
