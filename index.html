@@ -580,7 +580,7 @@ try {
             deptId: 'cardiology',
             description: 'Temporary cardiac pacing device for emergency and perioperative cardiac rhythm management. Provides external electrical stimulation to maintain heart rate in patients with bradycardia or heart block.',
             manuals: [
-                { title: 'User Manual', url: '' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Temporary%20Pacemaker%20PACE%20T10.pdf' }
             ],
             videos: [
                 { title: 'Operation video', id: 'BV1SvQzBpEKX' },
@@ -596,70 +596,12 @@ try {
             deptId: 'emergency',
             description: 'Automated cardiopulmonary resuscitation device providing consistent chest compressions during cardiac arrest. Ensures high-quality CPR with standardized compression depth and rate, reducing rescuer fatigue.',
             manuals: [
-                { title: 'User Manual', url: '' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/CPR%20Machine%20100Series.pdf' },
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/CPR%20Machine%20Shangrila510.pdf' }
+                
             ],
             videos: [
-                { title: 'Operation video', id: 'shangrila510_demo' }
-            ]
-        },
-        
-        // 6. 吸引器 (Folder 6)
-        {
-            // 中文名称: 吸引器
-            name: 'Suction Pump',
-            model: 'Tongai',
-            deptId: 'surgery',
-            description: 'Medical suction pump for removing fluids, secretions, and debris during surgical procedures and patient care. Provides adjustable vacuum pressure for various clinical applications.',
-            manuals: [
-                { title: 'User Manual', url: '/manuals/suction_pump_tongai.pdf' }
-            ],
-            videos: [
-                { title: 'Operation video', id: 'suction_pump_demo' }
-            ]
-        },
-        
-        // 7. 升温毯 (Folder 7)
-        {
-            // 中文名称: 升温毯
-            name: 'Patient Warming Blanket',
-            model: 'ZLJ-2000',
-            deptId: 'surgery',
-            description: 'Forced-air patient warming system for maintaining normothermia during surgery. Prevents perioperative hypothermia and associated complications through controlled warm air circulation.',
-            manuals: [
-                { title: 'User Manual', url: '' }
-            ],
-            videos: [
-                { title: 'Operation video', id: '' }
-            ]
-        },
-        
-        // 8. 输液泵 (Folder 8)
-        {
-            // 中文名称: 输液泵
-            name: 'Infusion Pump',
-            model: 'VP3',
-            deptId: 'icu',
-            description: 'Volumetric infusion pump for precise intravenous fluid and medication delivery. Features programmable flow rates, bolus dosing, and alarm systems for safe patient therapy.',
-            manuals: [
-                { title: 'User Manual', url: '/manuals/infusion_pump_vp3.pdf' }
-            ],
-            videos: [
-                { title: 'Operation video', id: 'infusion_pump_vp3_demo' }
-            ]
-        },
-        
-        // 9. 注射泵 (Folder 9)
-        {
-            // 中文名称: 注射泵
-            name: 'Syringe Pump',
-            model: 'SP3D',
-            deptId: 'icu',
-            description: 'Syringe pump for precise controlled delivery of medications and fluids. Suitable for critical care applications requiring accurate small-volume infusions.',
-            manuals: [
-                { title: 'User Manual', url: '/manuals/syringe_pump_sp3d.pdf' }
-            ],
-            videos: [
-                { title: 'Operation video', id: 'syringe_pump_sp3d_demo' }
+                { title: 'Operation video', id: 'BV1EeQBBNE8p' }
             ]
         },
         
@@ -667,14 +609,14 @@ try {
         {
             // 中文名称: 洗胃机
             name: 'Gastric Lavage Machine',
-            model: 'GL-100',
+            model: 'SC-IA/SC-II',
             deptId: 'emergency',
             description: 'Medical device for gastric decontamination and lavage procedures. Used in emergency medicine for poison ingestion treatment, gastric content removal, and preoperative stomach preparation.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/gastric_lavage_machine.pdf' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Gastric%20Lavage%20Machine.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'gastric_lavage_demo' }
+                { title: 'Operation video', id: 'BV1HVQrBjER2' }
             ]
         },
         
@@ -686,28 +628,14 @@ try {
             deptId: 'clinical_eng',
             description: 'Advanced electric hospital bed with multiple positioning options. Features height adjustment, Trendelenburg positioning, side rail controls, and integrated scale for patient monitoring and comfort.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/high_level_electric_bed.pdf' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/High%20Level%20Electric%20Bed.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'electric_bed_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
-        // 11. 病人监护仪 (Folder 11)
-        {
-            // 中文名称: 病人监护仪
-            name: 'Patient Monitor',
-            model: 'iMEC10',
-            deptId: 'icu',
-            description: 'Multi-parameter patient monitoring system for continuous vital signs monitoring. Measures ECG, SpO2, NIBP, temperature, and respiration rate with alarm functions for critical care environments.',
-            manuals: [
-                { title: 'User Manual', url: '/manuals/patient_monitor_imec10.pdf' }
-            ],
-            videos: [
-                { title: 'Operation video', id: 'imec10_demo' }
-            ]
-        },
-        
+      
         // 12. 胎儿监护仪 (Folder 12)
         {
             // 中文名称: 胎儿监护仪
@@ -716,10 +644,10 @@ try {
             deptId: 'obstetrics',
             description: 'Electronic fetal monitoring system for antepartum and intrapartum surveillance. Monitors fetal heart rate, uterine contractions, and fetal movement to assess fetal well-being during pregnancy and labor.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/fetal_monitor_f9.pdf' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Fetal%20Monitor%20F9.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'fetal_monitor_f9_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -731,10 +659,10 @@ try {
             deptId: 'emergency',
             description: 'Combined defibrillator and patient monitor for emergency cardiac care. Provides biphasic defibrillation, synchronized cardioversion, external pacing, and continuous vital signs monitoring.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/defibrillator_zoll_m_series.pdf' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Defibrillator%20Monitor%20Zoll%20M-series.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'zoll_m_series_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -746,10 +674,10 @@ try {
             deptId: 'pathology',
             description: 'Precision rotary microtome for histological tissue sectioning. Produces thin tissue slices (2-60 microns) for microscopic examination in pathology laboratories.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/rotary_microtome_jjq_p3116.doc' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Rotary%20Microtome%20JJQ-P3116.doc' }
             ],
             videos: [
-                { title: 'Operation video', id: 'microtome_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -761,10 +689,10 @@ try {
             deptId: 'pathology',
             description: 'Semi-automatic cryostat for frozen tissue sectioning. Maintains low temperature (-20°C to -30°C) for rapid intraoperative pathology diagnosis and fresh tissue analysis.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/cryostat_microtome_jjq_l2016.docx' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Cryostat%20Microtome%20JJQ-L2016.docx' }
             ],
             videos: [
-                { title: 'Operation video', id: 'cryostat_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -776,10 +704,10 @@ try {
             deptId: 'pathology',
             description: 'Tissue spreading and baking device for histology specimen preparation. Flattens and adheres tissue sections to microscope slides through controlled heating and water flotation.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/tissue_spreading_machine_jk6.doc' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Tissue%20Spreading%20Machine%20JK-6.doc' }
             ],
             videos: [
-                { title: 'Operation video', id: 'spreading_machine_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -791,10 +719,10 @@ try {
             deptId: 'pathology',
             description: 'Histology water bath for tissue section flotation and mounting. Maintains constant temperature for flattening paraffin-embedded tissue sections onto microscope slides.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/water_bath_jk5.doc' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Water%20Bath%20JK-5.doc' }
             ],
             videos: [
-                { title: 'Operation video', id: 'water_bath_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -806,10 +734,10 @@ try {
             deptId: 'pathology',
             description: 'Automated tissue processing system for histological specimen preparation. Performs sequential dehydration, clearing, and paraffin infiltration of tissue samples for embedding.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/tissue_processor_jt12k.docx' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Tissue%20Processor%20JT-12K.docx' }
             ],
             videos: [
-                { title: 'Operation video', id: 'tissue_processor_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -821,10 +749,10 @@ try {
             deptId: 'pathology',
             description: 'Tissue embedding center for paraffin block preparation. Provides heated paraffin dispensing and cooling platforms for orienting and embedding processed tissue specimens.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/tissue_embedding_machine_l6.doc' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Tissue%20Embedding%20Machine%20L6.doc' }
             ],
             videos: [
-                { title: 'Operation video', id: 'embedding_machine_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -836,10 +764,11 @@ try {
             deptId: 'pathology',
             description: 'Automated histological staining system for routine H&E and special stains. Provides consistent, high-throughput staining of tissue sections with programmable protocols.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/automatic_staining_machine_cw600.doc' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Automatic%20Staining%20Machine%20CW600.doc' },
+                { title: 'User Manual', url: '' }
             ],
             videos: [
-                { title: 'Operation video', id: 'staining_machine_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -851,10 +780,10 @@ try {
             deptId: 'pathology',
             description: 'Automated coverslipping device for histology slides. Applies uniform mounting medium and glass coverslips to stained tissue sections for permanent preservation.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/robotic_coverslipper_cw600.doc' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Robotic%20Coverslipper%20CW600.doc' }
             ],
             videos: [
-                { title: 'Operation video', id: 'coverslipper_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -866,10 +795,10 @@ try {
             deptId: 'pathology',
             description: 'Cytology centrifuge for liquid-based cytology specimen preparation. Concentrates cells onto microscope slides for Pap smear and other cytological examinations.',
             manuals: [
-                { title: 'User Manual', url: '/manuals/cytology_centrifuge_jct9.doc' }
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Cytology%20Centrifuge%20JCT-9.doc' }
             ],
             videos: [
-                { title: 'Operation video', id: 'cytology_centrifuge_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
         
@@ -1469,7 +1398,7 @@ try {
                 { title: 'User Manual', url: '/manuals/ect_machine.pdf' }
             ],
             videos: [
-                { title: 'Operation video', id: 'ect_machine_demo' }
+                { title: 'Operation video', id: '' }
             ]
         },
 
@@ -2037,7 +1966,7 @@ try {
         },
         {
             name: 'Syringe Pump',
-            model: 'SP3',
+            model: 'SP3/SP3D',
             deptId: 'icu', 
             description: 'By setting the injection speed and dosage, a small amount of medicine is delivered accurately and steadily, ensuring the safety and controllability of the treatment.',
             manuals: [
