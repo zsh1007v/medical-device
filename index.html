@@ -1052,6 +1052,14 @@ try {
         ]
     },
 
+
+
+
+
+
+
+      
+
     // 21. 五官科超短波电疗机 (Folder 21)
     {
         // 中文名称: 五官科超短波电疗机
@@ -1456,7 +1464,19 @@ try {
                 { title: 'Operation video', id: '' }
             ]
         },
-    
+
+
+
+
+
+
+
+
+
+
+
+
+      
         // 48. 二氧化碳培养箱 (Folder 48)
         {
             // 中文名称: 二氧化碳培养箱
@@ -1472,13 +1492,13 @@ try {
             ]
         },
     
-        // 49. 恒温培养箱 (Folder 49)
+        // 49. 微电脑电热恒温水浴锅
         {
-            // 中文名称: 恒温培养箱
-            name: 'Incubator',
-            model: '',
+            // 中文名称: 微电脑电热恒温水浴锅
+            name: 'Constant Temperature Water Bath',
+            model: 'SSW-420 / SSW-600',
             deptId: 'lab',
-            description: 'Incubator for microbial and cell culture.',
+            description: 'a constant temperature water bath used for precise heating and incubation of biological samples such as blood serum in medical and scientific research laboratories.',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1487,13 +1507,13 @@ try {
             ]
         },
     
-        // 50. 恒温水浴箱 (Folder 50)
+        // 50. 纯水仪
         {
-            // 中文名称: 恒温水浴箱
-            name: 'Water Bath',
-            model: 'S4',
+            // 中文名称: 纯水仪
+            name: 'Pure water instrument',
+            model: 'UPH',
             deptId: 'lab',
-            description: 'Water bath for sample heating at constant temperature.',
+            description: 'Remove impurities, ions, and microorganisms from water through multi-stage filtration and reverse osmosis technology to produce high-purity water that meets laboratory or medical standards.',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1502,13 +1522,13 @@ try {
             ]
         },
     
-        // 51. 纯水机 (Folder 51)
+        // 51. 基因扩增仪（热循环仪）
         {
-            // 中文名称: 纯水机
-            name: 'Water Purifier',
-            model: 'Ub8',
+            // 中文名称: 基因扩增仪（热循环仪）
+            name: 'Gene Amplifier (Thermal Cycler)',
+            model: 'ImageView',
             deptId: 'lab',
-            description: 'Water purifier for laboratory pure water preparation.',
+            description: 'a professional software application designed for controlling digital cameras, capturing high-quality images and videos, and performing advanced image processing and analysis.',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1517,13 +1537,13 @@ try {
             ]
         },
     
-        // 52. PCR扩增仪 (Folder 52)
+        // 52. 荧光定量 PCR 检测系统
         {
-            // 中文名称: PCR扩增仪
-            name: 'PCR System',
-            model: 's12',
+            // 中文名称: 荧光定量 PCR 检测系统
+            name: 'Fluorescent Quantitative PCR Detection System',
+            model: 'LineGene 9600',
             deptId: 'lab',
-            description: 'PCR thermal cycler for DNA amplification.',
+            description: 'a real-time PCR system used for the sensitive and specific detection and quantification of nucleic acid targets through fluorescent signal monitoring.',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1532,13 +1552,13 @@ try {
             ]
         },
     
-        // 53. 荧光定量PCR仪 (Folder 53)
+        // 53. 特定蛋白分析仪
         {
-            // 中文名称: 荧光定量PCR仪
-            name: 'Real-Time PCR',
+            // 中文名称: 特定蛋白分析仪
+            name: 'Specific Protein Analyzer',
             model: 'PA990',
             deptId: 'lab',
-            description: 'Real-time PCR system for quantitative nucleic acid analysis.',
+            description: 'an automated analyzer used to determine the concentration of specific proteins in biological samples through nephelometric and turbidimetric technologies.',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1547,43 +1567,14 @@ try {
             ]
         },
     
-        // 54. 高速冷冻离心机 (Folder 54)
-        {
-            // 中文名称: 高速冷冻离心机
-            name: 'Refrigerated Centrifuge',
-            model: 'H1850R',
-            deptId: 'lab',
-            description: 'Refrigerated centrifuge for low temperature high speed sample separation.',
-            manuals: [
-                { title: 'User Manual', url: '' }
-            ],
-            videos: [
-                { title: 'Operation video', id: '' }
-            ]
-        },
     
-        // 55. 离心机 (Folder 55)
+        // 55. 图像处理软件
         {
-            // 中文名称: 离心机
-            name: 'Centrifuge',
-            model: 'H1650',
-            deptId: 'lab',
-            description: 'Centrifuge for sample separation processing.',
-            manuals: [
-                { title: 'User Manual', url: '' }
-            ],
-            videos: [
-                { title: 'Operation video', id: '' }
-            ]
-        },
-    
-        // 56. 分析天平 (Folder 56)
-        {
-            // 中文名称: 分析天平
-            name: 'Analytical Balance',
+            // 中文名称: 图像处理软件
+            name: 'ImageView Software',
             model: '',
             deptId: 'lab',
-            description: 'Analytical balance for precision weighing to 0.1mg.',
+            description: 'a professional software application designed for controlling digital cameras, capturing high-quality images and videos, and performing advanced image processing and analysis.',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1592,41 +1583,55 @@ try {
             ]
         },
     
-        // 57. 电子天平 (Folder 57)
+        // 56. 荧光显微镜
+        {
+            // 中文名称: 荧光显微镜
+            name: 'Fluorescence Microscope',
+            model: '',
+            deptId: 'lab',
+            description: 'an optical tool that uses high-intensity light to excite fluorescent molecules within a specimen, allowing for the visualization of specific structures or proteins.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 57. 倒置显微镜
+        {
+            // 中文名称: 倒置显微镜
+            name: 'Inverted System Microscopes',
+            model: '',
+            deptId: 'lab',
+            description: 'an optical imaging device designed for observing living cells or organisms in culture vessels by providing illumination from above and magnification from below the specimen stage.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+         // 58. 生物显微镜
+        {
+            // 中文名称: 生物显微镜
+            name: 'Biological Microscope',
+            model: '',
+            deptId: 'lab',
+            description: 'an optical instrument used to magnify and observe small biological specimens such as cells and tissues that are invisible to the naked eye.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 59.电子天平
         {
             // 中文名称: 电子天平
             name: 'Electronic Balance',
-            model: 'DSZ5000X',
-            deptId: 'lab',
-            description: 'Electronic balance for sample weighing.',
-            manuals: [
-                { title: 'User Manual', url: '' }
-            ],
-            videos: [
-                { title: 'Operation video', id: '' }
-            ]
-        },
-    
-        // 58. 暗视野显微镜 (Folder 58)
-        {
-            // 中文名称: 暗视野显微镜
-            name: 'Dark Field Microscope',
-            model: 'S0',
-            deptId: 'lab',
-            description: 'Dark field microscope for transparent or small particle detection.',
-            manuals: [
-                { title: 'User Manual', url: '' }
-            ],
-            videos: [
-                { title: 'Operation video', id: '' }
-            ]
-        },
-    
-        // 59. 相差显微镜 (Folder 59)
-        {
-            // 中文名称: 相差显微镜
-            name: 'Phase Contrast Microscope',
-            model: 'S0',
+            model: 'FA / FB / JA ',
             deptId: 'lab',
             description: 'Phase contrast microscope for live cell observation without staining.',
             manuals: [
@@ -1637,13 +1642,13 @@ try {
             ]
         },
     
-        // 60. 荧光显微镜 (Folder 60)
+        // 60. 台式高速离心机
         {
-            // 中文名称: 荧光显微镜
-            name: 'Fluorescence Microscope',
-            model: 'UB203i',
+            // 中文名称: H台式高速离心机
+            name: 'FTabletop High Speed Centrifuge',
+            model: 'H1650',
             deptId: 'lab',
-            description: 'Fluorescence microscope for fluorescent labeled sample observation.',
+            description: 'a tabletop high-speed centrifuge designed to separate liquid mixtures or particles of different densities from a solution through high-speed centrifugal force.',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1652,13 +1657,13 @@ try {
             ]
         },
     
-        // 61. 倒置显微镜 (Folder 61)
+        // 61. 台式高速冷冻离心机
         {
-            // 中文名称: 倒置显微镜
-            name: 'Inverted Microscope',
+            // 中文名称: 台式高速冷冻离心机
+            name: 'Tabletop High Speed Refrigerated Centrifuge',
             model: 'H1850R',
             deptId: 'lab',
-            description: 'Inverted microscope for cell culture and tissue section observation.',
+            description: 'a refrigerated centrifuge designed to separate liquid mixtures or samples of different densities at high speeds while maintaining a controlled low temperature',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1667,13 +1672,15 @@ try {
             ]
         },
     
-        // 62. 生物显微镜 (Folder 62)
+   
+    
+        // 63. 全景和头影X射线机 (Folder 63)
         {
-            // 中文名称: 生物显微镜
-            name: 'Biological Microscope',
-            model: 'nj1',
-            deptId: 'lab',
-            description: 'Biological microscope for routine biological sample observation.',
+            // 中文名称: 全景和头影X射线机
+            name: 'Digital Panoramic/Cephalometric X-ray Unit',
+            model: 'X550 Type EX-1 / EX-2',
+            deptId: 'dental',
+            description: 'a digital extraoral X-ray imaging system used to capture high-resolution panoramic and cephalometric images for dental and maxillofacial diagnostics.',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1682,28 +1689,13 @@ try {
             ]
         },
     
-        // 63. 体外冲击波碎石机 (Folder 63)
+     
         {
             // 中文名称: 体外冲击波碎石机
-            name: 'Lithotripter',
+            name: 'Extracorporeal Shockwave Lithotripter',
             model: 'HK.ESWL-V',
-            deptId: 'surgery',
-            description: 'Lithotripter for extracorporeal shock wave stone fragmentation.',
-            manuals: [
-                { title: 'User Manual', url: '' }
-            ],
-            videos: [
-                { title: 'Operation video', id: '' }
-            ]
-        },
-    
-        // 64. 梅标测试仪 (Folder 64)
-        {
-            // 中文名称: 梅标测试仪
-            name: 'Test Analyzer',
-            model: 'S7',
-            deptId: 'lab',
-            description: 'Syphilis test analyzer for serological detection.',
+            deptId: 'dialysis',
+            description: 'Using high-energy acoustic shock waves to penetrate the human body from the outside, precisely focusing and breaking stones in the urinary system or biliary tract',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1714,11 +1706,11 @@ try {
     
         // 65. 内窥镜摄像机 (Folder 65)
         {
-            // 中文名称: 内窥镜摄像机
-            name: 'Endoscope Camera',
-            model: '1288 HD',
-            deptId: 'endoscopy',
-            description: 'Endoscope camera for image acquisition and display during endoscopy.',
+            // 中文名称: 糖化血红蛋白分析仪
+            name: 'Hemoglobin Analyzer',
+            model: 'H9',
+            deptId: 'lab',
+            description: 'The H9 is an automated analyzer used to measure HbA1c levels in blood samples for diabetes monitoring',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
@@ -1729,11 +1721,11 @@ try {
     
         // 66. 冷光源 (Folder 66)
         {
-            // 中文名称: 冷光源
-            name: 'Light Source',
-            model: 'X8000',
-            deptId: 'endoscopy',
-            description: 'Cold light source for endoscope illumination.',
+            // 中文名称: 干式生化分析仪
+            name: 'Dry biochemical analyzer',
+            model: 'NX500i',
+            deptId: 'lab',
+            description: 'Perform in vitro diagnostic analysis on blood or urine samples',
             manuals: [
                 { title: 'User Manual', url: '' }
             ],
