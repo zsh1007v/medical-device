@@ -43,6 +43,8 @@ const i18n = {
     modal_equipment_manual: "Equipment Manual",
     modal_operation_video: "Operation video",
     modal_video_close: "Close",
+    dept_view_all: "View All",
+    deviceCount: "Total {num} units",
     // ...补充你页面所有可能文本项
   },
   zh: {
@@ -68,6 +70,8 @@ const i18n = {
     modal_equipment_manual: "设备说明书",
     modal_operation_video: "操作视频",
     modal_video_close: "关闭",
+    dept_view_all: "查看全部",
+    deviceCount: "共 {num} 台",
     // ...补充你页面所有可能文本项
   }
 };
@@ -116,9 +120,7 @@ body { font-family: 'Inter', sans-serif; }
 <a href="#devices" class="text-gray-300 hover:text-white transition-colors" data-i18n="navbar_catalog">Device Catalog</a><!--设备目录-->
 <a href="#clinical-engineering" class="text-gray-300 hover:text-white transition-colors" data-i18n="navbar_clinical">Department of Medical Engineering</a><!--医工科-->
 <a href="#resources" class="text-gray-300 hover:text-white transition-colors" data-i18n="navbar_resource">Resource Center</a><!--资源中心-->
-<button id="langToggle" class="ml-6 px-3 py-1 rounded bg-primary-500 hover:bg-primary-600 text-sm">
-  English
-</button>
+<button id="langToggle" class="ml-6 px-3 py-1 rounded bg-primary-500 hover:bg-primary-600 text-sm">English</button>
 </div>
 </div>
 </div>
@@ -507,10 +509,10 @@ function renderDevices(data) {
     if(!grid || !noResults || !countEl) return;
     
     let num = data.length; // data就是当前过滤出的设备列表
-    if(countEl){
-      countEl.textContent = currentLang === 'en'
-        ? `Total ${num} units`
-        : `共 ${num} 台`;
+    if (countEl) {
+      // const countKey = currentLang === 'en' ? 'deviceCount' : 'deviceCount_zh';
+      const template = i18n[currentLang]['deviceCount'] || "Total {num} units";
+      countEl.textContent = template.replace('{num}', num);
     }
 
     if (data.length === 0) {
@@ -716,6 +718,10 @@ function setLanguage(lang) {
     }
   });
   // 如果 deviceCount 要带数量参数，后面 device 渲染时再特判
+  renderDepartments(); // 重新渲染科室按钮区
+  filterDevices(currentDept); // 重新渲染设备区（带语言切换、数量提示也正确）
+  const btn = document.getElementById('langToggle');
+  if(btn) btn.textContent = lang === 'en' ? "中文" : "English";
 }
 
 // 语言切换按钮绑定
@@ -725,7 +731,7 @@ document.getElementById('langToggle').addEventListener('click', function(){
     this.textContent = "English";
   } else {
     setLanguage("en");
-    this.textContent = "中文";
+    // this.textContent = "中文";
   }
 });
 document.getElementById('deviceModal').addEventListener('click', function(e) {
