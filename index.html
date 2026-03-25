@@ -507,30 +507,45 @@ function renderDevices(data) {
     const grid = document.getElementById('devicesGrid');
     const noResults = document.getElementById('noResults');
     const countEl = document.getElementById('deviceCount');
-    
-    if(!grid || !noResults || !countEl) return;
-    
-    let num = data.length; // data就是当前过滤出的设备列表
-    if (countEl) {
-      // const countKey = currentLang === 'en' ? 'deviceCount' : 'deviceCount_zh';
-      const template = i18n[currentLang]['deviceCount'] || "Total {num} units";
-      countEl.textContent = template.replace('{num}', num);
-    }
+
+    if (!grid || !noResults || !countEl) return;
+
+    let num = data.length;
+    // 设备数量显示国际化
+    const template = i18n[currentLang]['deviceCount'] || "Total {num} units";
+    countEl.textContent = template.replace('{num}', num);
 
     if (data.length === 0) {
         grid.innerHTML = '';
         noResults.classList.remove('hidden');
         return;
     }
-    
+
     noResults.classList.add('hidden');
-    
-    // 【重要修复】传递 UID 而不是 index
+
     grid.innerHTML = data.map((device) => {
+        // 多语言变量提前取好
         const deptObj = departments.find(d => d.id === device.deptId);
         const deptName = deptObj
             ? (typeof deptObj.name === 'object' ? deptObj.name[currentLang] : deptObj.name)
             : (currentLang === 'en' ? 'Unknown' : '未知');
+        const dname = typeof device.name === 'object' ? device.name[currentLang] : device.name;
+        const ddesc = typeof device.description === 'object' ? device.description[currentLang] : device.description;
+        // 文档计数描述
+        let docText;
+        if (currentLang === 'en') {
+            docText = device.manuals.length === 1 ? 'document' : 'documents';
+        } else {
+            docText = '文档';
+        }
+        // 视频计数描述
+        let videoText;
+        if (currentLang === 'en') {
+            videoText = device.videos.length === 1 ? 'video' : 'videos';
+        } else {
+            videoText = '视频';
+        }
+
         return `
         <div onclick="openDeviceModal('${device._uid}')" 
              class="glass rounded-2xl p-6 cursor-pointer card-hover fade-in">
@@ -541,33 +556,20 @@ function renderDevices(data) {
                 <span class="text-xs bg-medical-light px-2 py-1 rounded text-gray-400">
                     ${deptName}
                 </span>
-                
             </div>
-            <h3 class="font-semibold text-lg text-white mb-1">${
-                typeof device.name === 'object' ? device.name[currentLang] : device.name
-            }</h3>    
+            <h3 class="font-semibold text-lg text-white mb-1">${dname}</h3>    
             <p class="text-sm text-gray-500 mb-3">${
               currentLang === 'en' ? 'Model: ' : '型号：'
             }${device.model}</p>
-            <p class="text-sm text-gray-400 line-clamp-2 h-10">${
-                typeof device.description === 'object' ? device.description[currentLang] : device.description
-            }</p>
+            <p class="text-sm text-gray-400 line-clamp-2 h-10">${ddesc}</p>
             <div class="mt-4 pt-3 border-t border-gray-700/50 flex justify-between text-xs text-gray-500">
                 <span>
                   <i class="fas fa-file-pdf mr-1 text-red-400"></i>
-                  ${device.manuals.length} ${
-                    currentLang === 'en'
-                      ? (device.manuals.length === 1 ? 'document' : 'documents')
-                      : '文档'
-                  }
+                  ${device.manuals.length} ${docText}
                 </span>
                 <span>
                   <i class="fas fa-video mr-1 text-primary-400"></i>
-                  ${device.videos.length} ${
-                    currentLang === 'en'
-                      ? (device.videos.length === 1 ? 'video' : 'videos')
-                      : '视频'
-                  }
+                  ${device.videos.length} ${videoText}
                 </span>
             </div>
         </div>
@@ -625,76 +627,63 @@ function openDeviceModal(uid) {
     const device = devicesData.find(d => d._uid === uid);
     if(!device) return;
 
-    document.getElementById('modal-device-name').textContent =
-      typeof device.name === 'object' ? device.name[currentLang] : device.name;
-    
+    // 名称和型号
+    const dname = typeof device.name === 'object' ? device.name[currentLang] : device.name;
+    const dmodel = device.model;
+    document.getElementById('modal-device-name').textContent = dname;
     document.getElementById('modal-device-model').textContent =
-      (currentLang === 'en' ? 'Model: ' : '型号：') + device.model;
-    
+      (currentLang === 'en' ? 'Model: ' : '型号：') + dmodel;
+   
+    // 说明书渲染
     const manualsContainer = document.getElementById('modal-manuals');
     document.getElementById('modal-manual-count').textContent = device.manuals.length;
-    
     manualsContainer.innerHTML = device.manuals.length > 0
-        ? device.manuals.map(m => `
-        <div class="bg-medical-dark/50 rounded-lg p-3">
-            <div class="flex items-center justify-between mb-2">
-                <div class="flex items-center space-x-2">
-                    <i class="fas fa-file-pdf text-red-400"></i>
-                    <span class="text-sm text-gray-300">${m.title}</span>
-                </div>
-            </div>
-            <div class="flex space-x-2">
-                <a href="${getPreviewUrl(m.url)}" target="_blank" class="flex-1 text-center px-3 py-1.5 bg-primary-500/20 rounded text-primary-300 text-xs hover:bg-primary-500/30 transition-colors">
-                    <i class="fas fa-eye mr-1"></i>${
-                      currentLang === 'en' ? 'Online Preview' : '在线预览'}
-                </a>
-                
-                <a href="${getDownloadUrl(m.url)}" download class="flex-1 text-center px-3 py-1.5 bg-gray-600/30 rounded text-gray-300 text-xs hover:bg-gray-600/50 transition-colors">
-                    <i class="fas fa-download mr-1"></i>${
-                      currentLang === 'en' ? 'Download' : '下载'}
-                </a>
-            </div>
-        </div>
-    `).join('') 
-        : `<p class="text-gray-500 text-sm">${
-            currentLang === 'en' ? 'Manual not available' : '暂无说明书'
-        }</p>`;
+        ? device.manuals.map(m => {
+            // 说明书标题 兼容多语
+            const mtitle = typeof m.title === 'object' ? m.title[currentLang] : m.title;
+            // 生成卡片内容
+            return `
+              <div class="bg-medical-dark/50 rounded-lg p-3">
+                  <div class="flex items-center justify-between mb-2">
+                      <div class="flex items-center space-x-2">
+                          <i class="fas fa-file-pdf text-red-400"></i>
+                          <span class="text-sm text-gray-300">${mtitle}</span>
+                      </div>
+                  </div>
+                  <div class="flex space-x-2">
+                      <a href="${getPreviewUrl(m.url)}" target="_blank" class="flex-1 text-center px-3 py-1.5 bg-primary-500/20 rounded text-primary-300 text-xs hover:bg-primary-500/30 transition-colors">
+                          <i class="fas fa-eye mr-1"></i>${currentLang === 'en' ? 'Online Preview' : '在线预览'}
+                      </a>
+                      <a href="${getDownloadUrl(m.url)}" download class="flex-1 text-center px-3 py-1.5 bg-gray-600/30 rounded text-gray-300 text-xs hover:bg-gray-600/50 transition-colors">
+                          <i class="fas fa-download mr-1"></i>${currentLang === 'en' ? 'Download' : '下载'}
+                      </a>
+                  </div>
+              </div>
+            `;
+        }).join('') 
+        : `<p class="text-gray-500 text-sm">${currentLang === 'en' ? 'Manual not available' : '暂无说明书'}</p>`;
 
+    // 视频渲染
     const videosContainer = document.getElementById('modal-videos');
     document.getElementById('modal-video-count').textContent = device.videos.length;
     videosContainer.innerHTML = device.videos.length > 0
-        ? device.videos.map(v => `
-        <div onclick="openVideoModal('${v.id}')" class="flex items-center justify-between p-3 rounded-lg bg-medical-dark/50 hover:bg-medical-light/20 transition-colors cursor-pointer">
-            <div class="flex items-center space-x-3">
-                <i class="fas fa-play-circle text-accent-teal"></i>
-                <span class="text-sm text-gray-300">${
-                  typeof v.title === 'object' ? v.title[currentLang] : v.title
-                }</span>
-            </div>
-            <i class="fas fa-chevron-right text-gray-500 text-xs"></i>
-        </div>
-    `).join('') 
-        : `<p class="text-gray-500 text-sm">${
-            currentLang === 'en' ? 'No video available' : '暂无视频'
-        }</p>`;
+        ? device.videos.map(v => {
+            // 视频标题 兼容多语
+            const vtitle = typeof v.title === 'object' ? v.title[currentLang] : v.title;
+            return `
+              <div onclick="openVideoModal('${v.id}')" class="flex items-center justify-between p-3 rounded-lg bg-medical-dark/50 hover:bg-medical-light/20 transition-colors cursor-pointer">
+                  <div class="flex items-center space-x-3">
+                      <i class="fas fa-play-circle text-accent-teal"></i>
+                      <span class="text-sm text-gray-300">${vtitle}</span>
+                  </div>
+                  <i class="fas fa-chevron-right text-gray-500 text-xs"></i>
+              </div>
+            `;
+        }).join('') 
+        : `<p class="text-gray-500 text-sm">${currentLang === 'en' ? 'No video available' : '暂无视频'}</p>`;
 
+    // 激活弹窗
     document.getElementById('deviceModal').classList.add('active');
-}
-
-function closeDeviceModal() {
-    document.getElementById('deviceModal').classList.remove('active');
-}
-
-function openVideoModal(id) {
-    // document.getElementById('bilibiliPlayer').src = `//player.bilibili.com/player.html?bvid=${bvid}&autoplay=1&high_quality=1`;
-    // document.getElementById('videoModal').classList.add('active');
-    const player = document.getElementById('videoPlayer');
-    if (id.toLowerCase().startsWith('bv')) {
-        player.src = `//player.bilibili.com/player.html?bvid=${id}&autoplay=1`;
-    } else {
-        player.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
-    }
-    document.getElementById('videoModal').classList.add('active');
 }
 
 function closeVideoModal() {
@@ -785,19 +774,20 @@ try {
         // ################################################################
         // 1. 临时起搏器 (Folder 1)
         {
-            // 中文名称: 临时起搏器
-            name: 'Temporary Pacemaker',
-            model: 'PACE T10',
-            deptId: 'cardiology',
-            description: 'Temporary cardiac pacing device for emergency and perioperative cardiac rhythm management. Provides external electrical stimulation to maintain heart rate in patients with bradycardia or heart block.',
-            manuals: [
-                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Temporary%20Pacemaker%20PACE%20T10.pdf' }
-            ],
-            videos: [
-                { title: 'Operation video', id: 'BV1SvQzBpEKX' },
-                { title: 'Operation video', id: 'BV1uvQzBWEhC' }
-            ]
-        },
+          name: { zh: '临时起搏器', en: 'Temporary Pacemaker' },
+          model: 'PACE T10',
+          deptId: 'cardiology',
+          description: {
+            zh: '急救和术中心律失常时用的临时心脏起搏器，对心动过缓或心脏传导阻滞患者提供体外人工脉冲，维持心率。',
+            en: 'Temporary cardiac pacing device for emergency and perioperative cardiac rhythm management. Provides external electrical stimulation to maintain heart rate in patients with bradycardia or heart block.'
+          },
+          manuals: [
+              { title: { zh: '用户手册', en: 'User Manual' }, url: 'https://github.com/zsh1007v/medical-device/blob/main/Temporary%20Pacemaker%20PACE%20T10.pdf' }
+          ],
+          videos: [
+              { title: { zh: '操作视频', en: 'Operation video' }, id: 'BV1SvQzBpEKX' }
+          ]
+      },
         
         // 3. 心肺复苏机 (Folder 3)
         {
