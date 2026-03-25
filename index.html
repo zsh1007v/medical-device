@@ -270,7 +270,10 @@ body { font-family: 'Inter', sans-serif; }
 <div class="modal-content w-full max-w-4xl">
     <div class="glass rounded-2xl overflow-hidden">
         <div class="aspect-video bg-black">
-            <iframe id="bilibiliPlayer" src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe>
+            <iframe id="videoPlayer" src="" class="w-full h-full" frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen></iframe>
+            <!-- <iframe id="bilibiliPlayer" src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe> -->
         </div>
         <div class="p-4 flex justify-end bg-medical-mid">
             <button onclick="closeVideoModal()" class="px-6 py-2 bg-gray-700 rounded-lg text-sm hover:bg-gray-600">close</button>
@@ -515,14 +518,30 @@ function closeDeviceModal() {
     document.getElementById('deviceModal').classList.remove('active');
 }
 
-function openVideoModal(bvid) {
-    document.getElementById('bilibiliPlayer').src = `//player.bilibili.com/player.html?bvid=${bvid}&autoplay=1&high_quality=1`;
+function openVideoModal(id) {
+    // document.getElementById('bilibiliPlayer').src = `//player.bilibili.com/player.html?bvid=${bvid}&autoplay=1&high_quality=1`;
+    // document.getElementById('videoModal').classList.add('active');
+    const player = document.getElementById('videoPlayer');
+    if (id.toLowerCase().startsWith('bv')) {
+        player.src = `//player.bilibili.com/player.html?bvid=${id}&autoplay=1`;
+    } else {
+        player.src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+    }
     document.getElementById('videoModal').classList.add('active');
 }
 
 function closeVideoModal() {
+    // document.getElementById('videoModal').classList.remove('active');
+    // document.getElementById('bilibiliPlayer').src = '';
+    // 1. 移除显示类名
     document.getElementById('videoModal').classList.remove('active');
-    document.getElementById('bilibiliPlayer').src = '';
+    
+    // 2. 清空 src（这步最关键：它会立即停止视频播放，不论是 B 站还是 YouTube）
+    // 注意：如果你在 HTML 里改了 id 名，这里也要对应改掉
+    const player = document.getElementById('bilibiliPlayer') || document.getElementById('videoPlayer');
+    if (player) {
+        player.src = '';
+    }
 }
 
 document.getElementById('deviceModal').addEventListener('click', function(e) {
