@@ -18,6 +18,64 @@ fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'], display: ['Poppins', '
 }
 }
 }
+
+<script>
+const i18n = {
+  en: {
+    search_title: "Quick Equipment Data Retrieval",
+    search_tip: "Enter the device name or model, supports fuzzy search",
+    navbar_search: "Search",
+    navbar_depart: "Department Navigation",
+    navbar_catalog: "Device Catalog",
+    navbar_clinical: "Department of Medical Engineering",
+    navbar_resource: "Resource Center",
+    current_filter: "Currently Displayed: All Devices",
+    deviceCount: "Total {num} units",     // 英文
+    dept_nav_title: "Department Classification Navigation",
+    device_catalog: "Device Catalog",
+    dept_view_all: "View All",
+    no_result: "This department currently has no equipment or no matching items were found.",
+    section_clinical_structure: "Medical Engineering Organizational Structure",
+    section_clinical_team: "Device Management and Technical Support Team",
+    job_manager: "Manager",
+    job_engineer: "Engineer",
+    no_result: "This department currently has no equipment or no matching items were found.",
+    modal_device_name: "Device Name",
+    modal_device_model: "Model: XXX",
+    modal_equipment_manual: "Equipment Manual",
+    modal_operation_video: "Operation video",
+    modal_video_close: "Close",
+    // ...补充你页面所有可能文本项
+  },
+  zh: {
+    search_title: "设备资料快速检索",
+    search_tip: "输入设备名称或型号，支持模糊搜索",
+    navbar_search: "搜索",
+    navbar_depart: "科室导航",
+    navbar_catalog: "设备目录",
+    navbar_clinical: "医工科",
+    navbar_resource: "资源中心",
+    current_filter: "当前显示：全部设备",
+    deviceCount_zh: "共 {num} 台",        // 中文
+    dept_view_all_zh: "查看全部",
+    device_catalog_zh: "设备目录",
+    no_result_zh: "该科室暂无设备或没有找到匹配项目。",
+    section_clinical_structure: "医工科组织架构",
+    section_clinical_team: "设备管理与技术支持团队",
+    job_manager: "科主任",
+    job_engineer: "工程师",
+    no_result: "该科室暂无设备或没有找到匹配项目。",
+    modal_device_name: "设备名称",
+    modal_device_model: "型号：XXX",
+    modal_equipment_manual: "设备说明书",
+    modal_operation_video: "操作视频",
+    modal_video_close: "关闭",
+    // ...补充你页面所有可能文本项
+  }
+};
+let currentLang = "en";
+</script>
+    
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -55,11 +113,14 @@ body { font-family: 'Inter', sans-serif; }
 <span class="font-bold text-xl text-white">Medical Equipment Information Management Platform</span>
 </div>
 <div class="hidden md:flex items-center space-x-6 text-sm">
-<a href="#search-section" class="text-gray-300 hover:text-white transition-colors">Search</a><!--搜索-->
-<a href="#departments" class="text-gray-300 hover:text-white transition-colors">Department Navigation</a><!--科室导航-->
-<a href="#devices" class="text-gray-300 hover:text-white transition-colors">Device Catalog</a><!--设备目录-->
-<a href="#clinical-engineering" class="text-gray-300 hover:text-white transition-colors">Department of Medical Engineering</a><!--医工科-->
-<a href="#resources" class="text-gray-300 hover:text-white transition-colors">Resource Center</a><!--资源中心-->
+<a href="#search-section" class="text-gray-300 hover:text-white transition-colors" data-i18n="navbar_search">Search</a><!--搜索-->
+<a href="#departments" class="text-gray-300 hover:text-white transition-colors" data-i18n="navbar_depart">Department Navigation</a><!--科室导航-->
+<a href="#devices" class="text-gray-300 hover:text-white transition-colors" data-i18n="navbar_catalog">Device Catalog</a><!--设备目录-->
+<a href="#clinical-engineering" class="text-gray-300 hover:text-white transition-colors" data-i18n="navbar_clinical">Department of Medical Engineering</a><!--医工科-->
+<a href="#resources" class="text-gray-300 hover:text-white transition-colors" data-i18n="navbar_resource">Resource Center</a><!--资源中心-->
+<button id="langToggle" class="ml-6 px-3 py-1 rounded bg-primary-500 hover:bg-primary-600 text-sm">
+  English
+</button>
 </div>
 </div>
 </div>
@@ -71,8 +132,8 @@ body { font-family: 'Inter', sans-serif; }
     <!-- 1. 搜索栏 -->
     <section id="search-section" class="mb-12 scroll-mt-24">
         <div class="max-w-3xl mx-auto text-center fade-in">
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">Quick Equipment Data Retrieval</h1><!--设备资料快速检索<-->
-            <p class="text-gray-400 mb-6">Enter the device name or model, supports fuzzy search</p><!--输入设备名称或型号，支持模糊搜索 -->
+            <h1 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="search_title">Quick Equipment Data Retrieval</h1><!--设备资料快速检索<-->
+            <p class="text-gray-400 mb-6" data-i18n="search_tip">Enter the device name or model, supports fuzzy search</p><!--输入设备名称或型号，支持模糊搜索 -->
             <div class="relative">
                 <input type="text" id="mainSearch" placeholder="For example: monitor, X500, ventilator..."
                        class="search-input w-full px-6 py-4 pl-14 bg-medical-mid/70 border border-gray-700 rounded-2xl text-white text-lg focus:outline-none focus:border-primary-500 transition-all">
@@ -85,9 +146,14 @@ body { font-family: 'Inter', sans-serif; }
     <section id="departments" class="mb-12 scroll-mt-24">
         <div class="flex items-center justify-between mb-6">
             <h2 class="text-2xl font-bold text-white flex items-center">
+                <i class="fas fa-th-large text-primary-400 mr-3"></i>
+                <span data-i18n="dept_nav_title">Department Classification Navigation</span>
+            </h2>
+            <button onclick="filterDevices('all')" class="text-sm text-primary-400 hover:underline" data-i18n="dept_view_all">View All</button>
+            <!-- <h2 class="text-2xl font-bold text-white flex items-center">
                 <i class="fas fa-th-large text-primary-400 mr-3"></i>Department Classification Navigation
             </h2>
-            <button onclick="filterDevices('all')" class="text-sm text-primary-400 hover:underline">View All</button><!--查看全部-->
+            <button onclick="filterDevices('all')" class="text-sm text-primary-400 hover:underline">View All</button><!--查看全部--> -->
         </div>
         <div id="departmentsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             <!-- 动态生成 -->
@@ -99,18 +165,22 @@ body { font-family: 'Inter', sans-serif; }
         <div class="flex items-center justify-between mb-6">
             <div>
                 <h2 class="text-2xl font-bold text-white flex items-center">
-                    <i class="fas fa-server text-accent-teal mr-3"></i>Device Catalog
+                    <i class="fas fa-server text-accent-teal mr-3"></i>
+                    <span data-i18n="device_catalog">Device Catalog</span>
                 </h2>
-                <p id="currentFilter" class="text-sm text-gray-500 mt-1">Currently Displayed: All Devices</p>
+                <!-- <h2 class="text-2xl font-bold text-white flex items-center">
+                    <i class="fas fa-server text-accent-teal mr-3"></i>Device Catalog
+                </h2> -->
+                <p id="currentFilter" class="text-sm text-gray-500 mt-1" data-i18n="current_filter">Currently Displayed: All Devices</p>
             </div>
-            <span id="deviceCount" class="text-sm bg-medical-light px-3 py-1 rounded-full text-gray-400">Total 0 units</span>
+            <span id="deviceCount" class="text-sm bg-medical-light px-3 py-1 rounded-full text-gray-400" data-i18n="deviceCount">Total 0 units</span>
         </div>
         <div id="devicesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- 动态生成 -->
         </div>
         <div id="noResults" class="hidden text-center py-16 text-gray-500">
             <i class="fas fa-box-open text-4xl mb-4 opacity-20"></i>
-            <p>This department currently has no equipment or no matching items were found.</p>
+            <p data-i18n="no_result">This department currently has no equipment or no matching items were found.</p>
         </div>
     </section>
 
@@ -124,8 +194,10 @@ body { font-family: 'Inter', sans-serif; }
                         <i class="fas fa-user-cog text-white text-xl"></i>
                     </div>
                     <div>
-                        <h2 class="text-2xl font-bold text-white">Medical Engineering Organizational Structure</h2>
-                        <p class="text-gray-400 text-sm">Device Management and Technical Support Team</p>
+                        <!-- <h2 class="text-2xl font-bold text-white">Medical Engineering Organizational Structure</h2>
+                        <p class="text-gray-400 text-sm">Device Management and Technical Support Team</p> -->
+                        <h2 class="text-2xl font-bold text-white" data-i18n="section_clinical_structure">Medical Engineering Organizational Structure</h2>
+                        <p class="text-gray-400 text-sm" data-i18n="section_clinical_team">Device Management and Technical Support Team</p>
                     </div>
                 </div>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -134,7 +206,7 @@ body { font-family: 'Inter', sans-serif; }
                             <i class="fas fa-user-tie text-white text-3xl"></i>
                         </div>
                         <h4 class="font-bold text-white text-lg">Mariya</h4>
-                        <p class="text-primary-400 text-sm mb-2">Manager</p>
+                        <p class="text-primary-400 text-sm mb-2" data-i18n="job_manager">Manager</p>
                         <div class="text-xs text-gray-500 space-y-1">
                             <p><i class="fas fa-phone mr-1"></i>+251914135312</p>
                             <!-- <p><i class="fas fa-envelope mr-1"></i> zhang@hospital.com</p> -->
@@ -145,7 +217,7 @@ body { font-family: 'Inter', sans-serif; }
                             <i class="fas fa-user-cog text-white text-3xl"></i>
                         </div>
                         <h4 class="font-bold text-white text-lg">Kunmsa Kuratu</h4>
-                        <p class="text-primary-400 text-sm mb-2">Engineer</p>
+                        <p class="text-primary-400 text-sm mb-2" data-i18n="job_engineer">Engineer</p>
                         <div class="text-xs text-gray-500 space-y-1">
                             <p><i class="fas fa-phone mr-1"></i>+251926144261</p>
                             <!-- <p><i class="fas fa-envelope mr-1"></i> li@hospital.com</p> -->
@@ -156,7 +228,7 @@ body { font-family: 'Inter', sans-serif; }
                             <i class="fas fa-tools text-white text-3xl"></i>
                         </div>
                         <h4 class="font-bold text-white text-lg">Dejene</h4>
-                        <p class="text-primary-400 text-sm mb-2">Engineer</p>
+                        <p class="text-primary-400 text-sm mb-2" data-i18n="job_engineer">Engineer</p>
                         <div class="text-xs text-gray-500 space-y-1">
                             <p><i class="fas fa-phone mr-1"></i> +251991225265</p>
                             <!-- <p><i class="fas fa-envelope mr-1"></i> wang@hospital.com</p> -->
@@ -167,7 +239,7 @@ body { font-family: 'Inter', sans-serif; }
                             <i class="fas fa-laptop-medical text-white text-3xl"></i>
                         </div>
                         <h4 class="font-bold text-white text-lg">Million</h4>
-                        <p class="text-primary-400 text-sm mb-2">Engineer</p>
+                        <p class="text-primary-400 text-sm mb-2" data-i18n="job_engineer">Engineer</p>
                         <div class="text-xs text-gray-500 space-y-1">
                             <p><i class="fas fa-phone mr-1"></i> +251913478586</p>
                             <!-- <p><i class="fas fa-envelope mr-1"></i> zhao@hospital.com</p> -->
@@ -238,8 +310,8 @@ body { font-family: 'Inter', sans-serif; }
     <div class="p-6 md:p-8">
         <div class="flex justify-between items-start mb-6">
             <div>
-                <h3 id="modal-device-name" class="text-2xl font-bold text-white">Device Name</h3>
-                <p id="modal-device-model" class="text-primary-400 text-sm mt-1">Model: XXX</p>
+                <h3 id="modal-device-name" class="text-2xl font-bold text-white" data-i18n="modal_device_name">Device Name</h3>
+                <p id="modal-device-model" class="text-primary-400 text-sm mt-1" data-i18n="modal_device_model">Model: XXX</p>
             </div>
             <button onclick="closeDeviceModal()" class="text-gray-500 hover:text-white text-2xl">
                 <i class="fas fa-times"></i>
@@ -249,14 +321,18 @@ body { font-family: 'Inter', sans-serif; }
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div>
                 <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
-                    <i class="fas fa-file-pdf text-red-400 mr-2"></i>Equipment Manual (<span id="modal-manual-count">0</span>)
+                    <i class="fas fa-file-pdf text-red-400 mr-2"></i>
+                    <span data-i18n="modal_equipment_manual">Equipment Manual</span>
+                    (<span id="modal-manual-count">0</span>)
                 </h4>
                 <div id="modal-manuals" class="space-y-2"></div>
             </div>
 
             <div>
                 <h4 class="text-lg font-semibold text-white mb-4 flex items-center">
-                    <i class="fas fa-play-circle text-accent-teal mr-2"></i>Operation video (<span id="modal-video-count">0</span>)
+                    <i class="fas fa-play-circle text-accent-teal mr-2"></i>
+                    <span data-i18n="modal_operation_video">Operation video</span>
+                    (<span id="modal-video-count">0</span>)
                 </h4>
                 <div id="modal-videos" class="space-y-2"></div>
             </div>
@@ -276,7 +352,7 @@ body { font-family: 'Inter', sans-serif; }
             <!-- <iframe id="bilibiliPlayer" src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe> -->
         </div>
         <div class="p-4 flex justify-end bg-medical-mid">
-            <button onclick="closeVideoModal()" class="px-6 py-2 bg-gray-700 rounded-lg text-sm hover:bg-gray-600">close</button>
+            <button onclick="closeVideoModal()" class="px-6 py-2 bg-gray-700 rounded-lg text-sm hover:bg-gray-600" data-i18n="modal_video_close">close</button>
         </div>
     </div>
 </div>
@@ -287,26 +363,47 @@ body { font-family: 'Inter', sans-serif; }
      ========================================== -->
 <script>
 // 1. 科室列表
+// const departments = [
+//     { id: 'clinical_eng', name: 'Biomedical Engineering', icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },//医工科
+//     { id: 'emergency', name: 'Emergency', icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },//急诊科
+//     { id: 'icu', name: 'ICU', icon: 'fa-procedures', color: 'from-red-600 to-rose-600' },
+//     { id: 'surgery', name: 'OR', icon: 'fa-user-md', color: 'from-green-600 to-teal-600' },//手术室
+//     { id: 'radiology', name: 'Radiology', icon: 'fa-x-ray', color: 'from-gray-500 to-blue-500' },//放射科
+//     { id: 'respiratory', name: 'Respiratory', icon: 'fa-lungs', color: 'from-cyan-500 to-blue-500' },//呼吸科
+//     { id: 'cardiology', name: 'Cardiology', icon: 'fa-heartbeat', color: 'from-rose-500 to-red-500' },//心内科
+//     { id: 'lab', name: 'Laboratory', icon: 'fa-microscope', color: 'from-blue-500 to-indigo-500' },//检验科
+//     { id: 'dialysis', name: 'Dialysis', icon: 'fa-tint', color: 'from-red-400 to-rose-400' },//透析
+//     { id: 'endocrine', name: 'Endocrine', icon: 'fa-syringe', color: 'from-teal-400 to-cyan-400' }, // 新增内分泌科
+//     { id: 'rehab', name: 'Physical Therapy', icon: 'fa-walking', color: 'from-green-500 to-teal-500' },//康复理疗
+//     { id: 'obstetrics', name: 'Obstetrics', icon: 'fa-baby', color: 'from-pink-500 to-rose-500' },//妇产
+//     { id: 'dental', name: 'Dental', icon: 'fa-tooth', color: 'from-blue-400 to-cyan-400' },//牙科
+//     { id: 'ophthalmology', name: 'Ophthalmology', icon: 'fa-eye', color: 'from-indigo-500 to-purple-500' },//眼科
+//     { id: 'ent', name: 'ENT', icon: 'fa-head-side-virus', color: 'from-yellow-500 to-amber-500' },//ent
+//     { id: 'endoscopy', name: 'Endoscopy', icon: 'fa-search', color: 'from-emerald-500 to-green-500' },//内镜室
+//     { id: 'neurology', name: 'Neurology', icon: 'fa-brain', color: 'from-violet-500 to-purple-500' },//神内科
+//     { id: 'pathology', name: 'Pathology', icon: 'fa-vials', color: 'from-slate-500 to-gray-600' },//病理
+//     { id: 'sterilization', name: 'CSSD', icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }//消毒供应
+// ];
 const departments = [
-    { id: 'clinical_eng', name: 'Biomedical Engineering', icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },//医工科
-    { id: 'emergency', name: 'Emergency', icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },//急诊科
-    { id: 'icu', name: 'ICU', icon: 'fa-procedures', color: 'from-red-600 to-rose-600' },
-    { id: 'surgery', name: 'OR', icon: 'fa-user-md', color: 'from-green-600 to-teal-600' },//手术室
-    { id: 'radiology', name: 'Radiology', icon: 'fa-x-ray', color: 'from-gray-500 to-blue-500' },//放射科
-    { id: 'respiratory', name: 'Respiratory', icon: 'fa-lungs', color: 'from-cyan-500 to-blue-500' },//呼吸科
-    { id: 'cardiology', name: 'Cardiology', icon: 'fa-heartbeat', color: 'from-rose-500 to-red-500' },//心内科
-    { id: 'lab', name: 'Laboratory', icon: 'fa-microscope', color: 'from-blue-500 to-indigo-500' },//检验科
-    { id: 'dialysis', name: 'Dialysis', icon: 'fa-tint', color: 'from-red-400 to-rose-400' },//透析
-    { id: 'endocrine', name: 'Endocrine', icon: 'fa-syringe', color: 'from-teal-400 to-cyan-400' }, // 新增内分泌科
-    { id: 'rehab', name: 'Physical Therapy', icon: 'fa-walking', color: 'from-green-500 to-teal-500' },//康复理疗
-    { id: 'obstetrics', name: 'Obstetrics', icon: 'fa-baby', color: 'from-pink-500 to-rose-500' },//妇产
-    { id: 'dental', name: 'Dental', icon: 'fa-tooth', color: 'from-blue-400 to-cyan-400' },//牙科
-    { id: 'ophthalmology', name: 'Ophthalmology', icon: 'fa-eye', color: 'from-indigo-500 to-purple-500' },//眼科
-    { id: 'ent', name: 'ENT', icon: 'fa-head-side-virus', color: 'from-yellow-500 to-amber-500' },//ent
-    { id: 'endoscopy', name: 'Endoscopy', icon: 'fa-search', color: 'from-emerald-500 to-green-500' },//内镜室
-    { id: 'neurology', name: 'Neurology', icon: 'fa-brain', color: 'from-violet-500 to-purple-500' },//神内科
-    { id: 'pathology', name: 'Pathology', icon: 'fa-vials', color: 'from-slate-500 to-gray-600' },//病理
-    { id: 'sterilization', name: 'CSSD', icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }//消毒供应
+    { id: 'clinical_eng', name: { zh: '医工科', en: 'Biomedical Engineering' }, icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },
+    { id: 'emergency', name: { zh: '急诊科', en: 'Emergency' }, icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },
+    { id: 'icu', name: { zh: '重症医学科', en: 'ICU' }, icon: 'fa-procedures', color: 'from-red-600 to-rose-600' },
+    { id: 'surgery', name: { zh: '手术室', en: 'OR' }, icon: 'fa-user-md', color: 'from-green-600 to-teal-600' },
+    { id: 'radiology', name: { zh: '放射科', en: 'Radiology' }, icon: 'fa-x-ray', color: 'from-gray-500 to-blue-500' },
+    { id: 'respiratory', name: { zh: '呼吸科', en: 'Respiratory' }, icon: 'fa-lungs', color: 'from-cyan-500 to-blue-500' },
+    { id: 'cardiology', name: { zh: '心内科', en: 'Cardiology' }, icon: 'fa-heartbeat', color: 'from-rose-500 to-red-500' },
+    { id: 'lab', name: { zh: '检验科', en: 'Laboratory' }, icon: 'fa-microscope', color: 'from-blue-500 to-indigo-500' },
+    { id: 'dialysis', name: { zh: '透析室', en: 'Dialysis' }, icon: 'fa-tint', color: 'from-red-400 to-rose-400' },
+    { id: 'endocrine', name: { zh: '内分泌科', en: 'Endocrine' }, icon: 'fa-syringe', color: 'from-teal-400 to-cyan-400' },
+    { id: 'rehab', name: { zh: '康复理疗科', en: 'Physical Therapy' }, icon: 'fa-walking', color: 'from-green-500 to-teal-500' },
+    { id: 'obstetrics', name: { zh: '妇产科', en: 'Obstetrics' }, icon: 'fa-baby', color: 'from-pink-500 to-rose-500' },
+    { id: 'dental', name: { zh: '牙科', en: 'Dental' }, icon: 'fa-tooth', color: 'from-blue-400 to-cyan-400' },
+    { id: 'ophthalmology', name: { zh: '眼科', en: 'Ophthalmology' }, icon: 'fa-eye', color: 'from-indigo-500 to-purple-500' },
+    { id: 'ent', name: { zh: '耳鼻喉科', en: 'ENT' }, icon: 'fa-head-side-virus', color: 'from-yellow-500 to-amber-500' },
+    { id: 'endoscopy', name: { zh: '内镜室', en: 'Endoscopy' }, icon: 'fa-search', color: 'from-emerald-500 to-green-500' },
+    { id: 'neurology', name: { zh: '神内科', en: 'Neurology' }, icon: 'fa-brain', color: 'from-violet-500 to-purple-500' },
+    { id: 'pathology', name: { zh: '病理科', en: 'Pathology' }, icon: 'fa-vials', color: 'from-slate-500 to-gray-600' },
+    { id: 'sterilization', name: { zh: '消毒供应室', en: 'CSSD' }, icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }
 ];
 
 // 2. 设备数据声明
@@ -317,6 +414,7 @@ let currentDept = 'all';
 
 document.addEventListener('DOMContentLoaded', function() {
     initApp();
+    setLanguage(currentLang);  
 });
 
 function initApp() {
@@ -367,7 +465,9 @@ function renderDepartments() {
             <div class="w-10 h-10 rounded-lg bg-gradient-to-br ${dept.color} flex items-center justify-center mb-2 shadow-lg group-hover:scale-110 transition-transform">
                 <i class="fas ${dept.icon} text-white"></i>
             </div>
-            <h3 class="font-medium text-white text-sm">${dept.name}</h3>
+            <h3 class="font-medium text-white text-sm">${
+                typeof dept.name === 'object' ? dept.name[currentLang] : dept.name
+            }</h3>
         </div>
     `).join('');
 }
@@ -384,9 +484,18 @@ function filterDevices(deptId) {
     const filtered = deptId === 'all' ? devicesData : devicesData.filter(d => d.deptId === deptId);
     renderDevices(filtered);
     
-    const deptName = deptId === 'all' ? 'All equipment' : (departments.find(d => d.id === deptId)?.name || '');
+    // const deptName = deptId === 'all' ? 'All equipment' : (departments.find(d => d.id === deptId)?.name || '');
+    const deptObj = departments.find(d => d.id === deptId);
+    const deptName = deptId === 'all'
+      ? (currentLang === 'en' ? 'All equipment' : '全部设备')
+      : (typeof deptObj?.name === 'object' ? deptObj.name[currentLang] : deptObj?.name) || '';
     const filterText = document.getElementById('currentFilter');
-    if(filterText) filterText.textContent = `Currently showing:${deptName}`;
+    // if(filterText) filterText.textContent = `Currently showing:${deptName}`;
+    if(filterText) {
+      filterText.textContent = currentLang === 'en'
+        ? `Currently showing: ${deptName}`
+        : `当前显示：${deptName}`;
+    }
     
     const devicesSection = document.getElementById('devices');
     if(devicesSection) devicesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -399,7 +508,12 @@ function renderDevices(data) {
     
     if(!grid || !noResults || !countEl) return;
     
-    countEl.textContent = `共 ${data.length} 台`;
+    let num = data.length; // data就是当前过滤出的设备列表
+    if(countEl){
+      countEl.textContent = currentLang === 'en'
+        ? `Total ${num} units`
+        : `共 ${num} 台`;
+    }
 
     if (data.length === 0) {
         grid.innerHTML = '';
@@ -410,7 +524,12 @@ function renderDevices(data) {
     noResults.classList.add('hidden');
     
     // 【重要修复】传递 UID 而不是 index
-    grid.innerHTML = data.map((device) => `
+    grid.innerHTML = data.map((device) => {
+        const deptObj = departments.find(d => d.id === device.deptId);
+        const deptName = deptObj
+            ? (typeof deptObj.name === 'object' ? deptObj.name[currentLang] : deptObj.name)
+            : (currentLang === 'en' ? 'Unknown' : '未知');
+        return `
         <div onclick="openDeviceModal('${device._uid}')" 
              class="glass rounded-2xl p-6 cursor-pointer card-hover fade-in">
             <div class="flex justify-between items-start mb-3">
@@ -418,18 +537,40 @@ function renderDevices(data) {
                     <i class="fas fa-cube text-primary-400 text-lg"></i>
                 </div>
                 <span class="text-xs bg-medical-light px-2 py-1 rounded text-gray-400">
-                    ${departments.find(d => d.id === device.deptId)?.name || 'Unknow'}
+                    ${deptName}
+                </span>
+                
+            </div>
+            <h3 class="font-semibold text-lg text-white mb-1">${
+                typeof device.name === 'object' ? device.name[currentLang] : device.name
+            }</h3>    
+            <p class="text-sm text-gray-500 mb-3">${
+              currentLang === 'en' ? 'Model: ' : '型号：'
+            }${device.model}</p>
+            <p class="text-sm text-gray-400 line-clamp-2 h-10">${
+                typeof device.description === 'object' ? device.description[currentLang] : device.description
+            }</p>
+            <div class="mt-4 pt-3 border-t border-gray-700/50 flex justify-between text-xs text-gray-500">
+                <span>
+                  <i class="fas fa-file-pdf mr-1 text-red-400"></i>
+                  ${device.manuals.length} ${
+                    currentLang === 'en'
+                      ? (device.manuals.length === 1 ? 'document' : 'documents')
+                      : '文档'
+                  }
+                </span>
+                <span>
+                  <i class="fas fa-video mr-1 text-primary-400"></i>
+                  ${device.videos.length} ${
+                    currentLang === 'en'
+                      ? (device.videos.length === 1 ? 'video' : 'videos')
+                      : '视频'
+                  }
                 </span>
             </div>
-            <h3 class="font-semibold text-lg text-white mb-1">${device.name}</h3>
-            <p class="text-sm text-gray-500 mb-3">Modal：${device.model}</p>
-            <p class="text-sm text-gray-400 line-clamp-2 h-10">${device.description}</p>
-            <div class="mt-4 pt-3 border-t border-gray-700/50 flex justify-between text-xs text-gray-500">
-                <span><i class="fas fa-file-pdf mr-1 text-red-400"></i>${device.manuals.length} documents</span>
-                <span><i class="fas fa-video mr-1 text-primary-400"></i>${device.videos.length} video</span>
-            </div>
         </div>
-    `).join('');
+        `;
+    }).join('');
 }
 
 function setupSearch() {
@@ -444,14 +585,22 @@ function setupSearch() {
         }
         
         const filtered = devicesData.filter(device => {
-            const name = device.name.toLowerCase().replace(/\s/g, '');
-            const model = device.model.toLowerCase().replace(/\s/g, '');
-            return name.includes(query) || model.includes(query);
+            // 支持 name 是对象
+            let name = typeof device.name === 'object' ? 
+              (device.name[currentLang] || "") : (device.name || "");
+            const model = (device.model || "");
+            name = name.toLowerCase().replace(/\s/g, '');
+            const modelStr = model.toLowerCase().replace(/\s/g, '');
+            return name.includes(query) || modelStr.includes(query);
         });
         
         renderDevices(filtered);
         const filterText = document.getElementById('currentFilter');
-        if(filterText) filterText.textContent = query ? `搜索结果：${query}` : '当前显示：全部设备';
+        if (filterText) {
+            filterText.textContent = query
+              ? (currentLang === 'en' ? `Search result: ${query}` : `搜索结果：${query}`)
+              : (currentLang === 'en' ? 'Currently Displayed: All Devices' : '当前显示：全部设备');
+        }
     });
 }
 
@@ -474,13 +623,17 @@ function openDeviceModal(uid) {
     const device = devicesData.find(d => d._uid === uid);
     if(!device) return;
 
-    document.getElementById('modal-device-name').textContent = device.name;
-    document.getElementById('modal-device-model').textContent = `型号：${device.model}`;
+    document.getElementById('modal-device-name').textContent =
+      typeof device.name === 'object' ? device.name[currentLang] : device.name;
+    
+    document.getElementById('modal-device-model').textContent =
+      (currentLang === 'en' ? 'Model: ' : '型号：') + device.model;
     
     const manualsContainer = document.getElementById('modal-manuals');
     document.getElementById('modal-manual-count').textContent = device.manuals.length;
     
-    manualsContainer.innerHTML = device.manuals.length > 0 ? device.manuals.map(m => `
+    manualsContainer.innerHTML = device.manuals.length > 0
+        ? device.manuals.map(m => `
         <div class="bg-medical-dark/50 rounded-lg p-3">
             <div class="flex items-center justify-between mb-2">
                 <div class="flex items-center space-x-2">
@@ -490,26 +643,38 @@ function openDeviceModal(uid) {
             </div>
             <div class="flex space-x-2">
                 <a href="${getPreviewUrl(m.url)}" target="_blank" class="flex-1 text-center px-3 py-1.5 bg-primary-500/20 rounded text-primary-300 text-xs hover:bg-primary-500/30 transition-colors">
-                    <i class="fas fa-eye mr-1"></i>Online Preview
+                    <i class="fas fa-eye mr-1"></i>${
+                      currentLang === 'en' ? 'Online Preview' : '在线预览'}
                 </a>
+                
                 <a href="${getDownloadUrl(m.url)}" download class="flex-1 text-center px-3 py-1.5 bg-gray-600/30 rounded text-gray-300 text-xs hover:bg-gray-600/50 transition-colors">
-                    <i class="fas fa-download mr-1"></i>Download
+                    <i class="fas fa-download mr-1"></i>${
+                      currentLang === 'en' ? 'Download' : '下载'}
                 </a>
             </div>
         </div>
-    `).join('') : '<p class="text-gray-500 text-sm">Manual not available</p>';
+    `).join('') 
+        : `<p class="text-gray-500 text-sm">${
+            currentLang === 'en' ? 'Manual not available' : '暂无说明书'
+        }</p>`;
 
     const videosContainer = document.getElementById('modal-videos');
     document.getElementById('modal-video-count').textContent = device.videos.length;
-    videosContainer.innerHTML = device.videos.length > 0 ? device.videos.map(v => `
+    videosContainer.innerHTML = device.videos.length > 0
+        ? device.videos.map(v => `
         <div onclick="openVideoModal('${v.id}')" class="flex items-center justify-between p-3 rounded-lg bg-medical-dark/50 hover:bg-medical-light/20 transition-colors cursor-pointer">
             <div class="flex items-center space-x-3">
                 <i class="fas fa-play-circle text-accent-teal"></i>
-                <span class="text-sm text-gray-300">${v.title}</span>
+                <span class="text-sm text-gray-300">${
+                  typeof v.title === 'object' ? v.title[currentLang] : v.title
+                }</span>
             </div>
             <i class="fas fa-chevron-right text-gray-500 text-xs"></i>
         </div>
-    `).join('') : '<p class="text-gray-500 text-sm">No video available</p>';
+    `).join('') 
+        : `<p class="text-gray-500 text-sm">${
+            currentLang === 'en' ? 'No video available' : '暂无视频'
+        }</p>`;
 
     document.getElementById('deviceModal').classList.add('active');
 }
@@ -543,7 +708,28 @@ function closeVideoModal() {
         player.src = '';
     }
 }
+// 语言切换函数
+function setLanguage(lang) {
+  currentLang = lang;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if(i18n[lang][key]){
+      el.textContent = i18n[lang][key];
+    }
+  });
+  // 如果 deviceCount 要带数量参数，后面 device 渲染时再特判
+}
 
+// 语言切换按钮绑定
+document.getElementById('langToggle').addEventListener('click', function(){
+  if(currentLang === "en"){
+    setLanguage("zh");
+    this.textContent = "English";
+  } else {
+    setLanguage("en");
+    this.textContent = "中文";
+  }
+});
 document.getElementById('deviceModal').addEventListener('click', function(e) {
     if (e.target === this) closeDeviceModal();
 });
@@ -2334,6 +2520,7 @@ try {
         
         // ... 继续添加其他设备
     ];
+    
 } catch(e) {
     document.addEventListener('DOMContentLoaded', function() {
         showError("数据配置格式错误！请检查 devicesData 中的逗号或引号是否正确。<br>错误详情：" + e.message);
