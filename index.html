@@ -44,8 +44,7 @@ const i18n = {
     modal_operation_video: "Operation video",
     modal_video_close: "Close",
     dept_view_all: "View All",
-    deviceCount: "Total {num} units",
-    // ...补充你页面所有可能文本项
+    deviceCount: "Total {num} units"
   },
   zh: {
     search_title: "设备资料快速检索",
@@ -56,7 +55,7 @@ const i18n = {
     navbar_clinical: "医工科",
     navbar_resource: "资源中心",
     current_filter: "当前显示：全部设备",
-    deviceCount_zh: "共 {num} 台",        // 中文
+    deviceCount_zh: "共 {num} 台",        
     dept_view_all_zh: "查看全部",
     device_catalog_zh: "设备目录",
     device_catalog: "设备目录",
@@ -73,8 +72,7 @@ const i18n = {
     modal_video_close: "关闭",
     dept_view_all: "查看全部",
     deviceCount: "共 {num} 台",
-    dept_nav_title:"科室分类导航",
-    // ...补充你页面所有可能文本项
+    dept_nav_title:"科室分类导航"
   }
 };
 let currentLang = "en";
@@ -152,10 +150,6 @@ body { font-family: 'Inter', sans-serif; }
                 <span data-i18n="dept_nav_title">Department Classification Navigation</span>
             </h2>
             <button onclick="filterDevices('all')" class="text-sm text-primary-400 hover:underline" data-i18n="dept_view_all">View All</button>
-            <!-- <h2 class="text-2xl font-bold text-white flex items-center">
-                <i class="fas fa-th-large text-primary-400 mr-3"></i>Department Classification Navigation
-            </h2>
-            <button onclick="filterDevices('all')" class="text-sm text-primary-400 hover:underline">View All</button><!--查看全部--> -->
         </div>
         <div id="departmentsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3">
             <!-- 动态生成 -->
@@ -170,9 +164,6 @@ body { font-family: 'Inter', sans-serif; }
                     <i class="fas fa-server text-accent-teal mr-3"></i>
                     <span data-i18n="device_catalog">Device Catalog</span>
                 </h2>
-                <!-- <h2 class="text-2xl font-bold text-white flex items-center">
-                    <i class="fas fa-server text-accent-teal mr-3"></i>Device Catalog
-                </h2> -->
                 <p id="currentFilter" class="text-sm text-gray-500 mt-1" data-i18n="current_filter">Currently Displayed: All Devices</p>
             </div>
             <span id="deviceCount" class="text-sm bg-medical-light px-3 py-1 rounded-full text-gray-400" data-i18n="deviceCount">Total 0 units</span>
@@ -196,8 +187,6 @@ body { font-family: 'Inter', sans-serif; }
                         <i class="fas fa-user-cog text-white text-xl"></i>
                     </div>
                     <div>
-                        <!-- <h2 class="text-2xl font-bold text-white">Medical Engineering Organizational Structure</h2>
-                        <p class="text-gray-400 text-sm">Device Management and Technical Support Team</p> -->
                         <h2 class="text-2xl font-bold text-white" data-i18n="section_clinical_structure">Medical Engineering Organizational Structure</h2>
                         <p class="text-gray-400 text-sm" data-i18n="section_clinical_team">Device Management and Technical Support Team</p>
                     </div>
@@ -222,7 +211,6 @@ body { font-family: 'Inter', sans-serif; }
                         <p class="text-primary-400 text-sm mb-2" data-i18n="job_engineer">Engineer</p>
                         <div class="text-xs text-gray-500 space-y-1">
                             <p><i class="fas fa-phone mr-1"></i>+251926144261</p>
-                            <!-- <p><i class="fas fa-envelope mr-1"></i> li@hospital.com</p> -->
                         </div>
                     </div>
                     <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
@@ -233,7 +221,6 @@ body { font-family: 'Inter', sans-serif; }
                         <p class="text-primary-400 text-sm mb-2" data-i18n="job_engineer">Engineer</p>
                         <div class="text-xs text-gray-500 space-y-1">
                             <p><i class="fas fa-phone mr-1"></i> +251991225265</p>
-                            <!-- <p><i class="fas fa-envelope mr-1"></i> wang@hospital.com</p> -->
                         </div>
                     </div>
                     <div class="bg-medical-dark/40 rounded-xl p-5 border border-gray-700/50 text-center">
@@ -244,7 +231,6 @@ body { font-family: 'Inter', sans-serif; }
                         <p class="text-primary-400 text-sm mb-2" data-i18n="job_engineer">Engineer</p>
                         <div class="text-xs text-gray-500 space-y-1">
                             <p><i class="fas fa-phone mr-1"></i> +251913478586</p>
-                            <!-- <p><i class="fas fa-envelope mr-1"></i> zhao@hospital.com</p> -->
                         </div>
                     </div>
                 </div>
@@ -351,7 +337,6 @@ body { font-family: 'Inter', sans-serif; }
             <iframe id="videoPlayer" src="" class="w-full h-full" frameborder="0" 
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                         allowfullscreen></iframe>
-            <!-- <iframe id="bilibiliPlayer" src="" class="w-full h-full" frameborder="0" allowfullscreen></iframe> -->
         </div>
         <div class="p-4 flex justify-end bg-medical-mid">
             <button onclick="closeVideoModal()" class="px-6 py-2 bg-gray-700 rounded-lg text-sm hover:bg-gray-600" data-i18n="modal_video_close">close</button>
@@ -365,27 +350,6 @@ body { font-family: 'Inter', sans-serif; }
      ========================================== -->
 <script>
 // 1. 科室列表
-// const departments = [
-//     { id: 'clinical_eng', name: 'Biomedical Engineering', icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },//医工科
-//     { id: 'emergency', name: 'Emergency', icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },//急诊科
-//     { id: 'icu', name: 'ICU', icon: 'fa-procedures', color: 'from-red-600 to-rose-600' },
-//     { id: 'surgery', name: 'OR', icon: 'fa-user-md', color: 'from-green-600 to-teal-600' },//手术室
-//     { id: 'radiology', name: 'Radiology', icon: 'fa-x-ray', color: 'from-gray-500 to-blue-500' },//放射科
-//     { id: 'respiratory', name: 'Respiratory', icon: 'fa-lungs', color: 'from-cyan-500 to-blue-500' },//呼吸科
-//     { id: 'cardiology', name: 'Cardiology', icon: 'fa-heartbeat', color: 'from-rose-500 to-red-500' },//心内科
-//     { id: 'lab', name: 'Laboratory', icon: 'fa-microscope', color: 'from-blue-500 to-indigo-500' },//检验科
-//     { id: 'dialysis', name: 'Dialysis', icon: 'fa-tint', color: 'from-red-400 to-rose-400' },//透析
-//     { id: 'endocrine', name: 'Endocrine', icon: 'fa-syringe', color: 'from-teal-400 to-cyan-400' }, // 新增内分泌科
-//     { id: 'rehab', name: 'Physical Therapy', icon: 'fa-walking', color: 'from-green-500 to-teal-500' },//康复理疗
-//     { id: 'obstetrics', name: 'Obstetrics', icon: 'fa-baby', color: 'from-pink-500 to-rose-500' },//妇产
-//     { id: 'dental', name: 'Dental', icon: 'fa-tooth', color: 'from-blue-400 to-cyan-400' },//牙科
-//     { id: 'ophthalmology', name: 'Ophthalmology', icon: 'fa-eye', color: 'from-indigo-500 to-purple-500' },//眼科
-//     { id: 'ent', name: 'ENT', icon: 'fa-head-side-virus', color: 'from-yellow-500 to-amber-500' },//ent
-//     { id: 'endoscopy', name: 'Endoscopy', icon: 'fa-search', color: 'from-emerald-500 to-green-500' },//内镜室
-//     { id: 'neurology', name: 'Neurology', icon: 'fa-brain', color: 'from-violet-500 to-purple-500' },//神内科
-//     { id: 'pathology', name: 'Pathology', icon: 'fa-vials', color: 'from-slate-500 to-gray-600' },//病理
-//     { id: 'sterilization', name: 'CSSD', icon: 'fa-pump-soap', color: 'from-teal-500 to-emerald-500' }//消毒供应
-// ];
 const departments = [
     { id: 'clinical_eng', name: { zh: '医工科', en: 'Biomedical Engineering' }, icon: 'fa-user-cog', color: 'from-indigo-500 to-purple-500' },
     { id: 'emergency', name: { zh: '急诊科', en: 'Emergency' }, icon: 'fa-ambulance', color: 'from-red-500 to-orange-500' },
@@ -687,8 +651,6 @@ function openDeviceModal(uid) {
 }
 
 function closeVideoModal() {
-    // document.getElementById('videoModal').classList.remove('active');
-    // document.getElementById('bilibiliPlayer').src = '';
     // 1. 移除显示类名
     document.getElementById('videoModal').classList.remove('active');
     
@@ -722,7 +684,6 @@ document.getElementById('langToggle').addEventListener('click', function(){
     this.textContent = "English";
   } else {
     setLanguage("en");
-    // this.textContent = "中文";
   }
 });
 document.getElementById('deviceModal').addEventListener('click', function(e) {
@@ -743,35 +704,995 @@ try {
         // 请确保每个设备之间有逗号，最后一个设备后面不要加逗号
         // ---------------------------------------------------------
         
-        // 示例：胰岛素泵 (请检查您的数据是否包含正确的视频ID)
-        // {
-        //     name: '',
-        //     model: '',
-        //     deptId: 'icu', 
-        //     description: '',
-        //     manuals: [
-        //         { title: 'Technical Manual', url: '' }
-        //     ],
-        //     videos: [
-        //         { title: 'Operation video', id: '' }
-        //     ]
-        // },
-        // {
-        //     name: '',
-        //     model: '',
-        //     deptId: 'icu', 
-        //     description: '',
-        //     manuals: [
-        //         { title: 'Technical Manual', url: '' }
-        //     ],
-        //     videos: [
-        //         { title: 'Operation video', id: '' }
-        //     ]
-        // },
-        // ################################################################
-        // ################################################################
-        // ################################################################
-        // ################################################################
+        // 1. 耳鼻喉治疗台 (Folder 1)
+        {
+            // 中文名称: 耳鼻喉治疗台
+            name: 'ENT Treatment Unit',
+            model: '7600',
+            deptId: 'ent',
+            description: 'ENT treatment unit for diagnosis and treatment of ear, nose and throat diseases.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 2. 听力计 (Folder 2)
+        {
+            // 中文名称: 听力计
+            name: 'Audiometer',
+            model: 's3',
+            deptId: 'ent',
+            description: 'Audiometer for hearing level testing and auditory function assessment.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 3. 声导抗仪 (Folder 3)
+        {
+            // 中文名称: 声导抗仪
+            name: 'Tympanometer',
+            model: 's8',
+            deptId: 'ent',
+            description: 'Tympanometer for middle ear function testing and tympanic membrane mobility assessment.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 4. 诱发电位系统 (Folder 4)
+        {
+            // 中文名称: 诱发电位系统
+            name: 'Evoked Potential System',
+            model: 's7',
+            deptId: 'neurology',
+            description: 'Evoked potential system for recording auditory and visual evoked potentials.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 5. 变焦耦合器 (Folder 5)
+        {
+            // 中文名称: 变焦耦合器
+            name: 'Zoom Coupler',
+            model: 'X8000',
+            deptId: 'endoscopy',
+            description: 'Zoom coupler for endoscope optical zoom and image transmission.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 6. 数字眼底相机 (Folder 6)
+        {
+            // 中文名称: 数字眼底相机
+            name: 'Digital Fundus Camera',
+            model: 's10',
+            deptId: 'ophthalmology',
+            description: 'Digital fundus camera for retinal imaging and ophthalmic diagnosis.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 7. 听力计 (Folder 7)
+        {
+            // 中文名称: 听力计
+            name: 'Audiometer',
+            model: 's3',
+            deptId: 'ent',
+            description: 'Audiometer for hearing level testing and auditory function assessment.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 8. 牙科治疗台 (Folder 8)
+        {
+            // 中文名称: 牙科治疗台
+            name: 'Dental Unit',
+            model: 'S200',
+            deptId: 'dental',
+            description: 'Dental unit for dental examination and treatment procedures.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 9. 台式蒸汽灭菌器 (Folder 9)
+        {
+            // 中文名称: 台式蒸汽灭菌器
+            name: 'Steam Sterilizer',
+            model: 's6',
+            deptId: 'sterilization',
+            description: 'Tabletop steam sterilizer for medical instrument sterilization.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 10. 牙科光固化机 (Folder 10)
+        {
+            // 中文名称: 牙科光固化机
+            name: 'Dental Light Cure',
+            model: 'LED C',
+            deptId: 'dental',
+            description: 'Dental light cure unit for resin polymerization and hardening.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 11. 根管长度测量仪 (Folder 11)
+        {
+            // 中文名称: 根管长度测量仪
+            name: 'Apex Locator',
+            model: 'ROOT PI',
+            deptId: 'dental',
+            description: 'Apex locator for root canal working length measurement.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 12. 牙科器械清洗机 (Folder 12)
+        {
+            // 中文名称: 牙科器械清洗机
+            name: 'Instrument Washer',
+            model: 'S19',
+            deptId: 'dental',
+            description: 'Instrument washer for automatic cleaning of dental instruments.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 13. 口腔X线机 (Folder 13)
+        {
+            // 中文名称: 口腔X线机
+            name: 'Dental X-Ray',
+            model: 'FONA XDG',
+            deptId: 'dental',
+            description: 'Dental X-ray unit for intraoral radiography and diagnosis.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 14. 全自动牙科洗片机 (Folder 14)
+        {
+            // 中文名称: 全自动牙科洗片机
+            name: 'Film Processor',
+            model: '',
+            deptId: 'dental',
+            description: 'Automatic film processor for dental X-ray film development.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 15. 激光治疗机 (Folder 15)
+        {
+            // 中文名称: 激光治疗机
+            name: 'Laser Therapy',
+            model: 'SINOLaser',
+            deptId: 'rehab',
+            description: 'Laser therapy unit for tissue repair and pain relief.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 16. 护理单元 (Folder 16)
+        {
+            // 中文名称: 护理单元
+            name: 'Nursing Unit',
+            model: 'KDSJ-Y1000',
+            deptId: 'clinical_eng',
+            description: 'Nursing unit for patient care and vital signs monitoring.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 17. 直流感应电疗机 (Folder 17)
+        {
+            // 中文名称: 直流感应电疗机
+            name: 'DC Induction Therapy',
+            model: 'DL-ZII',
+            deptId: 'rehab',
+            description: 'DC induction therapy unit for pain relief and rehabilitation.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 18. 电脑中频治疗仪 (Folder 18)
+        {
+            // 中文名称: 电脑中频治疗仪
+            name: 'Intermediate Frequency Therapy',
+            model: 'XYZP-IC',
+            deptId: 'rehab',
+            description: 'Intermediate frequency therapy unit for pain relief and circulation improvement.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 19. 低频治疗仪 (Folder 19)
+        {
+            // 中文名称: 低频治疗仪
+            name: 'Low Frequency Therapy',
+            model: '',
+            deptId: 'rehab',
+            description: 'Low frequency therapy unit for pain relief and muscle rehabilitation.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 20. 超短波电疗机 (Folder 20)
+        {
+            // 中文名称: 超短波电疗机
+            name: 'Shortwave Diathermy',
+            model: 'DL-C',
+            deptId: 'rehab',
+            description: 'Shortwave diathermy unit for anti-inflammatory and pain relief therapy.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 21. 五官科超短波电疗机 (Folder 21)
+        {
+            // 中文名称: 五官科超短波电疗机
+            name: 'ENT Shortwave Diathermy',
+            model: 'eco',
+            deptId: 'ent',
+            description: 'ENT shortwave diathermy unit for anti-inflammatory treatment.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 22. 紫外线治疗机 (Folder 22)
+        {
+            // 中文名称: 紫外线治疗机
+            name: 'Ultraviolet Therapy',
+            model: '',
+            deptId: 'rehab',
+            description: 'Ultraviolet therapy unit for sterilization and vitamin D synthesis.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 23. 红外治疗机 (Folder 23)
+        {
+            // 中文名称: 红外治疗机
+            name: 'Infrared Therapy',
+            model: 'TDP',
+            deptId: 'rehab',
+            description: 'Infrared therapy unit for circulation improvement and tissue repair.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 24. 微波治疗机 (Folder 24)
+        {
+            // 中文名称: 微波治疗机
+            name: 'Microwave Therapy',
+            model: '',
+            deptId: 'rehab',
+            description: 'Microwave therapy unit for deep tissue anti-inflammatory treatment.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 25. 半导体激光治疗机 (Folder 25)
+        {
+            // 中文名称: 半导体激光治疗机
+            name: 'Semiconductor Laser',
+            model: 'XYG-500IIIB',
+            deptId: 'rehab',
+            description: 'Semiconductor laser unit for pain relief and wound healing.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 26. 肩关节活动器 (Folder 26)
+        {
+            // 中文名称: 肩关节活动器
+            name: 'Shoulder CPM',
+            model: 'S4',
+            deptId: 'rehab',
+            description: 'Shoulder CPM device for passive joint mobilization and stiffness prevention.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 27. 颈腰椎牵引床 (Folder 27)
+        {
+            // 中文名称: 颈腰椎牵引床
+            name: 'Traction Bed',
+            model: 'JYZ-IIB',
+            deptId: 'rehab',
+            description: 'Traction bed for cervical and lumbar spine traction therapy.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 28. 超声波治疗仪 (Folder 28)
+        {
+            // 中文名称: 超声波治疗仪
+            name: 'Ultrasound Therapy',
+            model: 'nX4',
+            deptId: 'rehab',
+            description: 'Ultrasound therapy unit for tissue repair and pain relief.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 29. 磁疗仪 (Folder 29)
+        {
+            // 中文名称: 磁疗仪
+            name: 'Magnetic Therapy',
+            model: 'CLM-B',
+            deptId: 'rehab',
+            description: 'Magnetic therapy unit for pain relief and circulation improvement.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 30. 全自动生化分析仪 (Folder 30)
+        {
+            // 中文名称: 全自动生化分析仪
+            name: 'Biochemistry Analyzer',
+            model: 'ecL6',
+            deptId: 'lab',
+            description: 'Automatic biochemistry analyzer for blood chemistry testing.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 31. 血气分析仪 (Folder 31)
+        {
+            // 中文名称: 血气分析仪
+            name: 'Blood Gas Analyzer',
+            model: 'eco',
+            deptId: 'lab',
+            description: 'Blood gas analyzer for blood gas and electrolyte measurement.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 32. 血细胞分析仪 (Folder 32)
+        {
+            // 中文名称: 血细胞分析仪
+            name: 'Hematology Analyzer',
+            model: 'S6',
+            deptId: 'lab',
+            description: 'Hematology analyzer for blood cell counting and classification.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 33. 血小板聚集仪 (Folder 33)
+        {
+            // 中文名称: 血小板聚集仪
+            name: 'Platelet Aggregometer',
+            model: 'S4',
+            deptId: 'lab',
+            description: 'Platelet aggregometer for platelet function and coagulation assessment.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 34. 血液粘度分析仪 (Folder 34)
+        {
+            // 中文名称: 血液粘度分析仪
+            name: 'Blood Viscometer',
+            model: 'SA-9000',
+            deptId: 'lab',
+            description: 'Blood viscometer for blood viscosity measurement.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 35. 电热恒温鼓风干燥箱 (Folder 35)
+        {
+            // 中文名称: 电热恒温鼓风干燥箱
+            name: 'Drying Oven',
+            model: 'LCD',
+            deptId: 'lab',
+            description: 'Drying oven for high temperature drying and sterilization.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 36. 电泳仪 (Folder 36)
+        {
+            // 中文名称: 电泳仪
+            name: 'Electrophoresis',
+            model: 'NJ0',
+            deptId: 'lab',
+            description: 'Electrophoresis unit for protein and nucleic acid separation.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 37. 化学发光免疫测定仪 (Folder 37)
+        {
+            // 中文名称: 化学发光免疫测定仪
+            name: 'Chemiluminescence Immunoassay',
+            model: 'nJ4',
+            deptId: 'lab',
+            description: 'Chemiluminescence immunoassay analyzer for biomarker quantification.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 38. 显微镜 (Folder 38)
+        {
+            // 中文名称: 显微镜
+            name: 'Microscope',
+            model: 'UB203i',
+            deptId: 'lab',
+            description: 'Microscope for cellular and histological observation.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 39. 尿液分析仪 (Folder 39)
+        {
+            // 中文名称: 尿液分析仪
+            name: 'Urinalysis Analyzer',
+            model: 'S1',
+            deptId: 'lab',
+            description: 'Urinalysis analyzer for urine routine testing.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 40. 尿沉渣分析仪 (Folder 40)
+        {
+            // 中文名称: 尿沉渣分析仪
+            name: 'Urine Sediment Analyzer',
+            model: 'NX9',
+            deptId: 'lab',
+            description: 'Urine sediment analyzer for automatic analysis of urinary formed elements.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 41. 洗板机 (Folder 41)
+        {
+            // 中文名称: 洗板机
+            name: 'Plate Washer',
+            model: 'nx32',
+            deptId: 'lab',
+            description: 'Plate washer for automatic ELISA plate washing.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 42. 血凝分析仪 (Folder 42)
+        {
+            // 中文名称: 血凝分析仪
+            name: 'Coagulation Analyzer',
+            model: 'Mr-2',
+            deptId: 'lab',
+            description: 'Coagulation analyzer for clotting function testing.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 43. 血培养分析系统 (Folder 43)
+        {
+            // 中文名称: 血培养分析系统
+            name: 'Blood Culture System',
+            model: 'TDR-X120',
+            deptId: 'lab',
+            description: 'Blood culture system for bacterial detection in blood.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 44. 微生物鉴定系统 (Folder 44)
+        {
+            // 中文名称: 微生物鉴定系统
+            name: 'Microbial Identification',
+            model: 'Nx6P',
+            deptId: 'lab',
+            description: 'Microbial identification system for bacterial identification and susceptibility testing.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 45. 心肌梗塞标志物检测仪 (Folder 45)
+        {
+            // 中文名称: 心肌梗塞标志物检测仪
+            name: 'Cardiac Marker Analyzer',
+            model: 'S45',
+            deptId: 'lab',
+            description: 'Cardiac marker analyzer for myocardial injury detection.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 46. 特定蛋白分析仪 (Folder 46)
+        {
+            // 中文名称: 特定蛋白分析仪
+            name: 'Specific Protein Analyzer',
+            model: 's0',
+            deptId: 'lab',
+            description: 'Specific protein analyzer for protein quantification.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 47. 血红蛋白分析仪 (Folder 47)
+        {
+            // 中文名称: 血红蛋白分析仪
+            name: 'Hemoglobin Analyzer',
+            model: 'BC-J',
+            deptId: 'lab',
+            description: 'Hemoglobin analyzer for hemoglobin concentration measurement.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 48. 二氧化碳培养箱 (Folder 48)
+        {
+            // 中文名称: 二氧化碳培养箱
+            name: 'CO2 Incubator',
+            model: 'MANUAL',
+            deptId: 'lab',
+            description: 'CO2 incubator for cell culture with temperature and humidity control.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 49. 恒温培养箱 (Folder 49)
+        {
+            // 中文名称: 恒温培养箱
+            name: 'Incubator',
+            model: '',
+            deptId: 'lab',
+            description: 'Incubator for microbial and cell culture.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 50. 恒温水浴箱 (Folder 50)
+        {
+            // 中文名称: 恒温水浴箱
+            name: 'Water Bath',
+            model: 'S4',
+            deptId: 'lab',
+            description: 'Water bath for sample heating at constant temperature.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 51. 纯水机 (Folder 51)
+        {
+            // 中文名称: 纯水机
+            name: 'Water Purifier',
+            model: 'Ub8',
+            deptId: 'lab',
+            description: 'Water purifier for laboratory pure water preparation.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 52. PCR扩增仪 (Folder 52)
+        {
+            // 中文名称: PCR扩增仪
+            name: 'PCR System',
+            model: 's12',
+            deptId: 'lab',
+            description: 'PCR thermal cycler for DNA amplification.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 53. 荧光定量PCR仪 (Folder 53)
+        {
+            // 中文名称: 荧光定量PCR仪
+            name: 'Real-Time PCR',
+            model: 'PA990',
+            deptId: 'lab',
+            description: 'Real-time PCR system for quantitative nucleic acid analysis.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 54. 高速冷冻离心机 (Folder 54)
+        {
+            // 中文名称: 高速冷冻离心机
+            name: 'Refrigerated Centrifuge',
+            model: 'H1850R',
+            deptId: 'lab',
+            description: 'Refrigerated centrifuge for low temperature high speed sample separation.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 55. 离心机 (Folder 55)
+        {
+            // 中文名称: 离心机
+            name: 'Centrifuge',
+            model: 'H1650',
+            deptId: 'lab',
+            description: 'Centrifuge for sample separation processing.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 56. 分析天平 (Folder 56)
+        {
+            // 中文名称: 分析天平
+            name: 'Analytical Balance',
+            model: '',
+            deptId: 'lab',
+            description: 'Analytical balance for precision weighing to 0.1mg.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 57. 电子天平 (Folder 57)
+        {
+            // 中文名称: 电子天平
+            name: 'Electronic Balance',
+            model: 'DSZ5000X',
+            deptId: 'lab',
+            description: 'Electronic balance for sample weighing.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 58. 暗视野显微镜 (Folder 58)
+        {
+            // 中文名称: 暗视野显微镜
+            name: 'Dark Field Microscope',
+            model: 'S0',
+            deptId: 'lab',
+            description: 'Dark field microscope for transparent or small particle detection.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 59. 相差显微镜 (Folder 59)
+        {
+            // 中文名称: 相差显微镜
+            name: 'Phase Contrast Microscope',
+            model: 'S0',
+            deptId: 'lab',
+            description: 'Phase contrast microscope for live cell observation without staining.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 60. 荧光显微镜 (Folder 60)
+        {
+            // 中文名称: 荧光显微镜
+            name: 'Fluorescence Microscope',
+            model: 'UB203i',
+            deptId: 'lab',
+            description: 'Fluorescence microscope for fluorescent labeled sample observation.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 61. 倒置显微镜 (Folder 61)
+        {
+            // 中文名称: 倒置显微镜
+            name: 'Inverted Microscope',
+            model: 'H1850R',
+            deptId: 'lab',
+            description: 'Inverted microscope for cell culture and tissue section observation.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 62. 生物显微镜 (Folder 62)
+        {
+            // 中文名称: 生物显微镜
+            name: 'Biological Microscope',
+            model: 'nj1',
+            deptId: 'lab',
+            description: 'Biological microscope for routine biological sample observation.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 63. 体外冲击波碎石机 (Folder 63)
+        {
+            // 中文名称: 体外冲击波碎石机
+            name: 'Lithotripter',
+            model: 'HK.ESWL-V',
+            deptId: 'surgery',
+            description: 'Lithotripter for extracorporeal shock wave stone fragmentation.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 64. 梅标测试仪 (Folder 64)
+        {
+            // 中文名称: 梅标测试仪
+            name: 'Test Analyzer',
+            model: 'S7',
+            deptId: 'lab',
+            description: 'Syphilis test analyzer for serological detection.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 65. 内窥镜摄像机 (Folder 65)
+        {
+            // 中文名称: 内窥镜摄像机
+            name: 'Endoscope Camera',
+            model: '1288 HD',
+            deptId: 'endoscopy',
+            description: 'Endoscope camera for image acquisition and display during endoscopy.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 66. 冷光源 (Folder 66)
+        {
+            // 中文名称: 冷光源
+            name: 'Light Source',
+            model: 'X8000',
+            deptId: 'endoscopy',
+            description: 'Cold light source for endoscope illumination.',
+            manuals: [
+                { title: 'User Manual', url: '' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
         // 1. 临时起搏器 (Folder 1)
         {
             name: { zh: "临时起搏器", en: "Temporary Pacemaker" },
@@ -782,7 +1703,7 @@ try {
                 en: "Temporary cardiac pacing device for emergency and perioperative cardiac rhythm management. Provides external electrical stimulation to maintain heart rate in patients with bradycardia or heart block."
             },
             manuals: [
-                { title: { zh: "用户手册", en: "User Manual" }, url: "xxx" }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Temporary%20Pacemaker%20PACE%20T10.pdf" }
             ],
             videos: [
                 { title: { zh: "操作视频", en: "Operation video" }, id: "BV1SvQzBpEKX" }
@@ -1580,11 +2501,6 @@ try {
                 { title: 'Operation video', id: '' }
             ]
         },
-
-        
-        // ################################################################
-        // ################################################################
-        // ################################################################
         {    // 中文名称: 骨科动力系统
             name: 'Orthopedic Power System',
             model: 'JDXY-DGD-01',
@@ -2513,8 +3429,6 @@ try {
                 { title: 'Operation video', id: 'BV1fpwXzNEme'}
             ]
         }
-        
-        // ... 继续添加其他设备
     ];
     
 } catch(e) {
