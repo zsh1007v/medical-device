@@ -704,776 +704,865 @@ try {
         // ---------------------------------------------------------
         // 请确保每个设备之间有逗号，最后一个设备后面不要加逗号
         // ---------------------------------------------------------
-      {
-        
-            // 中文名称: 耳鼻喉治疗台
-        name: 'ENT Treatment Unit',
-        model: '7600/6800',
-        deptId: 'ent',
-        description: 'ENT treatment unit for diagnosis and treatment of ear, nose and throat diseases.',
+     // 1. 耳鼻喉治疗台
+    {
+        name: { zh: "耳鼻喉治疗台", en: "ENT Treatment Unit" },
+        model: "7600/6800",
+        deptId: "ent",
+        description: {
+            zh: "集喷雾、吸引、照明及内窥镜检查功能于一体的工作站，用于耳、鼻、喉科疾病的诊断与临床治疗。",
+            en: "An integrated workstation featuring suction, spray, and illumination, designed for the comprehensive diagnosis and treatment of ear, nose, and throat disorders."
+        },
         manuals: [
-          { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/ENT%20Treatment%20Unit%206800.doc' },
-          { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/ENT%20Treatment%20Unit%207600.doc' }
+            { title: { zh: "用户手册 (6800)", en: "User Manual (6800)" }, url: "https://github.com/zsh1007v/medical-device/blob/main/ENT%20Treatment%20Unit%206800.doc" },
+            { title: { zh: "用户手册 (7600)", en: "User Manual (7600)" }, url: "https://github.com/zsh1007v/medical-device/blob/main/ENT%20Treatment%20Unit%207600.doc" }
         ],
         videos: [
-          { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
-      },
-    
-        // 2. 听力计 (Folder 2)
-      {
-            // 中文名称: 听力计
-        name: 'Audiometer',
-        model: 'GSI Pello',
-        deptId: 'ent',
-        description: 'Audiometer for hearing level testing and auditory function assessment.',
+    },
+
+    // 2. 听力计
+    {
+        name: { zh: "听力计", en: "Audiometer" },
+        model: "GSI Pello",
+        deptId: "ent",
+        description: {
+            zh: "通过提供不同频率和强度的纯音信号，测量患者的听阈水平，评估听力损失的程度与类型。",
+            en: "A diagnostic device used to measure hearing thresholds across various frequencies and intensities to assess the degree and type of hearing loss."
+        },
         manuals: [
-          { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Audiometer%20GSI%20Pello.pdf' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Audiometer%20GSI%20Pello.pdf" }
         ],
         videos: [
-          { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
-      },
-    
-        // 3. 声导抗仪 (Folder 3)
-      {
-            // 中文名称: 声导抗仪
-        name: 'Tympanometer',
-        model: 'GSI Tympstar pro',
-        deptId: 'ent',
-        description: 'Tympanometer for middle ear function testing and tympanic membrane mobility assessment.',
+    },
+
+    // 3. 声导抗仪
+    {
+        name: { zh: "声导抗仪", en: "Tympanometer" },
+        model: "GSI Tympstar pro",
+        deptId: "ent",
+        description: {
+            zh: "通过测量鼓膜对声能的吸抗变化，评估中耳功能、鼓膜活动度及听骨链状态。",
+            en: "Used for objective middle ear function testing, including tympanometry and acoustic reflex measurements to evaluate tympanic membrane mobility."
+        },
         manuals: [
-          { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Tympanometer%20GSI%20Tympstar%20pro.pdf' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Tympanometer%20GSI%20Tympstar%20pro.pdf" }
         ],
         videos: [
-          { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
-      },
-    
-        // 4. 诱发电位系统 (Folder 4)
-      {
-        // 中文名称: 诱发电位系统
-        name: 'Evoked Potential System',
-        model: 'smart EP',
-        deptId: 'neurology',
-        description: 'Evoked potential system for recording auditory and visual evoked potentials.',
+    },
+
+    // 4. 诱发电位系统
+    {
+        name: { zh: "诱发电位系统", en: "Evoked Potential System" },
+        model: "smart EP",
+        deptId: "neurology",
+        description: {
+            zh: "记录神经系统在受到特定视觉或听觉刺激后产生的电活动，用于评估神经传导通路的完整性。",
+            en: "Records electrical activity from the nervous system in response to specific stimuli to evaluate the integrity of auditory and visual sensory pathways."
+        },
         manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Evoked%20Potential%20System%20smart%20EP.pdf' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Evoked%20Potential%20System%20smart%20EP.pdf" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
-      },
-    
-        // 6. 数字眼底相机 (Folder 6)
-      {
-          // 中文名称: 数字眼底相机
-        name: 'Digital Fundus Camera',
-        model: 'Horus scope DSC 100',
-        deptId: 'ophthalmology',
-        description: 'Digital fundus camera for retinal imaging and ophthalmic diagnosis.',
+    },
+
+    // 6. 数字眼底相机
+    {
+        name: { zh: "数字眼底相机", en: "Digital Fundus Camera" },
+        model: "Horus scope DSC 100",
+        deptId: "ophthalmology",
+        description: {
+            zh: "用于拍摄视网膜、视神经及眼底血管的高分辨率图像，辅助诊断糖尿病视网膜病变等眼科疾病。",
+            en: "A high-resolution imaging system used for capturing detailed photos of the retina and optic nerve to support ophthalmic diagnosis."
+        },
         manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Digital%20Fundus%20Camera%20Horus%20Scope%20DSC%20100.pdf' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Digital%20Fundus%20Camera%20Horus%20Scope%20DSC%20100.pdf" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
-      },
-    
-        // 8. 牙科治疗台 (Folder 8)
-      {
-          // 中文名称: 牙科治疗台
-        name: 'Dental Unit',
-        model: 'S200-S220TR',
-        deptId: 'dental',
-        description: 'Dental unit for dental examination and treatment procedures.',
+    },
+
+    // 8. 牙科治疗台
+    {
+        name: { zh: "牙科治疗台", en: "Dental Unit" },
+        model: "S200-S220TR",
+        deptId: "dental",
+        description: {
+            zh: "提供牙科手术所需的动力、照明及冲洗系统，配备人体工学患者椅，支持各类口腔临床操作。",
+            en: "An ergonomic dental workstation providing power, lighting, and water systems for oral examinations and diverse dental procedures."
+        },
         manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Dental%20Unit%20S200-S220%20TR%20.pdf' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Dental%20Unit%20S200-S220%20TR%20.pdf" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
-      },
+    },
+
+    // 9. 台式蒸汽灭菌器
+    {
+        name: { zh: "台式蒸汽灭菌器", en: "Steam Sterilizer" },
+        model: "hatmed",
+        deptId: "sterilization",
+        description: {
+            zh: "利用高温高压饱和蒸汽对牙科器械及各类医疗用品进行彻底灭菌，确保符合临床感染控制标准。",
+            en: "A tabletop autoclave using high-pressure saturated steam to ensure complete sterilization of dental and medical instruments."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Steam%20Sterilizer%20hatmed.pdf" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+    },
+
+    // 10. 牙科光固化机
+    {
+        name: { zh: "牙科光固化机", en: "Dental Light Cure" },
+        model: "LED C",
+        deptId: "dental",
+        description: {
+            zh: "通过发射特定波长的蓝光，使牙科修复材料（如复合树脂）快速聚合并硬化。",
+            en: "Emits a specific wavelength of blue light to trigger the rapid polymerization and hardening of light-sensitive dental restorative materials."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Dental%20Light%20Cure%20woodpecker.pdf" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+    },
+
+    // 11. 根管长度测量仪
+    {
+        name: { zh: "根管长度测量仪", en: "Apex Locator" },
+        model: "ROOT PI",
+        deptId: "dental",
+        description: {
+            zh: "利用电子阻抗原理精确确定牙根尖孔位置，用于测量根管治疗中的工作长度。",
+            en: "An electronic device used in endodontics to determine the position of the apical foramen and the working length of the root canal."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Apex%20Locator%20iFinder.pdf" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+    },
+
+    // 12. 牙科器械清洗机
+    {
+        name: { zh: "牙科器械清洗机", en: "Instrument Washer" },
+        model: "smart 50",
+        deptId: "dental",
+        description: {
+            zh: "自动化的器械清洗设备，通过喷淋或超声波去除器械表面的有机物及污染物，为后续灭菌做准备。",
+            en: "An automated system designed for the thorough cleaning and disinfection of dental instruments before the sterilization process."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Instrument%20Washer%20S19.pdf" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+    },
+
+    // 13. 口腔X线机
+    {
+        name: { zh: "口腔X线机", en: "Dental X-Ray" },
+        model: "FONA XDG",
+        deptId: "dental",
+        description: {
+            zh: "用于牙科诊所的口内X线摄影，获取牙齿及周围骨骼组织的高质量影像，辅助临床诊断。",
+            en: "A diagnostic X-ray unit for intraoral radiography, providing high-quality images of teeth and supporting bone structures."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Dental%20X-Ray%20FONA%20XDG%20.pdf" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+    },
+
+    // 14. 全自动牙科洗片机
+    {
+        name: { zh: "全自动牙科洗片机", en: "Film Processor" },
+        model: "DIGIREX PSP",
+        deptId: "dental",
+        description: {
+            zh: "自动化的显影成像系统，用于处理牙科X线胶片或扫描成像板，实现影像的数字化或物理输出。",
+            en: "An automated imaging system used to process dental X-ray films or phosphor plates for diagnostic image visualization."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Film%20Processor.pdf" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+    },
   
-        // 9. 台式蒸汽灭菌器 (Folder 9)
+      // 15. 激光治疗机
       {
-          // 中文名称: 台式蒸汽灭菌器
-        name: 'Steam Sterilizer',
-        model: 'hatmed',
-        deptId: 'sterilization',
-        description: 'Tabletop steam sterilizer for medical instrument sterilization.',
+        name: { zh: "激光治疗机", en: "Laser Therapy" },
+        model: "SINOLaser",
+        deptId: "rehab",
+        description: {
+            zh: "利用低强度激光照射生物组织，促进局部血液循环、加速组织修复并缓解急慢性疼痛。",
+            en: "A laser therapy unit used to stimulate tissue repair, reduce inflammation, and provide pain relief through non-invasive laser irradiation."
+        },
         manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Steam%20Sterilizer%20hatmed.pdf' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Laser%20Therapy.pdf" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-  
-      // 10. 牙科光固化机 (Folder 10)
-      {
-          // 中文名称: 牙科光固化机
-        name: 'Dental Light Cure',
-        model: 'LED C',
-        deptId: 'dental',
-        description: 'Dental light cure unit for resin polymerization and hardening.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Dental%20Light%20Cure%20woodpecker.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-  
-      // 11. 根管长度测量仪 (Folder 11)
-      {
-          // 中文名称: 根管长度测量仪
-        name: 'Apex Locator',
-        model: 'ROOT PI',
-        deptId: 'dental',
-        description: 'Apex locator for root canal working length measurement.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Apex%20Locator%20iFinder.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-    
-        // 12. 牙科器械清洗机 (Folder 12)
-      {
-          // 中文名称: 牙科器械清洗机
-        name: 'Instrument Washer',
-        model: 'smart 50',
-        deptId: 'dental',
-        description: 'Instrument washer for automatic cleaning of dental instruments.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Instrument%20Washer%20S19.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-      // 13. 口腔X线机 (Folder 13)
-      {
-          // 中文名称: 口腔X线机
-        name: 'Dental X-Ray',
-        model: 'FONA XDG',
-        deptId: 'dental',
-        description: 'Dental X-ray unit for intraoral radiography and diagnosis.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Dental%20X-Ray%20FONA%20XDG%20.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-  
-      // 14. 全自动牙科洗片机 (Folder 14)
-      {
-        // 中文名称: 全自动牙科洗片机
-        name: 'Film Processor',
-        model: 'DIGIREX  PSP',
-        deptId: 'dental',
-        description: 'Automatic film processor for dental X-ray film development.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Film%20Processor.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-  
-      // 15. 激光治疗机 (Folder 15)
-      {
-        // 中文名称: 激光治疗机
-        name: 'Laser Therapy',
-        model: 'SINOLaser',
-        deptId: 'rehab',
-        description: 'Laser therapy unit for tissue repair and pain relief.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Laser%20Therapy.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-  
-      // 16. 护理单元 (Folder 16)
-      {
-        // 中文名称: 床垫
-        name: 'Alternating Pressure Mattress',
-        model: '',
-        deptId: 'icu',
-        description: 'Change the pressure points through periodic inflation and deflation to promote blood circulation and prevent bedsores',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Alternating%20Pressure%20Mattress.doc' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-      {
-        // 中文名称: 检查床
-        name: 'Examination Bed',
-        model: 'BS808',
-        deptId: 'clinical_eng',
-        description: 'Provide a stable, comfortable, and easily operable support platform for doctors',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Examination%20Bed%20BS808.docx' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-      {
-        // 中文名称: 吸引器
-        name: 'Low Vacuum Electric Suction Unit',
-        model: 'DYX-2A',
-        deptId: 'clinical_eng',
-        description: 'Safely and continuously remove fluid and secretions from the patients body cavity or surgical area using low negative pressure',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Low%20Vacuum%20Electric%20Suction%20Unit%20DYX-2A.docx' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-      {
-        // 中文名称: 汞血压计
-        name: 'Mercurial sphygmomanometer',
-        model: 'XJ11D',
-        deptId: 'clinical_eng',
-        description: 'Accurately measure and display the patient blood pressure using changes in the height of a mercury column.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Mercurial%20sphygmomanometer%20XJ11D.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-      {
-          // 中文名称: 多功能空气消毒机
-        name: 'Multi-function air disinfection machine',
-        model: 'Y1000',
-        deptId: 'clinical_eng',
-        description: 'Effectively removes bacteria, viruses, and harmful particles through filtration, sterilization, and continuous air purification.',
-        manuals: [
-              { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/747d9d29906e3a704700dc9c85a381062007b8ee/Multi-function%20air%20disinfection%20machine%20Y1000.pdf' }
-        ],
-        videos: [
-              { title: 'Operation video', id: '' }
-        ]
-      },
-      {
-          // 中文名称: 床
-        name: 'Two crank hospital bed',
-        model: 'BS-828A',
-        deptId: 'clinical_eng',
-        description: 'Adjust the back and leg angles manually using the joystick to provide the patient with a comfortable position and facilitate nursing care.',
-        manuals: [
-              { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/747d9d29906e3a704700dc9c85a381062007b8ee/Two%20crank%20hospital%20bed%20BS-828A.doc' }
-          ],
-        videos: [
-              { title: 'Operation video', id: '' }
-          ]
-      },
-      {
-            // 中文名称: 紫外消毒车
-        name: 'Ultraviolet disinfection vehicle ',
-        model: 'VSC-2',
-        deptId: 'clinical_eng',
-        description: 'AUse ultraviolet irradiation to quickly kill bacteria, viruses, and other microorganisms on the air and surfaces of objects.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Ultraviolet%20disinfection%20vehicle%20VSC-2.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-      },
-      
-      // 17. 直流感应电疗机 (Folder 17)
-      {
-        // 中文名称: 直流感应电疗机
-        name: 'DC Induction Therapy',
-        model: 'DL-ZII',
-        deptId: 'rehab',
-        description: 'DC induction therapy unit for pain relief and rehabilitation.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/DC%20Induction%20Therapy%20DL-ZII.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
       },
 
-    // 18. 电脑中频治疗仪 (Folder 18)
+      // 16.1 交替充气压力床垫
+      {
+        name: { zh: "交替充气压力床垫", en: "Alternating Pressure Mattress" },
+        model: "",
+        deptId: "icu",
+        description: {
+            zh: "通过气囊周期性充气与放气，定时改变身体受压点，有效预防长期卧床患者产生褥疮。",
+            en: "Changes pressure points through periodic inflation and deflation to promote blood circulation and prevent pressure ulcers in bedridden patients."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Alternating%20Pressure%20Mattress.doc" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+      },
+
+      // 16.2 检查床
+      {
+        name: { zh: "检查床", en: "Examination Bed" },
+        model: "BS808",
+        deptId: "clinical_eng",
+        description: {
+            zh: "为临床诊断和体格检查提供稳定、舒适的支持平台，结构设计便于医生进行各项医学操作。",
+            en: "Provides a stable, comfortable, and easily operable support platform for doctors to perform clinical examinations and diagnostic procedures."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Examination%20Bed%20BS808.docx" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+      },
+
+      // 16.3 低压电动吸引器
+      {
+        name: { zh: "低压电动吸引器", en: "Low Vacuum Electric Suction Unit" },
+        model: "DYX-2A",
+        deptId: "clinical_eng",
+        description: {
+            zh: "利用低负压技术，安全、持续地吸引患者体腔或手术创口内的积液和分泌物。",
+            en: "Safely and continuously removes fluids and secretions from the patient's body cavity or surgical area using low negative pressure."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Low%20Vacuum%20Electric%20Suction%20Unit%20DYX-2A.docx" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+      },
+
+      // 16.4 汞血压计
+      {
+        name: { zh: "汞血压计", en: "Mercurial Sphygmomanometer" },
+        model: "XJ11D",
+        deptId: "clinical_eng",
+        description: {
+            zh: "通过观察水银柱高度变化，配合听诊器测量人体动脉血压，是临床无创血压测量的传统金标准。",
+            en: "Accurately measures and displays arterial blood pressure based on the height of a mercury column, used in conjunction with a stethoscope."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Mercurial%20sphygmomanometer%20XJ11D.pdf" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+      },
+
+      // 16.5 多功能空气消毒机
+      {
+        name: { zh: "多功能空气消毒机", en: "Multi-function Air Disinfection Machine" },
+        model: "Y1000",
+        deptId: "clinical_eng",
+        description: {
+            zh: "集过滤、紫外线杀菌等技术于一体，有效去除空气中的细菌、病毒及有害微粒，维持医疗环境洁净。",
+            en: "Effectively removes bacteria, viruses, and harmful particles through filtration and sterilization to ensure continuous air purification in clinical settings."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/747d9d29906e3a704700dc9c85a381062007b8ee/Multi-function%20air%20disinfection%20machine%20Y1000.pdf" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+      },
+
+      // 16.6 双摇手动医院床
+      {
+        name: { zh: "双摇手动医院床", en: "Two Crank Hospital Bed" },
+        model: "BS-828A",
+        deptId: "clinical_eng",
+        description: {
+            zh: "通过手动摇杆调节背部和腿部升降角度，为患者提供舒适体位并便于护理人员进行日常医疗护理。",
+            en: "Allows manual adjustment of back and leg angles using cranks to provide optimal patient positioning and facilitate nursing care."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/747d9d29906e3a704700dc9c85a381062007b8ee/Two%20crank%20hospital%20bed%20BS-828A.doc" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+      },
+
+      // 16.7 紫外消毒车
+      {
+        name: { zh: "紫外消毒车", en: "Ultraviolet Disinfection Vehicle" },
+        model: "VSC-2",
+        deptId: "clinical_eng",
+        description: {
+            zh: "利用高强度紫外线照射，快速灭活空气中及物体表面的病原微生物，实现病房和手术室的强化消毒。",
+            en: "Uses high-intensity ultraviolet irradiation to rapidly kill bacteria, viruses, and other microorganisms in the air and on surfaces."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Ultraviolet%20disinfection%20vehicle%20VSC-2.pdf" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+      },
+
+      // 17. 直流感应电疗机
+      {
+        name: { zh: "直流感应电疗机", en: "DC Induction Therapy" },
+        model: "DL-ZII",
+        deptId: "rehab",
+        description: {
+            zh: "应用直流电和感应电流进行治疗，常用于缓解神经系统疾病引起的疼痛及促进神经肌肉功能的恢复。",
+            en: "A therapy unit utilizing direct and induced currents for pain management and neuromuscular rehabilitation."
+        },
+        manuals: [
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/DC%20Induction%20Therapy%20DL-ZII.pdf" }
+        ],
+        videos: [
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+        ]
+      },
+
+    // 18. 电脑中频治疗仪
     {
-      // 中文名称: 电脑中频治疗仪
-      name: 'Intermediate Frequency Therapy',
-      model: 'XYZP-IC',
-      deptId: 'rehab',
-      description: 'Intermediate frequency therapy unit for pain relief and circulation improvement.',
+      name: { zh: "电脑中频治疗仪", en: "Intermediate Frequency Therapy" },
+      model: "XYZP-IC",
+      deptId: "rehab",
+      description: {
+          zh: "采用中频交流电作用于人体，具有较深的穿透力，用于镇痛、改善血液循环和锻炼骨骼肌。",
+          en: "Uses intermediate frequency currents to provide deep tissue stimulation for pain relief, circulation improvement, and muscle strengthening."
+      },
       manuals: [
-          { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Intermediate%20Frequency%20Therapy%20XYZP-IC.doc' }
+          { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Intermediate%20Frequency%20Therapy%20XYZP-IC.doc" }
       ],
       videos: [
-          { title: 'Operation video', id: '' }
+          { title: { zh: "操作视频", en: "Operation video" }, id: "" }
       ]
     },
 
-    // 19. 低频治疗仪 (Folder 19)
+    // 19. 低频治疗仪
     {
-      // 中文名称: 低频治疗仪
-      name: 'Low Frequency Therapy',
-      model: 'DC-4',
-      deptId: 'rehab',
-      description: 'Low frequency therapy unit for pain relief and muscle rehabilitation.',
+      name: { zh: "低频治疗仪", en: "Low Frequency Therapy" },
+      model: "DC-4",
+      deptId: "rehab",
+      description: {
+          zh: "通过低频脉冲电流刺激神经和肌肉，主要用于缓解急慢性疼痛、促进受损神经恢复及防止肌肉萎缩。",
+          en: "A therapeutic device that uses low-frequency pulse currents for pain relief and rehabilitation of nerves and muscles."
+      },
       manuals: [
-          { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Low%20Frequency%20Therapy%20dc-4.pdf' }
+          { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Low%20Frequency%20Therapy%20dc-4.pdf" }
       ],
       videos: [
-          { title: 'Operation video', id: '' }
+          { title: { zh: "操作视频", en: "Operation video" }, id: "" }
       ]
     },
 
-    // 20. 超短波电疗机 (Folder 20)
+    // 20. 超短波电疗机
     {
-        // 中文名称: 超短波电疗机
-        name: 'Shortwave Diathermy',
-        model: 'DL-C',
-        deptId: 'rehab',
-        description: 'Shortwave diathermy unit for anti-inflammatory and pain relief therapy.',
+        name: { zh: "超短波电疗机", en: "Shortwave Diathermy" },
+        model: "DL-C",
+        deptId: "rehab",
+        description: {
+            zh: "利用超高频电磁波作用于人体，通过热效应和非热效应达到消炎、镇痛及改善深部组织血液循环的目的。",
+            en: "Employs high-frequency electromagnetic waves for anti-inflammatory treatment, pain relief, and deep tissue therapy."
+        },
         manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Shortwave%20Diathermy%20DL-C-B%E2%85%A1%20DL-C-M%20.doc' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Shortwave%20Diathermy%20DL-C-B%E2%85%A1%20DL-C-M%20.doc" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
 
-
-
-
-
-
-
-      
-
-    // 21. 五官科超短波电疗机 (Folder 21)
+    // 21. 五官科超短波电疗机
     {
-        // 中文名称: 五官科超短波电疗机
-        name: 'ENT Shortwave Diathermy',
-        model: 'eco',
-        deptId: 'ent',
-        description: 'ENT shortwave diathermy unit for anti-inflammatory treatment.',
+        name: { zh: "五官科超短波电疗机", en: "ENT Shortwave Diathermy" },
+        model: "DL-CII",
+        deptId: "ent",
+        description: {
+            zh: "专门针对五官科炎症设计的超短波设备，用于辅助治疗中耳炎、鼻炎及咽喉炎等疾病。",
+            en: "A shortwave diathermy unit specifically designed for ENT applications to treat inflammatory conditions like otitis and rhinitis."
+        },
         manuals: [
-            { title: 'User Manual', url: '' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/ENT%20Shortwave%20Diathermy%20eco.pdf" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
 
-    // 22. 紫外线治疗机 (Folder 22)
+    // 22. 紫外线治疗机
     {
-        // 中文名称: 紫外线治疗机
-        name: 'Ultraviolet Therapy',
-        model: '',
-        deptId: 'rehab',
-        description: 'Ultraviolet therapy unit for sterilization and vitamin D synthesis.',
+        name: { zh: "紫外线治疗机", en: "Ultraviolet Therapy" },
+        model: "GLY-A",
+        deptId: "rehab",
+        description: {
+            zh: "通过特定波长的紫外线照射皮肤，具有显著的杀菌消炎作用，并可促进维生素D的合成。",
+            en: "An ultraviolet therapy unit used for its germicidal and anti-inflammatory properties, also promoting vitamin D synthesis."
+        },
         manuals: [
-            { title: 'User Manual', url: '' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Ultraviolet%20Therapy.doc" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
 
-    // 23. 红外治疗机 (Folder 23)
+    // 23. 红外治疗机
     {
-        // 中文名称: 红外治疗机
-        name: 'Infrared Therapy',
-        model: 'TDP',
-        deptId: 'rehab',
-        description: 'Infrared therapy unit for circulation improvement and tissue repair.',
+        name: { zh: "红外治疗机", en: "Infrared Therapy" },
+        model: "TDP",
+        deptId: "rehab",
+        description: {
+            zh: "利用红外线的热辐射效应提高组织温度，扩张血管，常用于改善局部血液循环及缓解肌肉痉挛。",
+            en: "Utilizes infrared thermal radiation to improve circulation, accelerate tissue repair, and relieve muscle spasms."
+        },
         manuals: [
-            { title: 'User Manual', url: '' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Infrared%20Therapy.pdf" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
 
-    // 24. 微波治疗机 (Folder 24)
+    // 24. 微波治疗机
     {
-        // 中文名称: 微波治疗机
-        name: 'Microwave Therapy',
-        model: '',
-        deptId: 'rehab',
-        description: 'Microwave therapy unit for deep tissue anti-inflammatory treatment.',
+        name: { zh: "微波治疗机", en: "Microwave Therapy" },
+        model: "",
+        deptId: "rehab",
+        description: {
+            zh: "通过微波内生热效应，使深部组织受热，用于辅助治疗慢性炎症、加速伤口愈合及缓解疼痛。",
+            en: "Provides deep tissue anti-inflammatory treatment and pain relief through the internal heat generated by microwave energy."
+        },
         manuals: [
-            { title: 'User Manual', url: '' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Microwave%20Therapy.doc" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
 
-    // 25. 半导体激光治疗机 (Folder 25)
+    // 25. 半导体激光治疗机
     {
-        // 中文名称: 半导体激光治疗机
-        name: 'Semiconductor Laser',
-        model: 'XYG-500IIIB',
-        deptId: 'rehab',
-        description: 'Semiconductor laser unit for pain relief and wound healing.',
+        name: { zh: "半导体激光治疗机", en: "Semiconductor Laser" },
+        model: "XYG-500IIIB",
+        deptId: "rehab",
+        description: {
+            zh: "应用半导体激光源进行照射，可深层穿透组织，主要用于伤口愈合、减轻炎症和神经性疼痛缓解。",
+            en: "A laser unit that uses semiconductor sources for deep tissue penetration to assist in wound healing and pain management."
+        },
         manuals: [
-            { title: 'User Manual', url: '' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Semiconductor%20Laser%20XYG-500IIIB.doc" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
 
-    // 26. 肩关节活动器 (Folder 26)
+    // 26. 肩关节活动器
     {
-        // 中文名称: 肩关节活动器
-        name: 'Shoulder CPM',
-        model: 'S4',
-        deptId: 'rehab',
-        description: 'Shoulder CPM device for passive joint mobilization and stiffness prevention.',
+        name: { zh: "肩关节活动器", en: "Shoulder CPM" },
+        model: "YTK-E",
+        deptId: "rehab",
+        description: {
+            zh: "用于肩关节术后的持续被动活动（CPM），通过精确控制关节活动角度，防止术后粘连及关节僵硬。",
+            en: "A Continuous Passive Motion (CPM) device for the shoulder joint, designed for mobilization and prevention of post-operative stiffness."
+        },
         manuals: [
-            { title: 'User Manual', url: '' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Shoulder%20CPM%20S4.pdf" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
 
-    // 27. 颈腰椎牵引床 (Folder 27)
+    // 27. 颈腰椎牵引床
     {
-        // 中文名称: 颈腰椎牵引床
-        name: 'Traction Bed',
-        model: 'JYZ-IIB',
-        deptId: 'rehab',
-        description: 'Traction bed for cervical and lumbar spine traction therapy.',
+        name: { zh: "颈腰椎牵引床", en: "Traction Bed" },
+        model: "JYZ-IIB",
+        deptId: "rehab",
+        description: {
+            zh: "通过机械牵引力拉伸颈椎或腰椎，增大椎间隙，用于治疗脊椎病、椎间盘突出及缓解相关神经压迫。",
+            en: "Provides mechanical traction for the cervical and lumbar spine to alleviate pressure on nerves and treat disc disorders."
+        },
         manuals: [
-            { title: 'User Manual', url: '' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Traction%20Bed.doc" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
 
-    // 28. 超声波治疗仪 (Folder 28)
+    // 28. 超声波治疗仪
     {
-        // 中文名称: 超声波治疗仪
-        name: 'Ultrasound Therapy',
-        model: 'nX4',
-        deptId: 'rehab',
-        description: 'Ultrasound therapy unit for tissue repair and pain relief.',
+        name: { zh: "超声波治疗仪", en: "Ultrasound Therapy" },
+        model: "CLM-B",
+        deptId: "rehab",
+        description: {
+            zh: "利用超声波的机械、理化和温热效应作用于肌肉和关节，促进组织修复、软化疤痕并缓解疼痛。",
+            en: "An ultrasound therapy unit that uses ultrasonic waves to promote tissue repair and provide relief for soft tissue injuries."
+        },
         manuals: [
-            { title: 'User Manual', url: '' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Ultrasound%20Therapy%20nX4.pdf" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
 
-    // 29. 磁疗仪 (Folder 29)
+    // 29. 磁疗仪
     {
-        // 中文名称: 磁疗仪
-        name: 'Magnetic Therapy',
-        model: 'CLM-B',
-        deptId: 'rehab',
-        description: 'Magnetic therapy unit for pain relief and circulation improvement.',
+        name: { zh: "磁疗仪", en: "Magnetic Therapy" },
+        model: "CLM-B",
+        deptId: "rehab",
+        description: {
+            zh: "通过磁场作用于人体经络或患处，调节生物电场，起到消肿、镇痛和改善局部微循环的作用。",
+            en: "Utilizes magnetic fields to regulate biological electricity, providing swelling reduction, pain relief, and circulation improvement."
+        },
         manuals: [
-            { title: 'User Manual', url: '' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Magnetic%20Therapy.pdf" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
 
-    // 30. 全自动生化分析仪 (Folder 30)
+    // 30. 全自动生化分析仪
     {
-        // 中文名称: 全自动生化分析仪
-        name: 'Biochemistry Analyzer',
-        model: 'i-STAT',
-        deptId: 'lab',
-        description: 'Automatic biochemistry analyzer for blood chemistry testing.',
+        name: { zh: "全自动生化分析仪", en: "Biochemistry Analyzer" },
+        model: "BS-480",
+        deptId: "lab",
+        description: {
+            zh: "用于定量检测血液、尿液等体液中各种生化成分（如肝功、肾功、血糖等）的高通量分析设备。",
+            en: "An automated system for high-throughput quantification of chemical components in blood and body fluids, such as liver and kidney function markers."
+        },
         manuals: [
-            { title: 'User Manual', url: '' }
+            { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Chemistry%20Analyzer.pdf" }
         ],
         videos: [
-            { title: 'Operation video', id: '' }
+            { title: { zh: "操作视频", en: "Operation video" }, id: "" }
         ]
     },
-
-
-
-
-
-      
-
-    // 31. 血气分析仪 (Folder 31)
-    {
-        // 中文名称: 血气分析仪
-        name: 'Blood Gas Analyzer',
-        model: 'eco',
-        deptId: 'lab',
-        description: 'Blood gas analyzer for blood gas and electrolyte measurement.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Blood%20Gas%20Analyzer%20eco.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-    },
-
-    // 32. 血细胞分析仪 (Folder 32)
-    {
-        // 中文名称: 血细胞分析仪
-        name: 'Hematology Analyzer',
-        model: 'XV-1000',
-        deptId: 'lab',
-        description: 'Hematology analyzer for blood cell counting and classification.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Hematology%20Analyzer%20S6.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-    },
-
-    // 33. 血小板聚集仪 (Folder 33)
-    {
-        // 中文名称: 血小板聚集仪
-        name: 'Platelet Aggregometer',
-        model: 'LBY-NJ4',
-        deptId: 'lab',
-        description: 'Platelet aggregometer for platelet function and coagulation assessment.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Platelet%20Aggregometer%20S4.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-    },
-
-    // 34. 血液粘度分析仪 (Folder 34)
-    {
-        // 中文名称: 血液粘度分析仪
-        name: 'Fully Automated Blood Rheology Analyzer',
-        model: 'SA-9000',
-        deptId: 'lab',
-        description: 'Blood viscometer for blood viscosity measurement.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Fully%20Automated%20Blood%20Rheology%20Analyzer.doc' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-    },
-
-    // 35. 电热恒温鼓风干燥箱 (Folder 35)
-    {
-        // 中文名称: 电热恒温鼓风干燥箱
-        name: 'Drying Oven',
-        model: 'BGZ',
-        deptId: 'lab',
-        description: 'Drying oven for high temperature drying and sterilization.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Drying%20Oven%20LCD.doc' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-    },
-
-
-
-
-
-
-
-
-      
-    // 36. 电泳仪电源
-    {
-        // 中文名称: 电泳仪电源
-        name: 'Electrophoresis Power Supply',
-        model: 'DYY-15D',
-        deptId: 'lab',
-        description: 'A programmable power supply designed to provide stable voltage, current, or power for various electrophoresis applications in biological research and clinical diagnostics.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Electrophoresis%20Power%20Supply.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-    },
-
-    // 37. 全自动化学发光免疫分析仪
-    {
-        // 中文名称: 全自动化学发光免疫分析仪
-        name: 'Automated Chemiluminescence Immunoassay Analyzer',
-        model: 'eCL8000',
-        deptId: 'lab',
-        description: 'A high-throughput diagnostic analyzer that uses chemiluminescence technology to quantify various antigens or antibodies in human serum, plasma, or whole blood.',
-        manuals: [
-            { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Automated%20Chemiluminescence%20Immunoassay%20Analyzer.pdf' }
-        ],
-        videos: [
-            { title: 'Operation video', id: '' }
-        ]
-    },
-        // 39. 尿液分析仪 (Folder 39)
+    
+       // 31. 血气分析仪
         {
-            // 中文名称: 尿液分析仪
-            name: 'Urine Analyzer',
-            model: 'UA-66',
-            deptId: 'lab',
-            description: 'A semi-automated instrument designed to perform biochemical analysis of urine samples by reading reagent strips to detect parameters like glucose, protein, and pH.',
+            name: { zh: "血气分析仪", en: "Blood Gas Analyzer" },
+            model: "i-STAT",
+            deptId: "lab",
+            description: {
+                zh: "用于测量血液中的酸碱度（pH）、偏压（PO2、PCO2）及电解质水平，评估患者的呼吸功能和酸碱平衡状态。",
+                en: "An analyzer used for the measurement of blood gas (pH, PO2, PCO2) and electrolyte levels to evaluate respiratory function and acid-base balance."
+            },
             manuals: [
-                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Urine%20Analyzer.pdf' }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Blood%20Gas%20Analyzer%20eco.pdf" }
             ],
             videos: [
-                { title: 'Operation video', id: '' }
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+            ]
+        },
+    
+        // 32. 血细胞分析仪
+        {
+            name: { zh: "血细胞分析仪", en: "Hematology Analyzer" },
+            model: "XV-1000",
+            deptId: "lab",
+            description: {
+                zh: "通过流式细胞术或阻抗法对血细胞进行自动计数和分类，提供白细胞、红细胞及血小板等关键参数。",
+                en: "An automated system for blood cell counting and classification, providing key parameters such as WBC, RBC, and platelet counts."
+            },
+            manuals: [
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Hematology%20Analyzer%20S6.pdf" }
+            ],
+            videos: [
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+            ]
+        },
+    
+        // 33. 血小板聚集仪
+        {
+            name: { zh: "血小板聚集仪", en: "Platelet Aggregometer" },
+            model: "LBY-NJ4",
+            deptId: "lab",
+            description: {
+                zh: "通过监测血浆浊度变化，评估血小板的聚集功能，用于出血性疾病诊断及抗血小板药物的效果评估。",
+                en: "Measures the aggregation of platelets in plasma to assess platelet function and support the diagnosis of coagulation disorders."
+            },
+            manuals: [
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Platelet%20Aggregometer%20S4.pdf" }
+            ],
+            videos: [
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+            ]
+        },
+    
+        // 34. 全自动血液流变分析仪
+        {
+            name: { zh: "全自动血液流变分析仪", en: "Fully Automated Blood Rheology Analyzer" },
+            model: "SA-9000",
+            deptId: "lab",
+            description: {
+                zh: "测量血液和血浆的粘度及红细胞变形性，用于评估血液的流动特性及心脑血管疾病的早期风险。",
+                en: "A system for measuring blood and plasma viscosity, used to evaluate blood flow characteristics and cardiovascular disease risks."
+            },
+            manuals: [
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Fully%20Automated%20Blood%20Rheology%20Analyzer.doc" }
+            ],
+            videos: [
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+            ]
+        },
+    
+        // 35. 电热恒温鼓风干燥箱
+        {
+            name: { zh: "电热恒温鼓风干燥箱", en: "Drying Oven" },
+            model: "BGZ",
+            deptId: "lab",
+            description: {
+                zh: "利用电热鼓风循环实现恒温环境，用于实验室玻璃器皿的烘干、样本脱水及耐热物品的灭菌。",
+                en: "Uses electric heating and forced air circulation for high-temperature drying, dehydration, and sterilization of laboratory equipment."
+            },
+            manuals: [
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Drying%20Oven%20LCD.doc" }
+            ],
+            videos: [
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+            ]
+        },
+    
+        // 36. 电泳仪电源
+        {
+            name: { zh: "电泳仪电源", en: "Electrophoresis Power Supply" },
+            model: "DYY-15D",
+            deptId: "lab",
+            description: {
+                zh: "提供稳定的恒压、恒流或恒功率输出，支持实验室核酸、蛋白质电泳等多种生物化学分离应用。",
+                en: "A programmable power supply designed to provide stable voltage, current, or power for various electrophoresis applications in clinical diagnostics."
+            },
+            manuals: [
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Electrophoresis%20Power%20Supply.pdf" }
+            ],
+            videos: [
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+            ]
+        },
+    
+        // 37. 全自动化学发光免疫分析仪
+        {
+            name: { zh: "全自动化学发光免疫分析仪", en: "Automated Chemiluminescence Immunoassay Analyzer" },
+            model: "eCL8000",
+            deptId: "lab",
+            description: {
+                zh: "基于化学发光技术的高通量分析仪，用于定量检测血清或血浆中的肿瘤标志物、激素及各类抗原抗体。",
+                en: "A high-throughput diagnostic analyzer that uses chemiluminescence technology to quantify biomarkers, antigens, or antibodies in biological samples."
+            },
+            manuals: [
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Automated%20Chemiluminescence%20Immunoassay%20Analyzer.pdf" }
+            ],
+            videos: [
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
+            ]
+        },
+    
+        // 39. 尿液分析仪
+        {
+            name: { zh: "尿液分析仪", en: "Urine Analyzer" },
+            model: "UA-66",
+            deptId: "lab",
+            description: {
+                zh: "通过对试纸条颜色的光电扫描，快速分析尿液中的糖、蛋白质、pH值等生化参数，用于泌尿系统筛查。",
+                en: "A semi-automated instrument designed to perform biochemical analysis of urine samples by reading reagent strips to detect parameters like glucose, protein, and pH."
+            },
+            manuals: [
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Urine%20Analyzer.pdf" }
+            ],
+            videos: [
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
         },
     
         // 40. 尿液有形成分分析仪
         {
-            // 中文名称: 尿液有形成分分析仪
-            name: 'Urine Formed Element Analyzer',
-            model: 'EH-2080',
-            deptId: 'lab',
-            description: 'An automated system used for the identification and quantification of formed elements in urine, such as red blood cells, white blood cells, and casts, using microscopic imaging technology.',
+            name: { zh: "尿液有形成分分析仪", en: "Urine Formed Element Analyzer" },
+            model: "EH-2080",
+            deptId: "lab",
+            description: {
+                zh: "采用显微成像与识别技术，对尿液中的红细胞、白细胞、结晶及管型等有形成分进行自动鉴定和定量。",
+                en: "An automated system used for the identification and quantification of formed elements in urine, such as cells and casts, using microscopic imaging technology."
+            },
             manuals: [
-                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Urine%20Formed%20Element%20Analyzer.pdf' }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Urine%20Formed%20Element%20Analyzer.pdf" }
             ],
             videos: [
-                { title: 'Operation video', id: '' }
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
         },
-
-
-
-      
     
         // 41. 微孔板酶标仪
         {
-            // 中文名称: 微孔板酶标仪
-            name: 'Microplate Reader',
-            model: 'MR-96A',
-            deptId: 'lab',
-            description: 'An optical instrument used to detect and measure the light absorbance of samples in microplates for clinical diagnostics and research.',
+            name: { zh: "微孔板酶标仪", en: "Microplate Reader" },
+            model: "MR-96A",
+            deptId: "lab",
+            description: {
+                zh: "高灵敏度的光学检测仪，通过测定微孔板内样本的光吸光度，广泛用于酶联免疫吸附试验（ELISA）。",
+                en: "An optical instrument used to detect and measure the light absorbance of samples in microplates for clinical diagnostics and immunoassays."
+            },
             manuals: [
-                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Microplate%20Reader.pdf' }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Microplate%20Reader.pdf" }
             ],
             videos: [
-                { title: 'Operation video', id: '' }
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
         },
     
         // 42. 微孔板洗板机
         {
-            // 中文名称: 微孔板洗板机
-            name: 'Microplate Washer',
-            model: 'MW-12A',
-            deptId: 'lab',
-            description: 'A laboratory instrument designed to perform automated washing of microplates, typically used in ELISA and other plate-based immunoassays.',
+            name: { zh: "微孔板洗板机", en: "Microplate Washer" },
+            model: "MW-12A",
+            deptId: "lab",
+            description: {
+                zh: "专门用于免疫实验中的全自动洗涤设备，通过精确的吸液和注液循环，彻底去除微孔板内未结合的物质。",
+                en: "A laboratory instrument designed to perform automated washing of microplates, typically used in ELISA and other plate-based immunoassays."
+            },
             manuals: [
-                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Microplate%20Washer.pdf' }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Microplate%20Washer.pdf" }
             ],
             videos: [
-                { title: 'Operation video', id: '' }
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
         },
     
         // 43. 全自动凝血分析仪
         {
-            // 中文名称: 全自动凝血分析仪
-            name: 'Automated Blood Coagulation Analyzer',
-            model: 'CS-5100',
-            deptId: 'lab',
-            description: 'A high-throughput automated analyzer used to perform various assays for screening and diagnosing blood coagulation and fibrinolysis disorders.',
+            name: { zh: "全自动凝血分析仪", en: "Automated Blood Coagulation Analyzer" },
+            model: "CS-5100",
+            deptId: "lab",
+            description: {
+                zh: "高通量自动分析仪，用于筛查和诊断血液凝固与纤维蛋白溶解功能障碍，支持 PT、APTT 等多种检测。",
+                en: "A high-throughput automated analyzer used to perform assays for screening and diagnosing blood coagulation and fibrinolysis disorders."
+            },
             manuals: [
-                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Automated%20Blood%20Culture%20System.pdf' }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Automated%20Blood%20Coagulation%20Analyzer_%E5%8E%8B%E7%BC%A9.pdf" }
             ],
             videos: [
-                { title: 'Operation video', id: '' }
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
         },
     
-        // 44.全自动血培养系统
+        // 44. 全自动血培养系统
         {
-            // 中文名称:全自动血培养系统
-            name: 'Automated Blood Culture System',
-            model: 'TDR-X',
-            deptId: 'lab',
-            description: 'an automated system designed for the rapid and continuous monitoring of microbial growth in blood or other sterile body fluid samples.',
+            name: { zh: "全自动血培养系统", en: "Automated Blood Culture System" },
+            model: "TDR-X",
+            deptId: "lab",
+            description: {
+                zh: "通过连续监测血液或无菌体液样本中的微生物代谢，实现对致病菌的快速检测和报警。",
+                en: "An automated system designed for the rapid and continuous monitoring of microbial growth in blood or other sterile body fluid samples."
+            },
             manuals: [
-                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Automated%20Blood%20Coagulation%20Analyzer_%E5%8E%8B%E7%BC%A9.pdf' }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Automated%20Blood%20Culture%20System.pdf" }
             ],
             videos: [
-                { title: 'Operation video', id: '' }
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
         },
-
-      
+    
         // 45. 微生物分析系统
         {
-            // 中文名称: 微生物分析系统
-            name: 'Microorganism Analysis System',
-            model: 'TDR-300B PLUS',
-            deptId: 'lab',
-            description: 'An automated system used for the identification and antibiotic susceptibility testing (AST) of microorganisms in clinical specimens.',
+            name: { zh: "微生物分析系统", en: "Microorganism Analysis System" },
+            model: "TDR-300B PLUS",
+            deptId: "lab",
+            description: {
+                zh: "全自动系统，用于临床样本中微生物的快速鉴定和药物敏感性试验（AST），指导临床精准用药。",
+                en: "An automated system used for the identification and antibiotic susceptibility testing (AST) of microorganisms in clinical specimens."
+            },
             manuals: [
-                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Microorganism%20Analysis%20System.pdf' }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Microorganism%20Analysis%20System.pdf" }
             ],
             videos: [
-                { title: 'Operation video', id: '' }
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
         },
     
         // 46. 时间分辨荧光免疫分析仪
         {
-            // 中文名称: 时间分辨荧光免疫分析仪
-            name: 'Time-Resolved Fluorescence Immunoanalyzer',
-            model: 'LTRIC-600',
-            deptId: 'lab',
-            description: 'a diagnostic instrument used to quantify various biomarkers in human samples using time-resolved fluorescence immunoassay technology.',
+            name: { zh: "时间分辨荧光免疫分析仪", en: "Time-Resolved Fluorescence Immunoanalyzer" },
+            model: "LTRIC-600",
+            deptId: "lab",
+            description: {
+                zh: "采用长寿命荧光标记物，通过消除样品背景干扰，对人体内的生物标志物进行极高灵敏度的定量检测。",
+                en: "A diagnostic instrument used to quantify various biomarkers using time-resolved fluorescence immunoassay technology for higher sensitivity."
+            },
             manuals: [
-                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Time-Resolved%20Fluorescence%20Immunoanalyzer.pdf' }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Time-Resolved%20Fluorescence%20Immunoanalyzer.pdf" }
             ],
             videos: [
-                { title: 'Operation video', id: '' }
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
         },
-      {
+    
         // 47. 二氧化碳培养箱
-            // 中文名称: 二氧化碳培养箱
-            name: 'Carbon Dioxide Incubator',
-            model: 'BC-J',
-            deptId: 'lab',
-            description: 'provides a controlled environment with specific CO2 levels and temperature for the cultivation of biological cells and tissues',
+        {
+            name: { zh: "二氧化碳培养箱", en: "Carbon Dioxide Incubator" },
+            model: "BC-J",
+            deptId: "lab",
+            description: {
+                zh: "模拟生物体内的环境，通过精确控制 CO2 浓度、温度及湿度，用于细胞、组织及细菌的培养。",
+                en: "Provides a controlled environment with specific CO2 levels and temperature for the cultivation of biological cells and tissues."
+            },
             manuals: [
-                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Carbon%20Dioxide%20IncubatorBC-J.doc' }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Carbon%20Dioxide%20IncubatorBC-J.doc" }
             ],
             videos: [
-                { title: 'Operation video', id: '' }
+                { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
-        },      
-       // 48. 电热恒温培养箱
+        },
+    
+        // 48. 电热恒温培养箱
         {
             name: { zh: "电热恒温培养箱", en: "Electric Heating Incubator" },
             model: "9000",
             deptId: "lab",
             description: {
-                zh: "",
-                en: "For drying, curing, melting, and sterilization in various medical, pharmaceutical, and scientific research applications"
+                zh: "通过电热控制维持稳定的培养温度，广泛用于实验室中微生物培养、发酵、干燥及温热实验。",
+                en: "Maintains a stable temperature for drying, curing, and various cultivation applications in medical and scientific research laboratories."
             },
             manuals: [
                 { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Electric%20Heating%20Incubator.doc" }
@@ -1482,7 +1571,6 @@ try {
                 { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
         },
-
 
 
 
