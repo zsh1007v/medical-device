@@ -1419,71 +1419,77 @@ try {
                 { title: 'Operation video', id: '' }
             ]
         },
-    
-        // 45. 心肌梗塞标志物检测仪 (Folder 45)
-        {
-            // 中文名称: 心肌梗塞标志物检测仪
-            name: 'Cardiac Marker Analyzer',
-            model: 'S45',
-            deptId: 'lab',
-            description: 'Cardiac marker analyzer for myocardial injury detection.',
-            manuals: [
-                { title: 'User Manual', url: '' }
-            ],
-            videos: [
-                { title: 'Operation video', id: '' }
-            ]
-        },
-    
-        // 46. 特定蛋白分析仪 (Folder 46)
-        {
-            // 中文名称: 特定蛋白分析仪
-            name: 'Specific Protein Analyzer',
-            model: 's0',
-            deptId: 'lab',
-            description: 'Specific protein analyzer for protein quantification.',
-            manuals: [
-                { title: 'User Manual', url: '' }
-            ],
-            videos: [
-                { title: 'Operation video', id: '' }
-            ]
-        },
-    
-        // 47. 血红蛋白分析仪 (Folder 47)
-        {
-            // 中文名称: 血红蛋白分析仪
-            name: 'Hemoglobin Analyzer',
-            model: 'BC-J',
-            deptId: 'lab',
-            description: 'Hemoglobin analyzer for hemoglobin concentration measurement.',
-            manuals: [
-                { title: 'User Manual', url: '' }
-            ],
-            videos: [
-                { title: 'Operation video', id: '' }
-            ]
-        },
+
 
 
 
       
-       // 48. 二氧化碳培养箱
+      
+        // 45. 微生物分析系统
         {
-            name: { zh: "二氧化碳培养箱", en: "CO2 Incubator" },
-            model: "MANUAL",
+            // 中文名称: 微生物分析系统
+            name: 'Microorganism Analysis System',
+            model: 'TDR-300B PLUS',
+            deptId: 'lab',
+            description: 'An automated system used for the identification and antibiotic susceptibility testing (AST) of microorganisms in clinical specimens.',
+            manuals: [
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Microorganism%20Analysis%20System.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+    
+        // 46. 时间分辨荧光免疫分析仪
+        {
+            // 中文名称: 时间分辨荧光免疫分析仪
+            name: 'Time-Resolved Fluorescence Immunoanalyzer',
+            model: 'LTRIC-600',
+            deptId: 'lab',
+            description: 'a diagnostic instrument used to quantify various biomarkers in human samples using time-resolved fluorescence immunoassay technology.',
+            manuals: [
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Time-Resolved%20Fluorescence%20Immunoanalyzer.pdf' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },
+      {
+        // 47. 二氧化碳培养箱
+            // 中文名称: 二氧化碳培养箱
+            name: 'Carbon Dioxide Incubator',
+            model: 'BC-J',
+            deptId: 'lab',
+            description: 'provides a controlled environment with specific CO2 levels and temperature for the cultivation of biological cells and tissues',
+            manuals: [
+                { title: 'User Manual', url: 'https://github.com/zsh1007v/medical-device/blob/main/Carbon%20Dioxide%20IncubatorBC-J.doc' }
+            ],
+            videos: [
+                { title: 'Operation video', id: '' }
+            ]
+        },      
+       // 48. 电热恒温培养箱
+        {
+            name: { zh: "电热恒温培养箱", en: "Electric Heating Incubator" },
+            model: "9000",
             deptId: "lab",
             description: {
-                zh: "提供稳定的温度、湿度及 CO2 浓度环境，用于体外培养原代细胞、细胞系及组织，模拟生物体内生长环境。",
-                en: "CO2 incubator for cell culture with precise temperature and humidity control, designed to simulate physiological conditions for cell and tissue growth."
+                zh: "",
+                en: "For drying, curing, melting, and sterilization in various medical, pharmaceutical, and scientific research applications"
             },
             manuals: [
-                { title: { zh: "用户手册", en: "User Manual" }, url: "" }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Electric%20Heating%20Incubator.doc" }
             ],
             videos: [
                 { title: { zh: "操作视频", en: "Operation video" }, id: "" }
             ]
         },
+
+
+
+
+
+      
 
         // 49. 微电脑电热恒温水浴锅
         {
@@ -1495,7 +1501,7 @@ try {
                 en: "A constant temperature water bath used for precise heating and incubation of biological samples, such as blood serum, in medical and scientific research laboratories."
             },
             manuals: [
-                { title: { zh: "用户手册", en: "User Manual" }, url: "" }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Constant%20Temperature%20Water%20Bath.doc" }
             ],
             videos: [
                 { title: { zh: "操作视频", en: "Operation video" }, id: "" }
@@ -1512,7 +1518,7 @@ try {
                 en: "Removes impurities, ions, and microorganisms from water through multi-stage filtration and reverse osmosis technology to produce high-purity water meeting laboratory or medical standards."
             },
             manuals: [
-                { title: { zh: "用户手册", en: "User Manual" }, url: "" }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Pure%20water%20instrument.doc" }
             ],
             videos: [
                 { title: { zh: "操作视频", en: "Operation video" }, id: "" }
@@ -1529,7 +1535,7 @@ try {
                 en: "An instrument used for Polymerase Chain Reaction (PCR) by precisely controlling thermal cycles to achieve rapid amplification of specific DNA segments."
             },
             manuals: [
-                { title: { zh: "用户手册", en: "User Manual" }, url: "" }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Gene%20Amplifier%20(Thermal%20Cycler).pdf" }
             ],
             videos: [
                 { title: { zh: "操作视频", en: "Operation video" }, id: "" }
@@ -1546,7 +1552,9 @@ try {
                 en: "A real-time PCR system used for the sensitive and specific detection and quantification of nucleic acid targets through fluorescent signal monitoring."
             },
             manuals: [
-                { title: { zh: "用户手册", en: "User Manual" }, url: "" }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/CRP%20Reagent%20kits.pdf" },
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Fluorescent%20Quantitative%20Detection%20System.pdf" }
+              
             ],
             videos: [
                 { title: { zh: "操作视频", en: "Operation video" }, id: "" }
@@ -1563,7 +1571,7 @@ try {
                 en: "An automated analyzer used to determine the concentration of specific proteins in biological samples through nephelometric and turbidimetric technologies."
             },
             manuals: [
-                { title: { zh: "用户手册", en: "User Manual" }, url: "" }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/Specific%20Protein%20Analyzer.pdf" }
             ],
             videos: [
                 { title: { zh: "操作视频", en: "Operation video" }, id: "" }
@@ -1580,7 +1588,7 @@ try {
                 en: "A professional software application designed for controlling digital cameras, capturing high-quality images and videos, and performing advanced image processing and analysis."
             },
             manuals: [
-                { title: { zh: "用户手册", en: "User Manual" }, url: "" }
+                { title: { zh: "用户手册", en: "User Manual" }, url: "https://github.com/zsh1007v/medical-device/blob/main/ImageView%20Software_compressed1.docx" }
             ],
             videos: [
                 { title: { zh: "操作视频", en: "Operation video" }, id: "" }
